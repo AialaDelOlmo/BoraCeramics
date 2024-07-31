@@ -1,0 +1,81 @@
+body {
+  margin: 0px;
+  padding: 0px;
+  background-color: #F8F8F8;
+  font-family: "Montserrat", sans-serif;
+}
+
+nav {
+  background-color: #F8F8F8;
+  width: auto;
+  padding: 10px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  color: #1F1F1D;
+}
+nav .menu-icon {
+  display: block;
+}
+nav p {
+  font-size: 1.5em;
+  padding-left: 30px;
+}
+nav .logo {
+  display: flex;
+  justify-content: center;
+  flex-grow: 1;
+}
+nav .logo img {
+  width: 104px;
+  height: 47px;
+}
+nav .nav-links {
+  display: none;
+}
+nav .icons {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+}
+nav .icons p {
+  margin-right: 0.5rem;
+}
+nav .icons .login-text {
+  display: none;
+}
+nav .icons .login-icon {
+  display: flex;
+}
+@media (min-width: 1024px) {
+  nav .menu-icon {
+    display: none;
+  }
+  nav .logo {
+    order: 1;
+  }
+  nav .nav-links {
+    display: flex;
+    justify-content: center;
+    flex-grow: 1;
+    order: 2;
+  }
+  nav .nav-links p {
+    margin: 0 1rem;
+  }
+  nav .icons {
+    order: 3;
+  }
+  nav .icons .login-icon {
+    display: none;
+  }
+  nav .icons .login-text {
+    display: flex;
+  }
+}
+
+footer {
+  background-color: #4E4D49;
+  width: 100%;
+  height: 250px;
+}/*# sourceMappingURL=main.css.map */

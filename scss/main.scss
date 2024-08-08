@@ -1,16 +1,29 @@
 // Declaración de variables
 $primary-color: #D9B59D;
+$primary-light-color: #F2E6DE;
 $secondary-color: #A4B7E8;
+$accent-color: #546eb1;
 $tertiary-color: #4E4D49;
 $background-color: #F8F8F8 ;
 $primary-text-color: #1F1F1D;
 $font-stack: "Montserrat", sans-serif;
+
+@mixin texto ($color, $size, $weight, $lineHeight, $marginRight, $align){
+  color: $color;
+  font-size: $size;
+  font-weight: $weight;
+  line-height: $lineHeight;
+  margin-right: $marginRight;
+  text-align: $align;
+  font-family: $font-stack;
+}
 
 body {
     margin: 0px;
     padding: 0px;
     background-color: $background-color;
     font-family: $font-stack;
+    box-sizing: border-box;
 }
 
 nav {
@@ -91,10 +104,465 @@ nav {
   }
 }
 
+.primary-enabled-button {
+  display: flex;
+  padding: 6px 12px;
+
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+  border-radius: var(--Spacing-2, 8px);
+  border: 1px solid var(--Color-Blue-Blue-5, #6887D8);
+  background: var(--Color-button-background-primary, #A4B7E8);
+  
+ 
+}
+
+.hero-section {
+  display: flex; 
+  flex-direction: column;
+  width: 100%;
+  background: $background-color;
+  position: relative; 
+  
+  .hero-background-image {
+    width: 300px;
+    height: 94px;
+    position: absolute;
+    left: 20.5px;
+    top: 98px;
+    z-index: -1; // Envía la imagen al fondo
+  }
+
+  .hero-content {
+
+    .hero-texts-button{
+      align-items: flex-start;
+      align-self: stretch;
+      position: relative; 
+      z-index: 2;
+      height: 246px;
+      padding-top: 54px;
+      padding-left: 12px;
+   
+      .hero-text {
+        @include texto ($primary-text-color, 13.33px, 700, 120%, 0, left);
+        font-style: normal;
+        
+      }
+
+      .hero-title {
+        @include texto ($accent-color, 36px, 400, 140%, 0, left);
+        font-style: normal;
+        letter-spacing: 1.44px;
+        flex: 1 0 0;
+        padding-bottom: 30px;
+      
+      }
+    }
+
+    .hero-carousel {
+      width: 100%;
+      background: $primary-light-color;
+      margin-top: 32px;
+      padding: 16px 0;
+      overflow: hidden; /* Oculta las imágenes que están fuera del contenedor */
+      width: 100%; /* Asegura que el contenedor ocupa el 100% del ancho disponible */
+      height: 312px; /* Ajusta la altura según sea necesario */
+      position: relative;
+    
+      .carousel-wrapper {
+        display: flex; /* Coloca las imágenes en una fila horizontal */
+        transition: transform 1s ease-in-out; /* Efecto suave para el cambio de imagen */
+        width: 100%; /* 100% por cada imagen, ajusta según el número de imágenes */
+        left: 0;
+      }
+      
+      .carousel-wrapper img {
+        width: 100vw; /* Cada imagen ocupa el 100% del ancho del contenedor del carrusel */
+        //height: auto; /* Ajusta la altura automáticamente para mantener la proporción */
+        object-fit: cover;
+      }
+    }
+  }
+
+  }
+
+ 
+
+
+.features-section {
+  font-family: $font-stack;
+  background: url('../assets/svg/features-background.svg') no-repeat center center;
+  background-size: cover;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  height: 457px;
+  gap: 10px;
+  align-items: center;
+
+  .feature {
+    display: flex;
+    align-items: center;
+    width: 100%;
+    padding: 7px 34px; 
+    height: 76px;
+
+    .feature-image {
+      width: 62px;
+      height: 62px;
+      border-radius: 50%;
+      overflow: hidden;
+      margin-right: 38px; /* Espacio entre la imagen y el texto */
+
+      img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+      }
+    }
+
+    .feature-text {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: flex-start;
+
+      h3 {
+       //@include texto($primary-text-color, 14px, 700, 1.2, 0, left);
+        margin: 0;
+        font-size: 14px;
+        font-weight: 700;
+        line-height: 1.2;
+      }
+
+      p {
+        @include texto($primary-text-color, 12px, 400, 1.2, 38px, left);
+      }
+    }
+  }
+}
 
 
 footer {
     background-color: $tertiary-color;
     width: 100%;
     height: 250px;
+}
+
+
+
+@media (min-width: 1024px) and (max-width: 1280px) {
+  nav .logo {
+    justify-content: left;
+  }
+
+  .hero-section {
+    width: 100%;
+    flex-shrink: 0;
+    position: relative; 
+  
+    .hero-background-image {
+      width: 362px;
+      height: 105px;
+      position: absolute;
+      left: 110.5px;
+      top: 119px;
+      z-index: -1; // Envía la imagen al fondo
+    }
+
+    .hero-content {
+      width: 100%;
+      height: 815px;
+      position: relative; 
+      z-index:2;
+    
+      .hero-texts-button {
+        padding-top: 50px;
+        padding-left: 90px;
+        display: flex;
+        width:  563px;
+        height: 300px;
+        flex-direction: column;
+        align-items: flex-start;
+        align-self: stretch;
+        flex-shrink: 0;
+        
+
+        .hero-text {
+          @include texto ($primary-text-color, 16px, 700, 120%, 0, left);
+          font-style: normal;
+        }
+      
+        .hero-title {
+          @include texto ($accent-color, 48px, 400, 140%, 0, left);
+          font-style: normal;
+          letter-spacing: 1.44px;
+          flex: 1 0 0;
+        }
+      
+      
+      }
+      .hero-carousel {
+        width: 594px;
+        height: 424px;
+        position: absolute;
+        right: 87px;
+        top: 330px;
+        background: #FFF;
+
+        display: flex;
+        margin: 0;
+        padding: 12px;
+
+        justify-content: center;
+        align-items: center;
+        z-index: 2;
+        overflow: hidden;
+
+       // border: 1px solid #FFF;
+        box-shadow: 0 0 0 12px #FFF; /* Ajusta el tamaño del marco según sea necesario */
+
+        img {
+          width: 570px;
+          height: 400px;
+          justify-content: center;
+          align-items: center;
+        }
+
+        .carousel-wrapper {
+          display: flex;
+          width: 600%; // 100% por cada imagen (6 en total)
+          height: 100%;
+          transition: transform 1s ease-in-out; // Animación de deslizamiento
+  
+          img {
+            width: 600%; // 100% * 6 imágenes
+            height: 100%;
+            object-fit: cover;
+          }
+        }
+        }
+    }
+    .hero-content {
+      position: relative; 
+      
+      &::after {
+        content: ''; 
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        width: 100%; 
+        height: 170px;
+        background-color: $primary-light-color;
+        z-index: 1;
+      }
+    
+  }
+  }
+
+
+
+  .primary-enabled-button {
+    display: flex;
+    height: 40px;
+    padding: 12px 24px;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    border-radius: var(--Spacing-2, 8px);
+    border: 1px solid var(--Color-Blue-Blue-8, #2D3B62);
+    background: var(--Color-button-background-primary, #A4B7E8);
+
+    @include texto ($primary-text-color, 16px, 500, 120%, 0, center);
+  
+  }
+
+  .features-section {
+    display: grid;
+    grid-template-columns: repeat(2, 240px); // Dos columnas de 240px
+    column-gap: 112px;
+    justify-content: center;
+
+    .feature {
+      flex: 0 0 62px;
+      width: 240px;
+      height: 170px;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+      padding: 20px;
+      justify-content: center;
+
+      .feature-image {
+        margin: 0 0 20px 0;
+      }
+
+      .feature-text {
+        text-align: center;
+        align-items: center;
+
+        h3 {
+          font-size: 13.33px;
+          font-weight: 700;
+          line-height: 120%;
+        }
+
+        p {
+          @include texto($primary-text-color, 13.33px, 400, 120%, 0, center);
+          font-style: normal;
+        }
+      }
+    }
+  }
+
+}
+
+@media (min-width: 1280px) {
+  nav .logo {
+    justify-content: left;
+  }
+
+  .hero-section {
+    width: 100%;
+    height: 698px;
+    background: url('../assets/svg/Hero_desk_background.PNG') no-repeat center center;
+    background-size: 100% 698px;
+    align-items: center;
+    justify-content: center;
+    position: relative; 
+  
+    .hero-background-image {
+      width: 450px;
+      height: 124px;
+      position: absolute;
+      left: 30.5px;
+      top: 136px;
+      z-index: -1; // Envía la imagen al fondo
+    }
+
+    .hero-content {
+      display: inline-flex;
+      align-items: center;
+      gap: 87px;
+      height: 424px;
+
+      .hero-texts-button {
+        display: flex;
+        width: 563px;
+        height: 350px;
+        
+        flex-direction: column;
+        align-items: flex-start;
+        right: 4px;
+        order: 2;
+  
+        .hero-text {
+          @include texto ($primary-text-color, 19.2px, 700, 120%, 0, left);
+          font-style: normal;
+        }
+      
+        .hero-title {
+          @include texto ($accent-color, 56px, 400, 140%, 0, left);
+          font-style: normal;
+          letter-spacing: 2.24px;
+          flex: 1 0 0;
+        }
+      }
+
+      .hero-carousel {
+        width: 594px;
+        height: 424px;
+
+        display: flex;
+        margin: 0;
+        padding: 0;
+        background: #FFF;
+        align-items: center;
+        justify-content: center;
+        order: 1;
+        overflow: hidden; 
+        
+        box-shadow: 0 0 0 18px #FFF; /* Ajusta el tamaño del marco según sea necesario */
+
+
+        img {
+          display: flex;
+          width: 570px;
+          height: 400.5px;
+
+          justify-content: center;
+          align-items: center;
+        }
+        .carousel-wrapper {
+          display: flex;
+          width: 600%; // 100% por cada imagen (6 en total)
+          height: 100%;
+          transition: transform 1s ease-in-out; // Animación de deslizamiento
+  
+          img {
+            width: 600%; // 100% * 6 imágenes
+            height: 100%;
+            object-fit: cover;
+          }
+        }
+      }
+
+
+
+   
+    }
+  }
+
+
+  .primary-enabled-button {
+    display: flex;
+    height: 43px;
+    padding: 12px 72px;
+    border: 1px solid var(--Color-Blue-Blue-8, #2D3B62);
+    background: var(--Color-button-background-primary, #A4B7E8);
+    gap: 10px;
+    @include texto ($primary-text-color, 19.2px, 500, 120%, 0, center);
+  }
+
+
+  .features-section {
+    flex-direction: row;
+    align-items: center;
+    text-align: center;
+    justify-content: center;
+    
+    .feature {
+      width: 265x; 
+      height: auto; 
+      flex-direction: column; 
+  
+      .feature-image {
+        margin-bottom: 20px; 
+        width: 98px;
+        height: 98px;
+        border-radius: 50%;
+        overflow: hidden;
+        margin-right: 0; /* Espacio entre la imagen y el texto */
+
+      }
+      .feature-text {
+        text-align: center;
+        align-items: center;
+
+        h3 {
+          font-size: 16px;
+          font-weight: 700;
+          text-align: center;
+        }
+
+        p {
+          @include texto($primary-text-color, 16px, 400, 120%, 0, center);
+          font-style: normal;
+        }
+      }
+    }
+  }
 }

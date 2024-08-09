@@ -17,6 +17,13 @@ $font-stack: "Montserrat", sans-serif;
   text-align: $align;
   font-family: $font-stack;
 }
+.main-section {
+  position: static; 
+  display: flex;
+  flex-direction: column;
+  align-items: stretch; 
+  width: 100%; /* Asegura que cada sección ocupe todo el ancho disponible */
+}
 
 body {
     margin: 0px;
@@ -114,16 +121,28 @@ nav {
   border-radius: var(--Spacing-2, 8px);
   border: 1px solid var(--Color-Blue-Blue-5, #6887D8);
   background: var(--Color-button-background-primary, #A4B7E8);
-  
- 
+}
+
+.secondary-enabled-button {
+  display: flex;
+  height: 30px;
+  padding: 6px 12px;
+
+  justify-content: flex-end;
+  align-items: center;
+  gap: 10px;
+  border-radius: var(--Spacing-2, 8px);
+  border: 1px solid var(--Color-Blue-Blue-8, #2D3B62);
+  background: var(--Color-button-label-primary, #F8F8F8);
 }
 
 .hero-section {
+  min-height: auto;
   display: flex; 
   flex-direction: column;
   width: 100%;
   background: $background-color;
-  position: relative; 
+  position: static; 
   
   .hero-background-image {
     width: 300px;
@@ -188,10 +207,8 @@ nav {
 
   }
 
- 
-
-
 .features-section {
+  min-height: auto;
   font-family: $font-stack;
   background: url('../assets/svg/features-background.svg') no-repeat center center;
   background-size: cover;
@@ -201,11 +218,13 @@ nav {
   height: 457px;
   gap: 10px;
   align-items: center;
+  position: static; 
+  
 
   .feature {
     display: flex;
     align-items: center;
-    width: 100%;
+    width: 310px;
     padding: 7px 34px; 
     height: 76px;
 
@@ -244,6 +263,146 @@ nav {
     }
   }
 }
+
+.feedback-section {
+  min-height: auto;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  height: 846px;
+  width: 357px;
+  gap: 36px;
+  align-items: center;
+  margin: 0 auto;
+  position: static; 
+
+  .feedback-title {
+    @include texto($accent-color, 19.2px, 700, 120%, 0, center);
+    position: relative; 
+
+    .feedback-background-image {
+      width: 270px;
+      height: 34px;
+      position: absolute;
+      left: 1.5px;
+      top: 40px;
+      z-index: -1; // Envía la imagen al fondo
+    }
+  }
+
+  .feedbacks {
+    width: 250px;
+    display: flex;
+    flex-direction: column; // Pone los feedbacks en línea
+    justify-content: space-between; 
+    gap: 20px 7px;
+    margin: 0 auto;
+
+    p {
+      @include texto($primary-text-color, 13.33px, 400, 120%, 0, center);
+    }
+    
+    h3 {
+      @include texto($accent-color, 16px, 700, 120%, 0, center);
+    }
+
+    img {
+      display: block;   //para que las imágenes se comporten como elementos de bloque
+      margin: 0 auto;
+    }
+  }
+}
+
+.section-title h2{
+  display: flex;
+  height: 48px;
+  padding: 0px 15px 0px 14px;
+  justify-content: center;
+  align-items: center;
+  flex-shrink: 0;
+  background: $background-color;
+  @include texto($primary-text-color, 16px, 700, 120%, 0, center);
+}
+
+.workshop-section {
+  display: flex;
+  flex-direction: column;
+
+  .workshop {
+    display: flex;
+    //height: 278px;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: flex-start;
+    padding-bottom: 40px;
+    width: 100%;
+    
+    .workshop-image-left {
+      width: 80%;
+      height: auto;
+      max-width: 300px; 
+      margin-left: 0;
+    }
+  
+    .workshop-image-right {
+      width: 80%;
+      height: auto;
+      max-width: 300px; 
+      display: block; 
+      margin-left: auto;
+      margin-right: 0;
+    }
+  
+    .workshop-content {
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+      padding-left:  18px;
+      padding-right: 24px;
+      justify-content: space-between;
+  
+      h3 {
+        @include texto($accent-color, 13.33px, 700, 120%, 0, center);
+      }
+  
+      img{
+        fill: $accent-color;
+        width: 24px;
+        height: 24px;
+        padding:10px;
+        margin-right: 18px; /* Espacio entre el icono y el texto */
+        flex-shrink: 0; 
+      }
+  
+      .workshop-icon-text{
+        display: flex;
+        width: 238px;
+        gap: 9px;
+        flex-shrink: 0;
+      }
+  
+      .expandable-text {
+        display: none; // Esconde el texto por defecto
+        position: absolute;
+        top: 30px; // Posiciona el texto expandido
+        left: 0;
+        background-color: white; // Fondo del texto expandido
+        padding: 10px;
+        border: 1px solid #ccc;
+        border-radius: 4px;
+        z-index: 1;
+        width: max-content;
+      }
+  
+      &:hover .expand-icon {
+        display: block; // Muestra el texto al hacer hover o click
+      }
+    }
+  }
+  
+  }
+
+
 
 
 footer {
@@ -363,8 +522,6 @@ footer {
   }
   }
 
-
-
   .primary-enabled-button {
     display: flex;
     height: 40px;
@@ -414,6 +571,54 @@ footer {
           @include texto($primary-text-color, 13.33px, 400, 120%, 0, center);
           font-style: normal;
         }
+      }
+    }
+  }
+
+  .feedback-section {
+    display: flex;
+    flex-direction: column;
+    height: 506px;
+    width: 923px;
+    margin: 0 auto;
+  
+    .feedback-title {
+      h3 {
+        @include texto($accent-color, 32px, 700, 120%, 0, center);
+        letter-spacing: 1.6px;
+        width: 923px;
+      }
+      .feedback-background-image {
+        width: 411px;
+        height: 50px;
+        position: absolute;
+        left: 519.5px;
+        top: 28px;
+        z-index: -1; // Envía la imagen al fondo
+      }
+    }
+    
+    .feedbacks {
+      width: 904px;
+      display: flex;
+      flex-direction: row; 
+      gap: 48px 7px;
+      flex-shrink: 0;
+      margin: 0 auto;
+      
+  
+      p {
+        @include texto($primary-text-color, 13.33px, 400, 120%, 0, center);
+        width: 264px;
+      }
+      
+      h3 {
+        @include texto($accent-color, 16px, 700, 120%, 0, center);
+      }
+  
+      img {
+        display: block;   //para que las imágenes se comporten como elementos de bloque
+        margin: 0 auto;
       }
     }
   }
@@ -565,4 +770,54 @@ footer {
       }
     }
   }
+
+
+  .feedback-section {
+    display: flex;
+    flex-direction: column;
+    height: 529px;
+    width: 1012px;
+    margin: 0 auto;
+  
+    .feedback-title {
+      h3 {
+        @include texto($accent-color, 36px, 700, 120%, 0, center);
+        letter-spacing: 1.8px;
+        width: 1012px;
+      }
+      .feedback-background-image {
+        width: 452px;
+        height: 66px;
+        position: absolute;
+        left: 573.5px;
+        top: 25px;
+        z-index: -1; // Envía la imagen al fondo
+      }
+    }
+    
+    .feedbacks {
+      width: 1021px;
+      display: flex;
+      flex-direction: row; 
+      gap: 48px 7px;
+      flex-shrink: 0;
+      margin: 0 auto;
+      
+  
+      p {
+        @include texto($primary-text-color, 16px, 400, 120%, 0, center);
+        width: 264px;
+      }
+      
+      h3 {
+        @include texto($accent-color, 19.2px, 700, 120%, 0, center);
+      }
+  
+      img {
+        display: block;   //para que las imágenes se comporten como elementos de bloque
+        margin: 0 auto;
+      }
+    }
+  }
+
 }

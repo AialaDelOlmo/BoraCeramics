@@ -18,7 +18,7 @@ $font-stack: "Montserrat", sans-serif;
   font-family: $font-stack;
 }
 .main-section {
-  position: static; 
+  position: relative; 
   display: flex;
   flex-direction: column;
   align-items: stretch; 
@@ -332,34 +332,50 @@ nav {
     display: flex;
     //height: 278px;
     flex-direction: column;
-    justify-content: space-between;
-    align-items: flex-start;
+   // justify-content: space-between;
+   // align-items: flex-start;
     padding-bottom: 40px;
     width: 100%;
     
     .workshop-image-left {
-      width: 80%;
       height: auto;
-      max-width: 300px; 
       margin-left: 0;
+      flex-shrink: 0; // Previene que las imágenes se encojan más de lo necesario
+      flex-grow: 0;  
+      img {
+        width: 280px;
+        height: auto;
+      }
     }
   
+    .workshop-image-left,
     .workshop-image-right {
-      width: 80%;
       height: auto;
-      max-width: 300px; 
-      display: block; 
-      margin-left: auto;
+      img {
+        width: 100%; /* Ocupará el ancho máximo del contenedor sin desbordarse */
+        max-width: 280px; /* No crecerá más allá de 520px */
+        height: auto;
+      }
+    }
+
+    .workshop-image-right {
+      margin-left: auto; /* Alinea la imagen a la derecha */
       margin-right: 0;
+      text-align: right; /* Asegura que la imagen esté alineada a la derecha dentro de su contenedor */
+      align-self: flex-end; /* Alinea el contenedor en el borde derecho */
     }
   
-    .workshop-content {
+    .workshop-content-left, 
+    .workshop-content-right {
       display: flex;
+      width: 90%;
       flex-direction: row;
       align-items: center;
       padding-left:  18px;
       padding-right: 24px;
       justify-content: space-between;
+
+  
   
       h3 {
         @include texto($accent-color, 13.33px, 700, 120%, 0, center);
@@ -382,27 +398,27 @@ nav {
       }
   
       .expandable-text {
-        display: none; // Esconde el texto por defecto
         position: absolute;
         top: 30px; // Posiciona el texto expandido
         left: 0;
-        background-color: white; // Fondo del texto expandido
         padding: 10px;
-        border: 1px solid #ccc;
         border-radius: 4px;
         z-index: 1;
         width: max-content;
+        display: none;
       }
   
-      &:hover .expand-icon {
-        display: block; // Muestra el texto al hacer hover o click
-      }
+     
     }
   }
   
   }
 
-
+.shop {
+  .shop-image {
+    width: 100%;
+  }
+}
 
 
 footer {
@@ -537,6 +553,20 @@ footer {
   
   }
 
+  .secondary-enabled-button {
+    display: flex;
+    height: 40px;
+    padding: 12px 24px;
+  
+    justify-content: flex-end;
+    align-items: center;
+    gap: 10px;
+    border-radius: var(--Spacing-2, 8px);
+    border: 1px solid var(--Color-Blue-Blue-8, #2D3B62);
+    background: var(--Color-button-label-primary, #F8F8F8);
+    @include texto ($primary-text-color, 16px, 500, 120%, 0, center);
+  }
+
   .features-section {
     display: grid;
     grid-template-columns: repeat(2, 240px); // Dos columnas de 240px
@@ -623,7 +653,114 @@ footer {
     }
   }
 
-}
+  .section-title h2{
+    display: flex;
+    height: 48px;
+    padding: 0px 15px 0px 14px;
+    justify-content: center;
+    align-items: center;
+    flex-shrink: 0;
+    background: $background-color;
+    @include texto($primary-text-color, 19.2px, 700, 120%, 0, center);
+  }
+  
+  .workshop-section {
+
+    .secondary-enabled-button::before {
+      content: "¡Me apunto!"; 
+    }
+
+    display: flex;
+    flex-direction: column;
+  
+    .workshop {
+      display: flex;
+      flex-direction: row;
+      justify-content: space-between;
+      align-items: flex-start;
+      padding-bottom: 40px;
+      width: 100%;
+    
+      .workshop-image-left,
+      .workshop-image-right {
+        height: auto;
+        img {
+          width: 100%; /* Ocupará el ancho máximo del contenedor sin desbordarse */
+          max-width: 520px; /* No crecerá más allá de 520px */
+          height: auto;
+        }
+      }
+  
+      .workshop-image-right {
+        margin-left: auto; /* Alinea la imagen a la derecha */
+        margin-right: 0;
+        order: 2;
+        text-align: right; /* Asegura que la imagen esté alineada a la derecha dentro de su contenedor */
+        align-self: flex-end; /* Alinea el contenedor en el borde derecho */
+      }
+       
+ 
+
+      .workshop-content-right,
+      .workshop-content-left {
+        display: flex;
+       // right: 127px;
+       // top: 123px;
+        width: 245px;
+        align-items: flex-start;
+        justify-content: center;
+        gap: 45px;
+        flex-direction: column;
+        padding-left:  94px;
+        padding-right: 94px;
+        align-content: center;
+        text-align: left;
+        
+
+      
+        h3 {
+          @include texto($accent-color, 16px, 700, 120%, 0, center);
+          text-align: left;
+        }
+
+        .workshop-icon-text{
+          display: flex;
+          flex-direction: column;
+          text-align: left;
+          
+        }
+    
+        .expandable-text {
+          display: flex;
+          position: relative;
+          align-items: flex-start;
+          width: 245px;
+          @include texto($primary-text-color, 16px, 400, 1.2, 0, center);
+          left: 0;
+          text-align: left;  
+          visibility: visible;
+          padding: 0;
+          gap: 0;
+        }
+    
+        .expand-icon {
+          display: none;
+        }
+      }
+      }
+    }
+    
+    }
+  
+  .shop {
+    .shop-image {
+      width: 100%;
+    }
+  }
+  
+
+
+
 
 @media (min-width: 1280px) {
   nav .logo {
@@ -732,6 +869,20 @@ footer {
     @include texto ($primary-text-color, 19.2px, 500, 120%, 0, center);
   }
 
+  .secondary-enabled-button {
+    display: flex;
+    height: 30px;
+    height: 48px;
+    padding: 12px 72px;
+    align-items: center;
+    gap: 10px;
+    border-radius: var(--Spacing-2, 8px);
+    border: 1px solid var(--Color-Blue-Blue-8, #2D3B62);
+    background: var(--Color-button-label-primary, #F8F8F8);
+    @include texto ($primary-text-color, 19.2px, 500, 120%, 0, center);
+  }
+  
+
 
   .features-section {
     flex-direction: row;
@@ -820,4 +971,104 @@ footer {
     }
   }
 
-}
+
+  .section-title h2{
+    display: flex;
+    height: 72px;
+    padding: 0px 15px 0px 14px;
+    justify-content: center;
+    align-items: center;
+    flex-shrink: 0;
+    background: $background-color;
+    @include texto($primary-text-color, 23.04px, 700, 120%, 0, center);
+  }
+  
+  .workshop-section {
+
+    .secondary-enabled-button::before {
+      content: "¡Me apunto!"; 
+    }
+
+    display: flex;
+    flex-direction: column;
+  
+    .workshop {
+      display: flex;
+      flex-direction: row;
+      justify-content: space-between;
+      align-items: flex-start;
+      padding-bottom: 40px;
+      width: 100%;
+    
+      .workshop-image-left,
+      .workshop-image-right {
+        height: auto;
+        img {
+          width: 100%; /* Ocupará el ancho máximo del contenedor sin desbordarse */
+          max-width: 640px; /* No crecerá más allá de 520px */
+          height: auto;
+        }
+      }
+  
+      .workshop-image-right {
+        margin-left: auto; /* Alinea la imagen a la derecha */
+        margin-right: 0;
+        order: 2;
+        text-align: right; /* Asegura que la imagen esté alineada a la derecha dentro de su contenedor */
+        align-self: flex-end; /* Alinea el contenedor en el borde derecho */
+      }
+       
+ 
+
+      .workshop-content-right,
+      .workshop-content-left {
+        display: flex;
+       // right: 127px;
+       // top: 123px;
+        width: 300px;
+        align-items: flex-start;
+        justify-content: center;
+        gap: 45px;
+        flex-direction: column;
+        padding-left:  94px;
+        padding-right: 94px;
+        align-content: center;
+        text-align: left;
+        
+
+      
+        h3 {
+          @include texto($accent-color, 19.2px, 700, 120%, 0, center);
+          text-align: left;
+        }
+
+        .workshop-icon-text{
+          display: flex;
+          flex-direction: column;
+          text-align: left;
+          
+        }
+    
+        .expandable-text {
+          display: flex;
+          position: relative;
+          align-items: flex-start;
+          width: 300px;
+          @include texto($primary-text-color, 19.2px, 400, 1.2, 0, center);
+          left: 0;
+          text-align: left;  
+          visibility: visible;
+          padding: 0;
+          gap: 0;
+        }
+    
+        .expand-icon {
+          display: none;
+        }
+      }
+      }
+    }
+    
+    }
+
+

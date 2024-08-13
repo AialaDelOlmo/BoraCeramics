@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -8,11 +8,11 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
     <title>Document</title>
-</head>
+</head> 
 <body>
     <nav class="navbar" >
-        <div class="menu-icon">
-            <img src="./assets/svg/menu.svg" style="width:27px;height:18px;">
+        <div class="icons">
+            <img src="./assets/svg/menu.svg">
         </div>
         <div class="logo">
             <img src="./assets/img/Bora_Logo_brown.png" style="width:104px; height: 47px;">
@@ -22,10 +22,10 @@
             <p>TALLERES</p>
             <p>SOBRE MI</p>
         </div>
-        <div class="icons">
+        <div class="icon">
             <p class="login-text">LOGIN</p>
-            <img class="login-icon" src="./assets/svg/user.svg" style="width:26px;height:26px;">
-            <img src="./assets/svg/cart.svg" style="width:26px;height:26px;">
+            <img class="login-icon" src="./assets/svg/user.svg">
+            <img src="./assets/svg/cart.svg">
            
         </div>
     </nav>
@@ -65,43 +65,45 @@
 
          <!-- FEATURES -->
         <section class="features-section">
-            <div class="feature">
-                <div class="feature-image">
-                    <img src="./assets/img/Icon_1c.png" alt="">
+            <div class="features-content">
+                <div class="feature">
+                    <div class="feature-image">
+                        <img src="./assets/img/Icon_1c.png" alt="">
+                    </div>
+                    <div class="feature-text">
+                        <h3>Horarios Flexibles</h3>
+                        <p>Variedad de horarios para adaptarse a tu agenda.</p>
+                    </div>
                 </div>
-                <div class="feature-text">
-                    <h3>Horarios Flexibles</h3>
-                    <p>Variedad de horarios para adaptarse a tu agenda.</p>
-                </div>
-            </div>
 
-            <div class="feature">
-                <div class="feature-image">
-                    <img src="./assets/img/Icon_4c.png" alt="">
+                <div class="feature">
+                    <div class="feature-image">
+                        <img src="./assets/img/Icon_4c.png" alt="">
+                    </div>
+                    <div class="feature-text">
+                        <h3>Llévate tus creaciones</h3>
+                        <p>Diseña y crea piezas utilitarias y llévatelas a casa.</p>
+                    </div>
                 </div>
-                <div class="feature-text">
-                    <h3>Llévate tus creaciones</h3>
-                    <p>Diseña y crea piezas utilitarias y llévatelas a casa.</p>
-                </div>
-            </div>
 
-            <div class="feature">
-                <div class="feature-image">
-                    <img src="./assets/img/Icon_3c.png" alt="">
+                <div class="feature">
+                    <div class="feature-image">
+                        <img src="./assets/img/Icon_3c.png" alt="">
+                    </div>
+                    <div class="feature-text">
+                        <h3>Todo Incluido</h3>
+                        <p>No necesitas comprar ni traer nada, te proporcionamos todo.</p>
+                    </div>
                 </div>
-                <div class="feature-text">
-                    <h3>Todo Incluido</h3>
-                    <p>No necesitas comprar ni traer nada, te proporcionamos todo.</p>
-                </div>
-            </div>
 
-            <div class="feature">
-                <div class="feature-image">
-                    <img src="./assets/img/Icon_2c.png" alt="">
-                </div>
-                <div class="feature-text">
-                    <h3>Desconecta Creando</h3>
-                    <p>Descubre una nueva forma de desconectar y relajarte.</p>
+                <div class="feature">
+                    <div class="feature-image">
+                        <img src="./assets/img/Icon_2c.png" alt="">
+                    </div>
+                    <div class="feature-text">
+                        <h3>Desconecta Creando</h3>
+                        <p>Descubre una nueva forma de desconectar y relajarte.</p>
+                    </div>
                 </div>
             </div>
         </section>
@@ -193,17 +195,75 @@
         <section class="shop-section">
             <div class="shop">
                 <div class="shop-image">
-                    <!--<img src="./assets/img/products/shop.jpg" alt="">-->
+                    <img src="./assets/img/products/shop.jpg" alt="">
                 </div>
                 <div class="shop-content">
                     <h3>¡Tenemos tienda!</h3>
-                    <p>Encuentra el regalo perfecto para ti o tus amigos.</p>
-                    <button>></button>
+                    <div class="text-button">
+                        <p>Encuentra el regalo perfecto para ti o tus amigos.</p>
+                        <button class="secondary-enabled-button">></button>
+                    </div>
                 </div>
             </div>
            
         </section>
 
+        <!--NEWSLETTER-->
+        <section class="newsletter-section">
+            <div class="newsletter">
+                <div class="newsletter-image">
+                    <img src="./assets/img/products/newsletter.png" alt="">
+                </div>
+                <div class="newsletter-content">
+                    <h3>¡Mantente al al día con nuestra newsletter!</h3>
+                    <div class="text-button">
+                        <p>Sé el primero en conocer las novedades de nuestra tienda y los próximos talleres.</p>
+                        <input class="input">
+                        <button class="primary-enabled-button">Suscríbete</button>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!--FOOTER-->
+        <footer class="footer-section">
+            <div class="footer-content">
+                <div class="footer-info">
+                    <div class="footer-column">
+                        <h4 class="footer-title">Dónde estamos</h4>
+                        <p>Calle de la Arcilla 123, 28045<br />Madrid, España</p>
+                        <p>+34 912 345 678</p>
+                        <p><a href="mailto:hola@boraceramica.com">hola@boraceramica.com</a></p>
+                      </div>
+                  
+                      <div class="footer-column">
+                        <h4 class="footer-title">Ayuda</h4>
+                        <p><a href="#">Mi cuenta</a></p>
+                        <p><a href="#">FAQ</a></p>
+                        <p><a href="#">Envíos y devoluciones</a></p>
+                        <p><a href="#">Formas de pago</a></p>
+                      </div>
+                  
+                      <div class="footer-column">
+                        <h4 class="footer-title">Políticas</h4>
+                        <p><a href="#">Términos y condiciones</a></p>
+                        <p><a href="#">Política de cookies</a></p>
+                        <p><a href="#">Aviso legal</a></p>
+                      </div>
+                </div>
+            <div class="footer-social">
+                <img src="/assets/svg/facebook.svg" alt="Facebook logo" class="social-icon">
+                <img src="/assets/svg/twitter.svg" alt="Twitter logo"class="social-icon">
+                <img src="/assets/svg/instagram.svg" alt="Instagram logo" class="social-icon">
+                <img src="/assets/svg/youtube.svg" alt="YouTube logo"class="social-icon">
+            </div>
+            
+            <div class="footer-credits">
+                <p>© Bora ceramica 2024 | Created with ♡ by Aiala</p>
+            </div>
+        </div>
+          </footer>
+          
         <!-- PRODUCTS 
         <section class="products-section"></section>
         <section class="workshops-section">

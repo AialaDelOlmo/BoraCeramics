@@ -1,0 +1,397 @@
+
+@media (min-width: 1024px) and (max-width: 1280px) {
+    .navbar {
+      .menu-icon {
+        display: none; // Ocultar icono de menú en desktop
+      }
+      nav .logo {
+        @include flex-layout($justify: left); // Usamos el mixin flex-layout para justificar el contenido a la izquierda
+        order: 1; // El logo va primero
+      }
+    
+      .nav-links {
+        @include flex-layout(row, center, center); // Usando el mixin para centrar los enlaces de navegación
+        order: 2;
+        @include typography($color: $primary-text-color, $size: 16px, $weight: 500, $lineHeight: 120%, $align: center);
+        
+    
+        p {
+          margin: 0 1rem; // Espaciado entre los enlaces
+        }
+      }
+    
+      .icons {
+        order: 3; // Iconos van al final
+    
+        .login-icon {
+          display: none; // Ocultar icono de login en desktop
+        }
+    
+        .login-text {
+          @include flex-layout(row, center, center); // Mostrar el texto de login
+        }
+      }
+    }
+
+
+
+    .hero-section {
+      width: 100%;
+      flex-shrink: 0;
+      position: relative;
+    
+      .hero-background-image {
+        @include image-resize(362px, 105px); // Usamos el mixin image-resize para ajustar tamaño
+        position: absolute;
+        left: 110.5px;
+        top: 119px;
+        z-index: -1; // Envía la imagen al fondo
+      }
+    
+      .hero-content {
+        width: 100%;
+        height: 815px;
+        position: relative;
+        z-index: 2;
+    
+        .hero-texts-button {
+          padding-top: 50px;
+          padding-left: 90px;
+          @include flex-layout(column, flex-start, stretch); // Usamos el mixin flex-layout
+          width: 563px;
+          height: 300px;
+          flex-shrink: 0;
+    
+          .hero-text {
+            @include typography($color: $primary-text-color, $size: 16px, $weight: 700, $lineHeight: 120%, $align: left);
+            font-style: normal;
+          }
+    
+          .hero-title {
+            @include typography($color: $accent-color, $size: 48px, $weight: 400, $lineHeight: 140%, $align: left);
+            font-style: normal;
+            letter-spacing: 1.44px;
+            flex: 1 0 0;
+          }
+        }
+    
+        .hero-carousel {
+          @include flex-layout(row, center, center); // Usamos el mixin flex-layout
+          width: 594px;
+          height: 424px;
+          position: absolute;
+          right: 87px;
+          top: 330px;
+          background: #FFF;
+          padding: 12px;
+          z-index: 2;
+          overflow: hidden;
+          box-shadow: 0 0 0 12px #FFF; // Ajusta el tamaño del marco según sea necesario
+    
+          img {
+            @include image-resize(570px, 400px); // Usamos el mixin image-resize para ajustar tamaño
+          }
+    
+          .carousel-wrapper {
+            display: flex;
+            width: 600%; // 100% por cada imagen (6 en total)
+            height: 100%;
+            transition: transform 1s ease-in-out; // Animación de deslizamiento
+      
+            img {
+              @include image-resize(600%, 100%); // Usamos el mixin image-resize para ajustar tamaño
+              object-fit: cover;
+            }
+          }
+        }
+      }
+    
+      .hero-content {
+        position: relative;
+    
+        &::after {
+          content: '';
+          position: absolute;
+          bottom: 0;
+          left: 0;
+          width: 100%;
+          height: 170px;
+          background-color: $primary-light-color;
+          z-index: 1;
+        }
+      }
+    }
+    
+    .primary-enabled-button {
+      @include flex-layout(row, center, center); // Usamos el mixin flex-layout
+      height: 40px;
+      padding: 12px 24px;
+      gap: 10px;
+      border-radius: var(--Spacing-2, 8px);
+      border: 1px solid var(--Color-Blue-Blue-8, #2D3B62);
+      background: var(--Color-button-background-primary, #A4B7E8);
+    
+      @include typography($color: $primary-text-color, $size: 16px, $weight: 500, $lineHeight: 120%, $align: center);
+    }
+    
+    .secondary-enabled-button {
+      @include flex-layout(row, flex-end, center); // Usamos el mixin flex-layout para alinear al final
+      height: 40px;
+      padding: 12px 24px;
+      gap: 10px;
+      border-radius: var(--Spacing-2, 8px);
+      border: 1px solid var(--Color-Blue-Blue-8, #2D3B62);
+      background: var(--Color-button-label-primary, #F8F8F8);
+    
+      @include typography($color: $primary-text-color, $size: 16px, $weight: 500, $lineHeight: 120%, $align: center);
+    }
+    
+  
+    .features-section {
+      display: grid;
+      grid-template-columns: repeat(2, 240px); // Dos columnas de 240px
+      column-gap: 112px;
+      justify-content: center;
+    
+      .feature {
+        @include flex-layout(column, center, center); // Usamos el mixin flex-layout para centrar y alinear
+        flex: 0 0 62px;
+        width: 240px;
+        height: 170px;
+        padding: 20px;
+        text-align: center;
+    
+        .feature-image {
+          margin: 0 0 20px 0;
+        }
+    
+        .feature-text {
+          @include flex-layout(column, center, center); // Usamos el mixin flex-layout para centrar el texto
+          text-align: center;
+    
+          h3 {
+            @include typography($color: $primary-text-color, $size: 13.33px, $weight: 700, $lineHeight: 120%, $align: center);
+          }
+    
+          p {
+            @include typography($color: $primary-text-color, $size: 13.33px, $weight: 400, $lineHeight: 120%, $align: center);
+            font-style: normal;
+          }
+        }
+      }
+    }
+    
+    .feedback-section {
+      @include flex-layout(column, center, center); // Disposición en columna, centrada y estirada
+      height: 506px;
+      width: 923px;
+      margin: 0 auto;
+    
+      .feedback-title {
+        h3 {
+          @include typography(
+            $color: $accent-color,
+            $size: 32px,
+            $weight: 700,
+            $lineHeight: 120%,
+            $align: center
+          );
+          letter-spacing: 1.6px;
+          width: 923px;
+        }
+    
+        .feedback-background-image {
+          @include image-resize(411px, 50px); // Ajustamos el tamaño de la imagen
+          position: absolute;
+          left: 519.5px;
+          top: 28px;
+          z-index: -1; // Envía la imagen al fondo
+        }
+      }
+    
+      .feedbacks {
+        @include flex-layout(row, space-between, center); // Flexbox en fila, espaciado y centrado
+        width: 904px;
+        gap: 48px 7px;
+        flex-shrink: 0;
+        margin: 0 auto;
+    
+        p {
+          @include typography(
+            $color: $primary-text-color,
+            $size: 13.33px,
+            $weight: 400,
+            $lineHeight: 120%,
+            $align: center
+          );
+          width: 264px;
+        }
+    
+        h3 {
+          @include typography(
+            $color: $accent-color,
+            $size: 16px,
+            $weight: 700,
+            $lineHeight: 120%,
+            $align: center
+          );
+        }
+    
+        img {
+          display: block; // Las imágenes se comportan como elementos de bloque
+          margin: 0 auto;
+        }
+      }
+    }
+    
+  
+    .section-title h2 {
+      @include flex-layout(row, center, center); // Flexbox para centrar horizontal y verticalmente
+      height: 48px;
+      padding: 0 15px 0 14px;
+      flex-shrink: 0;
+      background: $background-color;
+      @include typography($color: $primary-text-color, $size: 19.2px, $weight: 700, $lineHeight: 120%, $align: center);
+    }
+    
+    .workshop-section {
+      @include flex-layout(column, center, stretch); // Flexbox en columna para centrar los contenidos
+    
+      .secondary-enabled-button::before {
+        content: "¡Me apunto!";
+      }
+    
+      .workshop {
+        @include flex-layout(row, space-between, flex-start); // Flexbox en fila, con espacio entre los elementos y alineación superior
+        padding-bottom: 40px;
+        width: 100%;
+        align-items: center;
+    
+        .workshop-image-left,
+        .workshop-image-right {
+          height: auto;
+    
+          img {
+            @include image-resize(100%, auto); // Imagen ocupa el ancho máximo del contenedor y ajusta altura automáticamente
+            max-width: 520px; // Limitar el ancho máximo de la imagen
+          }
+        }
+    
+        .workshop-image-right {
+          margin-left: auto; // Alinea la imagen a la derecha
+          margin-right: 0;
+          order: 2;
+          text-align: right; // Alinear el contenido a la derecha dentro del contenedor
+          align-self: flex-end; // Alinea el contenedor en el borde inferior derecho
+        }
+    
+        .workshop-content-right,
+        .workshop-content-left {
+          @include flex-layout(column, center, flex-start); // Flexbox en columna, centrado y alineación superior
+          width: 245px;
+          gap: 15px;
+          padding-left: 126px;
+          padding-right: 126px;
+          text-align: left;
+    
+          h3 {
+            @include typography($color: $accent-color, $size: 16px, $weight: 700, $lineHeight: 120%, $align: left);
+          }
+    
+          .workshop-icon-text {
+            @include flex-layout(column, flex-start, flex-start); // Flexbox en columna, alineación izquierda
+            text-align: left;
+          }
+    
+          .expandable-text {
+            @include flex-layout(row, flex-start, flex-start); // Flexbox en fila, alineación izquierda
+            @include typography($color: $primary-text-color, $size: 16px, $weight: 400, $lineHeight: 1.2, $align: left);
+            width: 245px;
+            position: relative;
+            visibility: visible;
+            padding: 0;
+            gap: 0;
+          }
+    
+          .expand-icon {
+            display: none;
+          }
+        }
+      }
+    }
+    
+    .shop {
+      .shop-image {
+        width: 100%; // Asegura que la imagen ocupe todo el ancho disponible
+      }
+    }
+    
+    .footer-section {
+      @include flex-layout(column, center, center); // Aplicamos el diseño flexbox
+      background: url('../assets/svg/footer-mobile-background.svg') no-repeat center center;
+      background-size: cover; 
+  
+      
+      .footer-content {
+        @include flex-layout(column, center, stretch); // Aplicamos el diseño flexbox
+        gap: 32px;
+        position: relative;
+       
+        .footer-info {
+        @include flex-layout(row, flex-start, stretch); // Aplicamos el diseño flexbox
+        gap: 40px;
+        width: 100%;
+        padding-left: 0;
+        .footer-column {
+          margin-bottom: 0;
+          text-decoration: none;
+          width: 280px;
+          h4 {
+            @include typography(
+              $color: $background-color,
+              $size: 16px,
+              $weight: 700,
+              $lineHeight: 120%,
+              $letter-spacing: 0,
+              $align: left
+            );
+            margin-bottom: 10px;
+            
+          }
+    
+          a, p {
+            @include typography(
+              $color: $background-color,
+              $size: 16px,
+              $weight: 400,
+              $lineHeight: 120%,
+              $letter-spacing: 0,
+              $align: left,
+            );
+          }
+        }
+    
+      }
+      .footer-social {
+        @include flex-layout(row, flex-start, center); // Aplicamos el diseño flexbox
+        gap: 24px;
+        img {
+          width: 22px;
+          height: 22px;
+        }
+      }
+    
+      .footer-credits {
+        @include typography(
+          $color:$background-color,
+          $size: 16px,
+          $weight: 300px,
+          $lineHeight: 120%,
+          $letter-spacing: 0,
+          $align: left
+        );
+        margin-bottom: 24px;
+      }
+    }
+  }
+}  

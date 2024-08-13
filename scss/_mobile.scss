@@ -1,0 +1,456 @@
+body {
+    margin: 0;
+    padding: 0;
+    background-color: $background-color;
+    font-family: $font-stack;
+    box-sizing: border-box;
+  }
+  
+  nav {
+    @include flex-layout(row, space-between, center);
+    background-color: $background-color;
+    width: 100%;
+    padding: 10px;
+    color: $primary-text-color;
+  
+    .icons img{
+      width: 18px;
+      height: 18px;
+    }
+
+    .menu-icon {
+      display: block;
+    }
+  
+    p {
+      @include typography($size: 1.5rem); // Solo se pasa el tamaño
+      padding-left: 30px;
+    }
+  
+    .logo {
+      @include flex-layout($justify: center); // Solo se pasa la justificación
+  
+      img {
+        @include image-resize($width: 104px, $height: 47px); // Solo se pasa el ancho y alto
+      }
+    }
+  
+    .nav-links {
+      display: none;
+    }
+  
+    .icon {
+      @include flex-layout($align: center); // Solo se pasa la alineación
+    //  gap: 15px;
+
+      width: 18px;
+      height: 18px;
+  
+      p {
+        @include typography($size: 1rem, $marginRight: 0.5rem); // Solo se pasa el tamaño y margen derecho
+      }
+  
+      .login-text {
+        display: none;
+      }
+  
+      .login-icon {
+        display: flex;
+      }
+    }
+  }
+  
+  .primary-enabled-button {
+    @include flex-layout(row, center, center); 
+    padding: 6px 12px;
+    gap: 10px;
+    border-radius: var(--Spacing-2, 8px);
+    border: 1px solid var(--Color-Blue-Blue-5, #6887D8);
+    background: var(--Color-button-background-primary, #A4B7E8);
+  }
+  
+  .secondary-enabled-button {
+    @include flex-layout(row, flex-end, center);
+    height: 30px;
+    padding: 6px 12px;
+    gap: 10px;
+    border-radius: var(--Spacing-2, 8px);
+    border: 1px solid var(--Color-Blue-Blue-8, #2D3B62);
+    background: var(--Color-button-label-primary, #F8F8F8);
+  }
+  
+  .input-decor {
+    width: 312px;
+    height: 34px;
+    border-radius: var(--Spacing-spacing-xs, 8px);
+    background: #FFF;
+  }
+  
+  .hero-section {
+    @include flex-layout($direction: column);
+    min-height: auto;
+    width: 100%;
+    background: $background-color;
+    position: static; 
+  
+    .hero-background-image {
+      width: 288px;
+      height: 75px;
+      position: absolute;
+      left: 24.5px;
+      top: 124px;
+      z-index: -1;
+    }
+  
+    .hero-content {
+      .hero-texts-button {
+        @include flex-layout($direction: column, $align: stretch, $justify: flex-start);
+        position: relative; 
+        z-index: 2;
+        height: 246px;
+        padding-top: 54px;
+        padding-left: 12px;
+  
+        .hero-text {
+          @include typography($primary-text-color, 1rem, 700, 1.2, 0, left);
+          padding-bottom: 12px;
+        }
+  
+        .hero-title {
+          @include typography($accent-color, 2.25rem, 400, 1.4, 0, left);
+          letter-spacing: 1.44px;
+          flex: 1 0 0;
+          padding-bottom: 30px;
+        }
+      }
+  
+      .hero-carousel {
+        background: $primary-light-color;
+        margin-top: 32px;
+        padding: 16px 0;
+        overflow: hidden;
+        width: 100%;
+        height: auto;
+        position: relative;
+  
+        .carousel-wrapper {
+          @include flex-layout();
+          transition: transform 1s ease-in-out;
+          width: 100%;
+          left: 0;
+        }
+        
+        .carousel-wrapper img {
+          @include image-resize(100vw, auto, cover);
+        }
+      }
+    }
+  }
+  
+  .features-section {
+    @include flex-layout($direction: column, $justify: flex-start, $align: center);
+    min-height: auto;
+    font-family: $font-stack;
+    background: url('../assets/svg/features-background.svg') no-repeat center center;
+    background-size: cover;
+    padding: 20px;
+    height: auto;
+    gap: 10px;
+    position: static; 
+  
+    .features-content {
+    .feature {
+      @include flex-layout($direction: row, $align: center);
+      width: 310px;
+      padding: 7px 34px; 
+      height: 76px;
+  
+      .feature-image {
+        width: 62px;
+        height: 62px;
+        border-radius: 50%;
+        overflow: hidden;
+        margin-right: 38px;
+  
+        img {
+          @include image-resize(100%, 100%, cover);
+        }
+      }
+  
+      .feature-text {
+        flex: 1;
+  
+        h3 {
+          @include typography($primary-text-color, 0.875rem, 700, 1.2, 0, left);
+          margin: 0;
+        }
+  
+        p {
+          @include typography($primary-text-color, 0.75rem, 400, 1.2, 38px, left);
+        }
+      }
+    }
+  }
+}
+  
+  .feedback-section {
+    @include flex-layout(column, center, center);
+    min-height: auto;
+    height: 846px;
+    width: 357px;
+    gap: 36px;
+    margin: 0 auto;
+    position: static; 
+  
+    .feedback-title {
+      @include typography($color: $accent-color, $size: 1.2rem, $weight: 700, $lineHeight: 1.2, $align: center);
+      position: relative; 
+  
+      .feedback-background-image {
+        @include image-resize(270px, 34px);
+        position: absolute;
+        left: 1.5px;
+        top: 40px;
+        z-index: -1;
+      }
+    }
+  
+    .feedbacks {
+      @include flex-layout(column, space-between, stretch);
+      width: 250px;
+      gap: 20px 7px;
+      margin: 0 auto;
+  
+      p {
+        @include typography($size: 0.833rem, $lineHeight: 1.2, $align: center);
+      }
+      
+      h3 {
+        @include typography($color: $accent-color, $size: 1rem, $weight: 700, $lineHeight: 1.2, $align: center);
+      }
+  
+      img {
+        display: block;
+        margin: 0 auto;
+      }
+    }
+  }
+  
+  .section-title h2 {
+    @include flex-layout($justify: center, $align: center);
+    @include typography($size: 1rem, $weight: 700, $lineHeight: 1.2, $align: center);
+    height: 48px;
+    padding: 0px 15px 0px 14px;
+    flex-shrink: 0;
+    background: $background-color;
+  }
+  
+  .workshop-section {
+    @include flex-layout($direction: column);
+  
+    .workshop {
+      @include flex-layout($direction: column);
+      padding-bottom: 40px;
+      width: 100%;
+  
+      .workshop-image-left {
+        height: auto;
+        margin-left: 0;
+        flex-shrink: 0;
+        flex-grow: 0;
+  
+        img {
+          @include image-resize(280px, auto);
+        }
+      }
+  
+      .workshop-image-left,
+      .workshop-image-right {
+        height: auto;
+  
+        img {
+          width: 100%; 
+          max-width: 280px;
+          height: auto;
+        }
+      }
+  
+      .workshop-image-right {
+        margin-left: auto;
+        margin-right: 0;
+        text-align: right;
+        align-self: flex-end;
+      }
+  
+      .workshop-content-left, 
+      .workshop-content-right {
+        @include flex-layout($justify: space-between, $align: center);
+        width: 90%;
+        padding-left: 18px;
+        padding-right: 24px;
+  
+        h3 {
+          @include typography($color: $accent-color, $size: 0.833rem, $weight: 700, $lineHeight: 1.2, $align: center);
+        }
+  
+        img {
+          fill: $accent-color;
+          width: 24px;
+          height: 24px;
+          padding: 10px;
+          margin-right: 18px;
+          flex-shrink: 0;
+        }
+  
+        .workshop-icon-text {
+          @include flex-layout($align: flex-start);
+          width: 238px;
+        //  gap: 9px;
+         // flex-shrink: 0;
+        }
+  
+        .expandable-text {
+          position: relative;
+          //top: 30px;
+          left: 0;
+          padding: 10px;
+          border-radius: 4px;
+          z-index: 1;
+          width: max-content;
+          display: none;
+        }
+      }
+    }
+  }
+  
+  .shop-section {
+    width: 100%;
+    @include flex-layout($direction: column);
+  
+    .shop-image img {
+      max-width: 100%;
+    }
+  
+    .shop-content {
+      width: 90%;
+      padding-left: 24px;
+      padding-right: 42px;
+  
+      h3 {
+        @include typography($color: $accent-color, $size: 1rem, $weight: 700, $lineHeight: 1.2, $align: left);
+      }
+  
+      p {
+        width: 258px;
+        @include typography($color: $primary-text-color, $size: 0.833rem, $weight: 400, $lineHeight: 1.2, $align: left);
+      }
+  
+      .text-button {
+        @include flex-layout($justify: space-between, $align: baseline);
+      }
+    }
+  }
+  
+  .newsletter-section {
+    width: 100%;
+    @include flex-layout($direction: column);
+  
+    gap: 12px;
+  
+    .newsletter {
+  
+      .newsletter-image img {
+        width: 100%;
+      }
+  
+      .newsletter-content {
+        padding-left: 24px;
+        padding-right: 42px;
+  
+        h3 {
+          @include typography($color: $accent-color, $size: 1rem, $weight: 700, $lineHeight: 1.2, $align: left);
+        }
+  
+        p {
+          @include typography($color: $primary-text-color, $size: 0.833rem, $weight: 400, $lineHeight: 1.2, $align: left);
+        }
+        .text-button {
+          @include flex-layout($direction: column, $justify: space-between, $align: baseline);
+          gap: 20px;
+        }
+      }
+    }
+  }
+  
+  .footer-section {
+    @include flex-layout(column, center, center); // Aplicamos el diseño flexbox
+    background: url('../assets/svg/footer-mobile-background.svg') no-repeat center center;
+    background-size: cover; 
+    margin-top: 30px;
+    padding-top: 80px;
+    
+    .footer-content {
+      @include flex-layout(column, center, stretch); // Aplicamos el diseño flexbox
+      gap: 32px;
+
+      .footer-info {
+      @include flex-layout(column, center, stretch); // Aplicamos el diseño flexbox
+      gap: 10px;
+      width: 75%; 
+      position: relative;
+
+  
+      .footer-column {
+        h4 {
+          @include typography(
+            $color: $background-color,
+            $size: 13.33px,
+            $weight: 700,
+            $lineHeight: 120%,
+            $letter-spacing: 0,
+            $align: left
+          );
+          margin-bottom: 10px;
+        }
+  
+        a, p {
+          @include typography(
+            $color: $background-color,
+            $size: 13.33px,
+            $weight: 400,
+            $lineHeight: 120%,
+            $letter-spacing: 0,
+            $align: left,
+          );
+          margin-top: 4px;
+          margin-bottom: 0;
+          text-decoration: none;
+        }
+      }
+  
+    }
+    .footer-social {
+      @include flex-layout(row, flex-start, center); // Aplicamos el diseño flexbox
+      gap: 16px;
+      margin-top: 16px;
+      img {
+        width: 18px;
+        height: 18px;
+      }
+    }
+  
+    .footer-credits {
+      @include typography(
+        $color:$background-color,
+        $size: 12px,
+        $weight: 400,
+        $lineHeight: 120%,
+        $letter-spacing: 0,
+        $align: left
+      );
+    margin-top: 16px;
+    margin-bottom: 16px;
+    }
+  }
+}
+  

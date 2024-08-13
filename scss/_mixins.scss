@@ -1,0 +1,45 @@
+// Declaración de mixins
+
+@mixin typography (
+  $color: $primary-text-color,
+  $size: 1rem, // Tamaño por defecto en rem
+  $weight: 400, 
+  $lineHeight: 1.5, 
+  $marginRight: 0, 
+  $align: left, 
+  $letter-spacing: normal,
+  $font-stack: $font-stack
+) {
+  // Convertir el tamaño de fuente a rem si es necesario
+  $font-size: if(unit($size) == px, px-to-rem($size), $size);
+
+  color: $color;
+  font-size: $font-size;
+  font-weight: $weight;
+  line-height: $lineHeight;
+  margin-right: $marginRight;
+  text-align: $align;
+  letter-spacing: $letter-spacing;
+  font-family: $font-stack;
+}
+
+
+@mixin flex-layout ($direction: row, $justify: flex-start, $align: stretch) {
+  display: flex;
+  flex-direction: $direction;
+  justify-content: $justify;
+  align-items: $align;
+}
+
+@mixin image-resize($width: 100%, $height: auto, $object-fit: cover) {
+  width: $width;
+  height: $height;
+  object-fit: $object-fit;
+}
+
+
+.main-section {
+  position: relative; 
+  @include flex-layout(column, center, stretch);
+  width: 100%;
+}

@@ -7,9 +7,12 @@
         display: none; // Ocultar icono de menú en desktop
       }
     
-      nav .logo {
+      .logo {
         @include flex-layout(row, flex-start, center); // Usando el mixin para alinear el logo a la izquierda
         order: 1; // El logo va primero
+        img {
+          width: 120px;
+        }
       }
      
       .nav-links {
@@ -30,6 +33,10 @@
     
         .login-text {
           @include flex-layout(row, center, center); // Mostrar el texto de login
+        }
+        img {
+          width: 26px;
+          height: 26px;
         }
       }
     }
@@ -77,12 +84,13 @@
     
         .hero-carousel {
           @include flex-layout(row, center, center); // Centrar el carousel
-          width: 594px;
+          width: 592px;
           height: 424px;
           background: #FFF;
           overflow: hidden; // Ocultar contenido que sobrepase el contenedor
           box-shadow: 0 0 0 18px #FFF; // Ajusta el tamaño del marco según sea necesario
           order: 1;
+          padding: 0;
     
           img {
             width: 570px;
@@ -144,10 +152,12 @@
     
     
     .features-section {
-      @include flex-layout(row, center, center); // Usando flex-layout para alinear elementos en el centro
-      text-align: center;
-      justify-content: center;
+     
     
+      .features-content {
+        @include flex-layout(row, center, center); // Usando flex-layout para alinear elementos en el centro
+        text-align: center;
+        justify-content: center;
       .feature {
         @include flex-layout(column, center, center); // Usando flex-layout para centrar contenido en columna
         width: 265px; // Corrección del ancho (px estaba incompleto)
@@ -176,6 +186,7 @@
         }
       }
     }
+  }
     
     .feedback-section {
       @include flex-layout(column, center, center); // Usando flex-layout para alinear en columna
@@ -347,6 +358,64 @@
       }
     }
     
+    .product-section {
+      .product-card-list {
+        @include flex-layout($direction: row); // Usar el mixin para flexbox en dirección horizontal
+        height: 337px;
+        padding: 18px;
+        gap: 28px;
+        overflow-x: auto; // Scroll horizontal
+        overflow: hidden;
+        scroll-snap-type: x mandatory; // Ajuste de desplazamiento suave
+       // -webkit-overflow-scrolling: touch; // Scroll suave en dispositivos móviles
+    
+        .product-card {
+          @include flex-layout($direction: column, $justify: center, $align: center); // Flexbox vertical centrado
+          width: 298px;
+          height: 334px;
+          gap: 24px;
+          border-radius: 12px;
+          background: #FFF;
+          box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.15);
+    
+          .card-image {
+            width: 298px;
+            height: 228px;
+            border-radius: 12px 12px 0 0; // Ajuste de las esquinas redondeadas
+            overflow: hidden; // Asegura que la imagen se ajuste al contenedor
+            img {
+              width: 100%; // Asegura que la imagen ocupe todo el contenedor
+              height: 100%;
+            }
+          }
+    
+          .card-text {
+            @include flex-layout($direction: column, $justify: space-between, $align: flex-start);
+            gap: 8px;
+            width: 80%;
+            height: 78px;
+    
+            .card-title {
+              @include typography($color: $primary-text-color, $size: 16px, $weight: 700, $lineHeight: 1.2, $align: left);
+            }
+    
+            .card-info {
+              width: 100%;
+              white-space: nowrap;
+              text-overflow: ellipsis; // Tres puntos al final del texto
+              overflow: hidden; // Evita que se muestre todo el texto
+              @include typography($color: $primary-text-color, $size: 13.33px, $weight: 400, $lineHeight: 1.2, $align: left);
+            }
+    
+            .card-price {
+              padding-bottom: 12px;
+              @include typography($color: $primary-text-color, $size: 16px, $weight: 400, $lineHeight: 1.2, $align: left);
+            }
+          }
+        }
+      }
+    }
+
     .newsletter-section {
       @include flex-layout(row, space-between, stretch); // Aplicando el mixin flex-layout al contenedor principal
       width: 100%;
@@ -404,14 +473,16 @@
     }
   }
   
+  
   .footer-section {
     @include flex-layout(column, center, center); // Aplicamos el diseño flexbox
-    background: url('../assets/svg/footer-mobile-background.svg') no-repeat center center;
-    background-size: cover; 
-    margin-top: 0;
-    
+   // background: url('../assets/svg/footer-mobile-background.svg') no-repeat center center;
+    //background-size: cover; 
+    //margin-top: 0;
+    background-size: 100% 400px; 
+
     .footer-content {
-      @include flex-layout(column, center, stretch); // Aplicamos el diseño flexbox
+    //  @include flex-layout(column, center, stretch); // Aplicamos el diseño flexbox
       gap: 32px;
      padding-left: 100px;
      

@@ -8,6 +8,14 @@
   width: 100%;
 }
 
+.main-section {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  width: 100%; /* Asegura que cada sección ocupe todo el ancho disponible */
+}
+
 body {
   margin: 0;
   padding: 0;
@@ -17,71 +25,48 @@ body {
 }
 
 nav {
+  background-color: #F8F8F8;
+  width: auto;
+  padding: 10px;
   display: flex;
   flex-direction: row;
   justify-content: space-between;
   align-items: center;
-  background-color: #F8F8F8;
-  width: 100%;
-  padding: 10px;
   color: #1F1F1D;
 }
-nav .icons img {
+nav .menu-icon img {
   width: 18px;
   height: 18px;
 }
-nav .menu-icon {
-  display: block;
-}
 nav p {
-  color: #1F1F1D;
-  font-size: 1.5rem;
-  font-weight: 400;
-  line-height: 1.5;
-  margin-right: 0;
-  text-align: left;
-  letter-spacing: normal;
-  font-family: "Montserrat", sans-serif;
+  font-size: 1.5em;
   padding-left: 30px;
 }
-nav .logo {
-  display: flex;
-  flex-direction: row;
-  justify-content: center;
-  align-items: stretch;
-}
 nav .logo img {
-  width: 104px;
-  height: 47px;
-  -o-object-fit: cover;
-     object-fit: cover;
+  width: 38px;
 }
 nav .nav-links {
   display: none;
 }
-nav .icon {
+nav .icons {
   display: flex;
   flex-direction: row;
   justify-content: flex-start;
   align-items: center;
-  width: 18px;
-  height: 18px;
+  gap: 15px;
 }
-nav .icon p {
-  color: #1F1F1D;
-  font-size: 1rem;
-  font-weight: 400;
-  line-height: 1.5;
+nav .icons p {
   margin-right: 0.5rem;
-  text-align: left;
-  letter-spacing: normal;
-  font-family: "Montserrat", sans-serif;
 }
-nav .icon .login-text {
+nav .icons .login-text {
   display: none;
 }
-nav .icon .login-icon {
+nav .icons .login-icon {
   display: flex;
+}
+nav .icons img {
+  width: 18px;
+  height: 18px;
 }
 
 .primary-enabled-button {
@@ -95,6 +80,25 @@ nav .icon .login-icon {
   border: 1px solid var(--Color-Blue-Blue-5, #6887D8);
   background: var(--Color-button-background-primary, #A4B7E8);
 }
+.primary-enabled-button:hover {
+  background: #546eb1;
+  color: white; /* Asegura que el texto sea blanco también en hover */
+}
+.primary-enabled-button:active {
+  background: var(--Color-Blue-Blue-8, #2D3B62);
+  color: white; /* Asegura que el texto sea blanco también en active */
+}
+.primary-enabled-button:focus {
+  background: var(--Color-Blue-Blue-8, #2D3B62); /* Mismo color que el estado active */
+  color: white;
+  outline: none; /* Remueve el borde predeterminado que algunos navegadores aplican */
+}
+.primary-enabled-button:disabled, .primary-enabled-button.disabled {
+  background: var(--Color-Neutral-Neutral-5, #B8B8B8);
+  color: white; /* Texto blanco cuando está deshabilitado */
+  cursor: not-allowed; /* Cambia el cursor para indicar que no es clicable */
+  border: 1px solid var(--Color-Neutral-Neutral-5, #B8B8B8); /* Opcional: hacer que el borde también esté deshabilitado */
+}
 
 .secondary-enabled-button {
   display: flex;
@@ -107,6 +111,25 @@ nav .icon .login-icon {
   border-radius: var(--Spacing-2, 8px);
   border: 1px solid var(--Color-Blue-Blue-8, #2D3B62);
   background: var(--Color-button-label-primary, #F8F8F8);
+}
+.secondary-enabled-button:hover {
+  background: var(--Color-Neutral-Neutral-2, #E3E3E3);
+  color: #1F1F1D;
+}
+.secondary-enabled-button:active {
+  background: var(--Color-Blue-Blue-8, #2D3B62);
+  color: white; /* Asegura que el texto sea blanco también en active */
+}
+.secondary-enabled-button:focus {
+  background: var(--Color-Blue-Blue-8, #2D3B62); /* Mismo color que el estado active */
+  color: white;
+  outline: none; /* Remueve el borde predeterminado que algunos navegadores aplican */
+}
+.secondary-enabled-button:disabled, .secondary-enabled-button.disabled {
+  background: var(--Color-Neutral-Neutral-5, #B8B8B8);
+  color: white; /* Texto blanco cuando está deshabilitado */
+  cursor: not-allowed; /* Cambia el cursor para indicar que no es clicable */
+  border: 1px solid var(--Color-Neutral-Neutral-5, #B8B8B8); /* Opcional: hacer que el borde también esté deshabilitado */
 }
 
 .input-decor {
@@ -195,24 +218,37 @@ nav .icon .login-icon {
 }
 
 .features-section {
+  position: relative;
+  overflow: hidden;
+  height: 500px; /* Altura fija para el contenedor */
+  background: url("../assets/svg/features-background.png") no-repeat center top;
+  background-size: 100% 500px; /* 100% de ancho, altura fija */
+}
+.features-section .features-content {
+  min-height: auto;
+  color: #1F1F1D;
+  font-size: 0.875rem;
+  font-weight: 400;
+  line-height: 1.2;
+  margin-right: 0;
+  text-align: center;
+  letter-spacing: normal;
+  font-family: "Montserrat", sans-serif;
+  padding: 20px;
   display: flex;
   flex-direction: column;
-  justify-content: flex-start;
+  justify-content: center;
   align-items: center;
-  min-height: auto;
-  font-family: "Montserrat", sans-serif;
-  background: url("../assets/svg/features-background.svg") no-repeat center center;
-  background-size: cover;
-  padding: 20px;
-  height: auto;
+  height: 457px;
   gap: 10px;
-  position: static;
+  position: relative;
+  z-index: 1; /* Asegura que el contenido esté encima del fondo */
 }
 .features-section .features-content .feature {
   display: flex;
   flex-direction: row;
-  justify-content: flex-start;
-  align-items: center;
+  justify-content: center;
+  align-items: flex-start;
   width: 310px;
   padding: 7px 34px;
   height: 76px;
@@ -232,8 +268,13 @@ nav .icon .login-icon {
 }
 .features-section .features-content .feature .feature-text {
   flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
 }
 .features-section .features-content .feature .feature-text h3 {
+  margin: 0;
   color: #1F1F1D;
   font-size: 0.875rem;
   font-weight: 700;
@@ -242,14 +283,13 @@ nav .icon .login-icon {
   text-align: left;
   letter-spacing: normal;
   font-family: "Montserrat", sans-serif;
-  margin: 0;
 }
 .features-section .features-content .feature .feature-text p {
   color: #1F1F1D;
-  font-size: 0.75rem;
+  font-size: 0.833125rem;
   font-weight: 400;
-  line-height: 1.2;
-  margin-right: 38px;
+  line-height: 120%;
+  margin-right: 0;
   text-align: left;
   letter-spacing: normal;
   font-family: "Montserrat", sans-serif;
@@ -476,6 +516,82 @@ nav .icon .login-icon {
   align-items: baseline;
 }
 
+.product-section .product-card-list {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: stretch;
+  height: 307px;
+  padding: 12px;
+  gap: 12px;
+  overflow: hidden;
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+}
+.product-section .product-card-list .product-card {
+  display: flex;
+  width: 224px;
+  height: 272px;
+  flex-direction: column;
+  align-items: center;
+  gap: 12px;
+  flex-shrink: 0;
+  border-radius: 12px;
+  background: #FFF;
+  box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.15);
+}
+.product-section .product-card-list .product-card .card-image {
+  width: 224px;
+  height: 180px;
+  border-radius: var(--Spacing-spacing-s, 12px) var(--Spacing-spacing-s, 12px) 0px 0px;
+}
+.product-section .product-card-list .product-card .card-text {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 8px;
+  width: 80%;
+  height: 72px;
+}
+.product-section .product-card-list .product-card .card-text .card-title {
+  color: #1F1F1D;
+  font-size: 0.75rem;
+  font-weight: 700;
+  line-height: 1.2;
+  margin-right: 0;
+  text-align: left;
+  letter-spacing: normal;
+  font-family: "Montserrat", sans-serif;
+}
+.product-section .product-card-list .product-card .card-text .card-info {
+  width: 100%;
+  height: 12px;
+  top: 20px;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  color: #1F1F1D;
+  font-size: 0.75rem;
+  font-weight: 400;
+  line-height: 1.2;
+  margin-right: 0;
+  text-align: left;
+  letter-spacing: normal;
+  font-family: "Montserrat", sans-serif;
+}
+.product-section .product-card-list .product-card .card-text .card-price {
+  padding-bottom: 8px;
+  color: #1F1F1D;
+  font-size: 0.75rem;
+  font-weight: 400;
+  line-height: 1.2;
+  margin-right: 0;
+  text-align: left;
+  letter-spacing: normal;
+  font-family: "Montserrat", sans-serif;
+}
+
 .newsletter-section {
   width: 100%;
   display: flex;
@@ -524,8 +640,8 @@ nav .icon .login-icon {
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  background: url("../assets/svg/footer-mobile-background.svg") no-repeat center center;
-  background-size: cover;
+  background: url("../assets/svg/footer-mobile-background.png") no-repeat center center;
+  background-size: 100% 600px;
   margin-top: 30px;
   padding-top: 80px;
 }
@@ -534,7 +650,8 @@ nav .icon .login-icon {
   flex-direction: column;
   justify-content: center;
   align-items: stretch;
-  gap: 32px;
+  gap: 26px;
+  padding-bottom: 30px;
 }
 .footer-section .footer-content .footer-info {
   display: flex;
@@ -598,12 +715,15 @@ nav .icon .login-icon {
   .navbar .menu-icon {
     display: none;
   }
-  .navbar nav .logo {
+  .navbar .logo {
     display: flex;
     flex-direction: row;
     justify-content: left;
     align-items: stretch;
     order: 1;
+  }
+  .navbar .logo img {
+    width: 100px;
   }
   .navbar .nav-links {
     display: flex;
@@ -635,19 +755,23 @@ nav .icon .login-icon {
     justify-content: center;
     align-items: center;
   }
+  .navbar .icons img {
+    width: 22px;
+    height: 22px;
+  }
   .hero-section {
     width: 100%;
     flex-shrink: 0;
     position: relative;
   }
   .hero-section .hero-background-image {
-    width: 362px;
-    height: 105px;
+    width: 352px;
+    height: 82px;
     -o-object-fit: cover;
        object-fit: cover;
     position: absolute;
     left: 110.5px;
-    top: 119px;
+    top: 139px;
     z-index: -1;
   }
   .hero-section .hero-content {
@@ -696,7 +820,7 @@ nav .icon .login-icon {
     flex-direction: row;
     justify-content: center;
     align-items: center;
-    width: 594px;
+    width: 592px;
     height: 424px;
     position: absolute;
     right: 87px;
@@ -706,6 +830,7 @@ nav .icon .login-icon {
     z-index: 2;
     overflow: hidden;
     box-shadow: 0 0 0 12px #FFF;
+    padding: 0;
   }
   .hero-section .hero-content .hero-carousel img {
     width: 570px;
@@ -779,35 +904,30 @@ nav .icon .login-icon {
     letter-spacing: normal;
     font-family: "Montserrat", sans-serif;
   }
-  .features-section {
+  .features-section .features-content {
     display: grid;
     grid-template-columns: repeat(2, 240px);
-    -moz-column-gap: 112px;
-         column-gap: 112px;
-    justify-content: center;
   }
-  .features-section .feature {
+  .features-section .features-content .feature {
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    flex: 0 0 62px;
     width: 240px;
     height: 170px;
     padding: 20px;
     text-align: center;
   }
-  .features-section .feature .feature-image {
+  .features-section .features-content .feature .feature-image {
     margin: 0 0 20px 0;
   }
-  .features-section .feature .feature-text {
+  .features-section .features-content .feature .feature-text {
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    text-align: center;
   }
-  .features-section .feature .feature-text h3 {
+  .features-section .features-content .feature .feature-text h3 {
     color: #1F1F1D;
     font-size: 0.833125rem;
     font-weight: 700;
@@ -816,8 +936,9 @@ nav .icon .login-icon {
     text-align: center;
     letter-spacing: normal;
     font-family: "Montserrat", sans-serif;
+    font-style: normal;
   }
-  .features-section .feature .feature-text p {
+  .features-section .features-content .feature .feature-text p {
     color: #1F1F1D;
     font-size: 0.833125rem;
     font-weight: 400;
@@ -1007,21 +1128,93 @@ nav .icon .login-icon {
   .shop .shop-image {
     width: 100%;
   }
+  .product-section .product-card-list {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: stretch;
+    height: 307px;
+    padding: 12px;
+    gap: 24px;
+    overflow-x: auto;
+    overflow: hidden;
+    scroll-snap-type: x mandatory;
+  }
+  .product-section .product-card-list .product-card {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 232px;
+    height: 283px;
+    gap: 24px;
+    border-radius: 12px;
+    background: #FFF;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.15);
+  }
+  .product-section .product-card-list .product-card .card-image {
+    width: 232px;
+    height: 188px;
+    border-radius: 12px 12px 0 0;
+    overflow: hidden;
+  }
+  .product-section .product-card-list .product-card .card-image img {
+    width: 100%;
+    height: 100%;
+  }
+  .product-section .product-card-list .product-card .card-text {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 8px;
+    width: 80%;
+    height: 72px;
+  }
+  .product-section .product-card-list .product-card .card-text .card-title {
+    color: #1F1F1D;
+    font-size: 0.833125rem;
+    font-weight: 700;
+    line-height: 1.2;
+    margin-right: 0;
+    text-align: left;
+    letter-spacing: normal;
+    font-family: "Montserrat", sans-serif;
+  }
+  .product-section .product-card-list .product-card .card-text .card-info {
+    width: 100%;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    color: #1F1F1D;
+    font-size: 0.75rem;
+    font-weight: 400;
+    line-height: 1.2;
+    margin-right: 0;
+    text-align: left;
+    letter-spacing: normal;
+    font-family: "Montserrat", sans-serif;
+  }
+  .product-section .product-card-list .product-card .card-text .card-price {
+    padding-bottom: 8px;
+    color: #1F1F1D;
+    font-size: 0.833125rem;
+    font-weight: 400;
+    line-height: 1.2;
+    margin-right: 0;
+    text-align: left;
+    letter-spacing: normal;
+    font-family: "Montserrat", sans-serif;
+  }
   .footer-section {
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    background: url("../assets/svg/footer-mobile-background.svg") no-repeat center center;
-    background-size: cover;
+    background-size: 100% 440px;
   }
   .footer-section .footer-content {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: stretch;
     gap: 32px;
-    position: relative;
   }
   .footer-section .footer-content .footer-info {
     display: flex;
@@ -1085,12 +1278,15 @@ nav .icon .login-icon {
   .navbar .menu-icon {
     display: none;
   }
-  .navbar nav .logo {
+  .navbar .logo {
     display: flex;
     flex-direction: row;
     justify-content: flex-start;
     align-items: center;
     order: 1;
+  }
+  .navbar .logo img {
+    width: 120px;
   }
   .navbar .nav-links {
     display: flex;
@@ -1113,6 +1309,10 @@ nav .icon .login-icon {
     flex-direction: row;
     justify-content: center;
     align-items: center;
+  }
+  .navbar .icons img {
+    width: 26px;
+    height: 26px;
   }
   .hero-section {
     display: flex;
@@ -1179,12 +1379,13 @@ nav .icon .login-icon {
     flex-direction: row;
     justify-content: center;
     align-items: center;
-    width: 594px;
+    width: 592px;
     height: 424px;
     background: #FFF;
     overflow: hidden;
     box-shadow: 0 0 0 18px #FFF;
     order: 1;
+    padding: 0;
   }
   .hero-section .hero-content .hero-carousel img {
     width: 570px;
@@ -1246,7 +1447,7 @@ nav .icon .login-icon {
     letter-spacing: 0;
     font-family: "Montserrat", sans-serif;
   }
-  .features-section {
+  .features-section .features-content {
     display: flex;
     flex-direction: row;
     justify-content: center;
@@ -1254,7 +1455,7 @@ nav .icon .login-icon {
     text-align: center;
     justify-content: center;
   }
-  .features-section .feature {
+  .features-section .features-content .feature {
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -1262,21 +1463,21 @@ nav .icon .login-icon {
     width: 265px;
     height: auto;
   }
-  .features-section .feature .feature-image {
+  .features-section .features-content .feature .feature-image {
     width: 98px;
     height: 98px;
     margin-bottom: 20px;
     border-radius: 50%;
     overflow: hidden;
   }
-  .features-section .feature .feature-text {
+  .features-section .features-content .feature .feature-text {
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
     text-align: center;
   }
-  .features-section .feature .feature-text h3 {
+  .features-section .features-content .feature .feature-text h3 {
     color: #1F1F1D;
     font-size: 1rem;
     font-weight: 700;
@@ -1286,7 +1487,7 @@ nav .icon .login-icon {
     letter-spacing: normal;
     font-family: "Montserrat", sans-serif;
   }
-  .features-section .feature .feature-text p {
+  .features-section .features-content .feature .feature-text p {
     color: #1F1F1D;
     font-size: 1rem;
     font-weight: 400;
@@ -1533,6 +1734,84 @@ nav .icon .login-icon {
   .shop-section .shop-content button {
     align-self: flex-start;
   }
+  .product-section .product-card-list {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: stretch;
+    height: 337px;
+    padding: 18px;
+    gap: 28px;
+    overflow-x: auto;
+    overflow: hidden;
+    scroll-snap-type: x mandatory;
+  }
+  .product-section .product-card-list .product-card {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 298px;
+    height: 334px;
+    gap: 24px;
+    border-radius: 12px;
+    background: #FFF;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.15);
+  }
+  .product-section .product-card-list .product-card .card-image {
+    width: 298px;
+    height: 228px;
+    border-radius: 12px 12px 0 0;
+    overflow: hidden;
+  }
+  .product-section .product-card-list .product-card .card-image img {
+    width: 100%;
+    height: 100%;
+  }
+  .product-section .product-card-list .product-card .card-text {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 8px;
+    width: 80%;
+    height: 78px;
+  }
+  .product-section .product-card-list .product-card .card-text .card-title {
+    color: #1F1F1D;
+    font-size: 1rem;
+    font-weight: 700;
+    line-height: 1.2;
+    margin-right: 0;
+    text-align: left;
+    letter-spacing: normal;
+    font-family: "Montserrat", sans-serif;
+  }
+  .product-section .product-card-list .product-card .card-text .card-info {
+    width: 100%;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    color: #1F1F1D;
+    font-size: 0.833125rem;
+    font-weight: 400;
+    line-height: 1.2;
+    margin-right: 0;
+    text-align: left;
+    letter-spacing: normal;
+    font-family: "Montserrat", sans-serif;
+  }
+  .product-section .product-card-list .product-card .card-text .card-price {
+    padding-bottom: 12px;
+    color: #1F1F1D;
+    font-size: 1rem;
+    font-weight: 400;
+    line-height: 1.2;
+    margin-right: 0;
+    text-align: left;
+    letter-spacing: normal;
+    font-family: "Montserrat", sans-serif;
+  }
   .newsletter-section {
     display: flex;
     flex-direction: row;
@@ -1611,15 +1890,9 @@ nav .icon .login-icon {
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    background: url("../assets/svg/footer-mobile-background.svg") no-repeat center center;
-    background-size: cover;
-    margin-top: 0;
+    background-size: 100% 400px;
   }
   .footer-section .footer-content {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: stretch;
     gap: 32px;
     padding-left: 100px;
   }

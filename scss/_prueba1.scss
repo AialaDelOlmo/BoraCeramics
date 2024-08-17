@@ -1,0 +1,48 @@
+ 
+    .features-section {
+   
+        display: grid;
+        grid-template-columns: repeat(2, 240px);
+        -moz-column-gap: 112px;
+             column-gap: 112px;
+        //justify-content: center;
+  
+        .feature {
+          @include flex-layout(column, center, center); // Sigue centrando el contenido
+          width: 265px;
+          height: auto;
+    
+          flex: 0 0 62px;
+      width: 240px;
+      height: 170px;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+      padding: 20px;
+      justify-content: center;
+      
+          .feature-image {
+            width: 98px;
+            height: 98px;
+            margin-bottom: 20px; // Espacio entre la imagen y el texto
+            border-radius: 50%;
+            overflow: hidden;
+          }
+      
+          .feature-text {
+            @include flex-layout(column, center, center); // Centrando texto
+            text-align: center;
+      
+            h3 {
+              @include typography($color: $primary-text-color, $size: 16px, $weight: 700, $lineHeight: 120%, $align: center);
+            }
+      
+            p {
+              @include typography($color: $primary-text-color, $size: 16px, $weight: 400, $lineHeight: 120%, $align: center);
+              font-style: normal;
+            }
+          }
+        } 
+      
+    }
+      

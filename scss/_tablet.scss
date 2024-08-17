@@ -3,10 +3,14 @@
     .navbar {
       .menu-icon {
         display: none; // Ocultar icono de menú en desktop
+    
       }
-      nav .logo {
+      .logo {
         @include flex-layout($justify: left); // Usamos el mixin flex-layout para justificar el contenido a la izquierda
         order: 1; // El logo va primero
+        img {
+          width: 100px;
+        }
       }
     
       .nav-links {
@@ -30,10 +34,12 @@
         .login-text {
           @include flex-layout(row, center, center); // Mostrar el texto de login
         }
+        img {
+          width: 22px;
+          height: 22px;
+        }
       }
     }
-
-
 
     .hero-section {
       width: 100%;
@@ -41,10 +47,10 @@
       position: relative;
     
       .hero-background-image {
-        @include image-resize(362px, 105px); // Usamos el mixin image-resize para ajustar tamaño
+        @include image-resize(352px, 82px); // Usamos el mixin image-resize para ajustar tamaño
         position: absolute;
         left: 110.5px;
-        top: 119px;
+        top: 139px;
         z-index: -1; // Envía la imagen al fondo
       }
     
@@ -77,7 +83,7 @@
     
         .hero-carousel {
           @include flex-layout(row, center, center); // Usamos el mixin flex-layout
-          width: 594px;
+          width: 592px;
           height: 424px;
           position: absolute;
           right: 87px;
@@ -87,7 +93,8 @@
           z-index: 2;
           overflow: hidden;
           box-shadow: 0 0 0 12px #FFF; // Ajusta el tamaño del marco según sea necesario
-    
+          padding: 0;
+
           img {
             @include image-resize(570px, 400px); // Usamos el mixin image-resize para ajustar tamaño
           }
@@ -147,15 +154,16 @@
     }
     
   
+   
     .features-section {
-      display: grid;
-      grid-template-columns: repeat(2, 240px); // Dos columnas de 240px
-      column-gap: 112px;
-      justify-content: center;
+  
     
+      .features-content {
+        display: grid;
+        grid-template-columns: repeat(2, 240px); // Dos columnas de 240px
+      
       .feature {
-        @include flex-layout(column, center, center); // Usamos el mixin flex-layout para centrar y alinear
-        flex: 0 0 62px;
+        @include flex-layout($direction: column, $justify: center, $align: center); // Usando el mixin para layout en flexbox
         width: 240px;
         height: 170px;
         padding: 20px;
@@ -166,11 +174,11 @@
         }
     
         .feature-text {
-          @include flex-layout(column, center, center); // Usamos el mixin flex-layout para centrar el texto
-          text-align: center;
+          @include flex-layout($direction: column, $justify: center, $align: center); // Usando el mixin para layout en flexbox
     
           h3 {
             @include typography($color: $primary-text-color, $size: 13.33px, $weight: 700, $lineHeight: 120%, $align: center);
+            font-style: normal;
           }
     
           p {
@@ -180,6 +188,9 @@
         }
       }
     }
+  }
+
+    
     
     .feedback-section {
       @include flex-layout(column, center, center); // Disposición en columna, centrada y estirada
@@ -187,7 +198,7 @@
       width: 923px;
       margin: 0 auto;
     
-      .feedback-title {
+      .feedback-title {  
         h3 {
           @include typography(
             $color: $accent-color,
@@ -325,17 +336,76 @@
         width: 100%; // Asegura que la imagen ocupe todo el ancho disponible
       }
     }
+
+    .product-section {
+      .product-card-list {
+        @include flex-layout($direction: row); // Usar el mixin para flexbox en dirección horizontal
+        height: 307px;
+        padding: 12px;
+        gap: 24px;
+        overflow-x: auto; // Scroll horizontal
+        overflow: hidden;
+        scroll-snap-type: x mandatory; // Ajuste de desplazamiento suave
+     //   -webkit-overflow-scrolling: touch; // Scroll suave en dispositivos móviles
+    
+        .product-card {
+          @include flex-layout($direction: column, $justify: center, $align: center); // Flexbox vertical centrado
+          width: 232px;
+          height: 283px;
+          gap: 24px;
+          border-radius: 12px;
+          background: #FFF;
+          box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.15);
+    
+          .card-image {
+            width: 232px;
+            height: 188px;
+            border-radius: 12px 12px 0 0; // Ajuste de las esquinas redondeadas
+            overflow: hidden; // Asegura que la imagen se ajuste al contenedor
+            img {
+              width: 100%; // Asegura que la imagen ocupe todo el contenedor
+              height: 100%;
+            }
+          }
+    
+          .card-text {
+            @include flex-layout($direction: column, $justify: space-between, $align: flex-start);
+            gap: 8px;
+            width: 80%;
+            height: 72px;
+    
+            .card-title {
+              @include typography($color: $primary-text-color, $size: 13.33px, $weight: 700, $lineHeight: 1.2, $align: left);
+            }
+    
+            .card-info {
+              width: 100%;
+              white-space: nowrap;
+              text-overflow: ellipsis; // Tres puntos al final del texto
+              overflow: hidden; // Evita que se muestre todo el texto
+              @include typography($color: $primary-text-color, $size: 12px, $weight: 400, $lineHeight: 1.2, $align: left);
+            }
+    
+            .card-price {
+              padding-bottom: 8px;
+              @include typography($color: $primary-text-color, $size: 13.33px, $weight: 400, $lineHeight: 1.2, $align: left);
+            }
+          }
+        }
+      }
+    }
+    
     
     .footer-section {
       @include flex-layout(column, center, center); // Aplicamos el diseño flexbox
-      background: url('../assets/svg/footer-mobile-background.svg') no-repeat center center;
-      background-size: cover; 
-  
+    //  background: url('../assets/svg/footer-mobile-background.svg') no-repeat center center;
+   //   background-size: cover; 
+   background-size: 100% 440px; 
       
       .footer-content {
-        @include flex-layout(column, center, stretch); // Aplicamos el diseño flexbox
+     //   @include flex-layout(column, center, stretch); // Aplicamos el diseño flexbox
         gap: 32px;
-        position: relative;
+    //    position: relative;
        
         .footer-info {
         @include flex-layout(row, flex-start, stretch); // Aplicamos el diseño flexbox

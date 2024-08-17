@@ -325,7 +325,7 @@ nav .icons img {
      object-fit: cover;
   position: absolute;
   left: 1.5px;
-  top: 40px;
+  top: 46px;
   z-index: -1;
 }
 .feedback-section .feedbacks {
@@ -423,18 +423,31 @@ nav .icons img {
   text-align: right;
   align-self: flex-end;
 }
-.workshop-section .workshop .workshop-content-left,
-.workshop-section .workshop .workshop-content-right {
+.workshop-section .workshop .workshop-content {
   display: flex;
-  flex-direction: row;
+  flex-direction: column;
   justify-content: space-between;
   align-items: center;
   width: 90%;
   padding-left: 18px;
   padding-right: 24px;
 }
-.workshop-section .workshop .workshop-content-left h3,
-.workshop-section .workshop .workshop-content-right h3 {
+.workshop-section .workshop .workshop-content .workshop-info {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+}
+.workshop-section .workshop .workshop-content .workshop-info .workshop-icon-text {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: flex-start;
+  width: 90%;
+  padding-left: 12px;
+}
+.workshop-section .workshop .workshop-content .workshop-info .workshop-icon-text h3 {
   color: #546eb1;
   font-size: 0.833rem;
   font-weight: 700;
@@ -444,33 +457,40 @@ nav .icons img {
   letter-spacing: normal;
   font-family: "Montserrat", sans-serif;
 }
-.workshop-section .workshop .workshop-content-left img,
-.workshop-section .workshop .workshop-content-right img {
+.workshop-section .workshop .workshop-content .workshop-info .workshop-icon-text img {
   fill: #546eb1;
   width: 24px;
   height: 24px;
   padding: 10px;
-  margin-right: 18px;
+  margin-right: 8px;
   flex-shrink: 0;
 }
-.workshop-section .workshop .workshop-content-left .workshop-icon-text,
-.workshop-section .workshop .workshop-content-right .workshop-icon-text {
+.workshop-section .workshop .workshop-content .workshop-info .workshop-icon-text .default-text {
+  display: none;
+}
+.workshop-section .workshop .workshop-content .expandable-text {
   display: flex;
   flex-direction: row;
-  justify-content: flex-start;
+  justify-content: space-between;
   align-items: flex-start;
-  width: 238px;
-}
-.workshop-section .workshop .workshop-content-left .expandable-text,
-.workshop-section .workshop .workshop-content-right .expandable-text {
-  position: relative;
-  left: 0;
-  padding: 10px;
-  border-radius: 4px;
-  z-index: 1;
-  width: -moz-max-content;
-  width: max-content;
+  width: 70%;
   display: none;
+  transition: opacity 0.3s ease-in-out; /* Añade una transición de opacidad */
+}
+.workshop-section .workshop .workshop-content .expandable-text p {
+  margin-top: 12px;
+  color: #1F1F1D;
+  font-size: 0.833rem;
+  font-weight: 400;
+  line-height: 1.2;
+  margin-right: 0;
+  text-align: left;
+  letter-spacing: normal;
+  font-family: "Montserrat", sans-serif;
+}
+.workshop-section .workshop .workshop-content .expandable-text.show {
+  display: block;
+  opacity: 1; /* Cambia a opacidad 1 para que sea visible */
 }
 
 .shop-section {
@@ -1070,11 +1090,10 @@ nav .icons img {
     text-align: right;
     align-self: flex-end;
   }
-  .workshop-section .workshop .workshop-content-right,
-  .workshop-section .workshop .workshop-content-left {
+  .workshop-section .workshop .workshop-content {
     display: flex;
     flex-direction: column;
-    justify-content: center;
+    justify-content: flex-start;
     align-items: flex-start;
     width: 245px;
     gap: 15px;
@@ -1082,8 +1101,24 @@ nav .icons img {
     padding-right: 126px;
     text-align: left;
   }
-  .workshop-section .workshop .workshop-content-right h3,
-  .workshop-section .workshop .workshop-content-left h3 {
+  .workshop-section .workshop .workshop-content .workshop-info {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: flex-start;
+    width: 100%;
+  }
+  .workshop-section .workshop .workshop-content .workshop-info .workshop-icon-text {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: flex-start;
+    text-align: left;
+    padding-left: 0;
+    padding-bottom: 12px;
+    width: 100%;
+  }
+  .workshop-section .workshop .workshop-content .workshop-info .workshop-icon-text h3 {
     color: #546eb1;
     font-size: 1rem;
     font-weight: 700;
@@ -1093,36 +1128,21 @@ nav .icons img {
     letter-spacing: normal;
     font-family: "Montserrat", sans-serif;
   }
-  .workshop-section .workshop .workshop-content-right .workshop-icon-text,
-  .workshop-section .workshop .workshop-content-left .workshop-icon-text {
-    display: flex;
-    flex-direction: column;
-    justify-content: flex-start;
-    align-items: flex-start;
-    text-align: left;
-  }
-  .workshop-section .workshop .workshop-content-right .expandable-text,
-  .workshop-section .workshop .workshop-content-left .expandable-text {
-    display: flex;
-    flex-direction: row;
-    justify-content: flex-start;
-    align-items: flex-start;
+  .workshop-section .workshop .workshop-content .workshop-info .workshop-icon-text .default-text {
+    display: block;
     color: #1F1F1D;
     font-size: 1rem;
     font-weight: 400;
-    line-height: 1.2;
+    line-height: 120%;
     margin-right: 0;
     text-align: left;
-    letter-spacing: normal;
+    letter-spacing: 0;
     font-family: "Montserrat", sans-serif;
-    width: 245px;
-    position: relative;
-    visibility: visible;
-    padding: 0;
-    gap: 0;
   }
-  .workshop-section .workshop .workshop-content-right .expand-icon,
-  .workshop-section .workshop .workshop-content-left .expand-icon {
+  .workshop-section .workshop .workshop-content .expandable-text {
+    display: none;
+  }
+  .workshop-section .workshop .workshop-content .expand-icon {
     display: none;
   }
   .shop .shop-image {
@@ -1590,7 +1610,7 @@ nav .icons img {
     display: flex;
     flex-direction: row;
     justify-content: space-between;
-    align-items: flex-start;
+    align-items: center;
     padding-bottom: 40px;
     width: 100%;
   }
@@ -1611,20 +1631,35 @@ nav .icons img {
     text-align: right; /* Asegura que la imagen esté alineada a la derecha dentro de su contenedor */
     align-self: flex-end; /* Alinea el contenedor en el borde derecho */
   }
-  .workshop-section .workshop .workshop-content-right,
-  .workshop-section .workshop .workshop-content-left {
+  .workshop-section .workshop .workshop-content {
     display: flex;
     flex-direction: column;
     justify-content: flex-start;
     align-items: center;
     width: 300px;
-    padding-left: 94px;
-    padding-right: 94px;
+    padding-left: 156px;
+    padding-right: 156px;
     gap: 45px;
     text-align: left;
   }
-  .workshop-section .workshop .workshop-content-right h3,
-  .workshop-section .workshop .workshop-content-left h3 {
+  .workshop-section .workshop .workshop-content .workshop-info {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: flex-start;
+    width: 100%;
+  }
+  .workshop-section .workshop .workshop-content .workshop-info .workshop-icon-text {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: flex-start;
+    text-align: left;
+    padding-left: 0;
+    padding-bottom: 18px;
+    width: 100%;
+  }
+  .workshop-section .workshop .workshop-content .workshop-info .workshop-icon-text h3 {
     color: #546eb1;
     font-size: 1.2rem;
     font-weight: 700;
@@ -1634,35 +1669,21 @@ nav .icons img {
     letter-spacing: 0;
     font-family: "Montserrat", sans-serif;
   }
-  .workshop-section .workshop .workshop-content-right .workshop-icon-text,
-  .workshop-section .workshop .workshop-content-left .workshop-icon-text {
-    display: flex;
-    flex-direction: column;
-    justify-content: flex-start;
-    align-items: flex-start;
-    text-align: left;
-  }
-  .workshop-section .workshop .workshop-content-right .expandable-text,
-  .workshop-section .workshop .workshop-content-left .expandable-text {
-    display: flex;
-    flex-direction: column;
-    justify-content: flex-start;
-    align-items: flex-start;
-    width: 300px;
+  .workshop-section .workshop .workshop-content .workshop-info .workshop-icon-text .default-text {
+    display: block;
     color: #1F1F1D;
     font-size: 1.2rem;
     font-weight: 400;
-    line-height: 1.2;
+    line-height: 120%;
     margin-right: 0;
     text-align: left;
     letter-spacing: 0;
     font-family: "Montserrat", sans-serif;
-    visibility: visible;
-    padding: 0;
-    gap: 0;
   }
-  .workshop-section .workshop .workshop-content-right .expand-icon,
-  .workshop-section .workshop .workshop-content-left .expand-icon {
+  .workshop-section .workshop .workshop-content .expandable-text {
+    display: none;
+  }
+  .workshop-section .workshop .workshop-content .expand-icon {
     display: none;
   }
   .shop-section {
@@ -1890,7 +1911,8 @@ nav .icons img {
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    background-size: 100% 400px;
+    background-size: 100% 460px;
+    padding-bottom: 0;
   }
   .footer-section .footer-content {
     gap: 32px;

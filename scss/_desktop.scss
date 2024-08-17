@@ -251,7 +251,7 @@
       flex-direction: column;
     
       .workshop {
-        @include flex-layout(row, space-between, flex-start); // Aplicando flexbox con mixin
+        @include flex-layout(row, space-between, center); // Aplicando flexbox con mixin
         padding-bottom: 40px;
         width: 100%;
     
@@ -274,31 +274,38 @@
           align-self: flex-end; /* Alinea el contenedor en el borde derecho */
         }
     
-        .workshop-content-right,
-        .workshop-content-left {
+        .workshop-content {
           @include flex-layout(column, flex-start, center); // Ajuste del layout
           width: 300px;
-          padding-left: 94px;
-          padding-right: 94px;
+          padding-left: 156px;
+          padding-right: 156px;
           gap: 45px;
           text-align: left;
     
-          h3 {
-            @include typography($color: $accent-color, $size: 19.2px, $weight: 700, $lineHeight: 120%, $letter-spacing: 0, $align: left); // Usando typography
-          }
-    
-          .workshop-icon-text {
-            @include flex-layout(column, flex-start, flex-start); // Aplicando layout a la columna de íconos
-            text-align: left;
+          .workshop-info {
+            @include flex-layout($direction: column, $justify: space-between, $align: flex-start);
+            width: 100%;
+         
+            .workshop-icon-text {
+              @include flex-layout(column, flex-start, flex-start); // Aplicando layout a la columna de íconos
+              text-align: left;
+              padding-left: 0;
+              padding-bottom: 18px;
+              width: 100%;
+
+              h3 {
+                @include typography($color: $accent-color, $size: 19.2px, $weight: 700, $lineHeight: 120%, $letter-spacing: 0, $align: left); // Usando typography
+              }
+
+              .default-text {
+                display: block ;
+                @include typography($color: $primary-text-color, $size: 19.2px, $weight: 400, $lineHeight: 120%, $letter-spacing: 0, $align: left); // Usando typography
+              }
+            }
           }
     
           .expandable-text {
-            @include flex-layout(column, flex-start, flex-start); // Aplicando layout a expandable-text
-            width: 300px;
-            @include typography($color: $primary-text-color, $size: 19.2px, $weight: 400, $lineHeight: 1.2, $letter-spacing: 0, $align: left); // Usando typography
-            visibility: visible;
-            padding: 0;
-            gap: 0;
+            display: none;
           }
     
           .expand-icon {
@@ -479,7 +486,8 @@
    // background: url('../assets/svg/footer-mobile-background.svg') no-repeat center center;
     //background-size: cover; 
     //margin-top: 0;
-    background-size: 100% 400px; 
+    background-size: 100% 460px; 
+    padding-bottom: 0;
 
     .footer-content {
     //  @include flex-layout(column, center, stretch); // Aplicamos el diseño flexbox

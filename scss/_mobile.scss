@@ -270,7 +270,7 @@ body {
         @include image-resize(270px, 34px);
         position: absolute;
         left: 1.5px;
-        top: 40px;
+        top: 46px;
         z-index: -1;
       }
     }
@@ -342,44 +342,61 @@ body {
         align-self: flex-end;
       }
   
-      .workshop-content-left, 
-      .workshop-content-right {
-        @include flex-layout($justify: space-between, $align: center);
+     // .workshop-content-left, 
+      .workshop-content {
+        @include flex-layout($direction: column, $justify: space-between, $align: center);
         width: 90%;
         padding-left: 18px;
         padding-right: 24px;
-  
-        h3 {
-          @include typography($color: $accent-color, $size: 0.833rem, $weight: 700, $lineHeight: 1.2, $align: center);
+
+        .workshop-info {
+          @include flex-layout($direction: row, $justify: space-between, $align: center);
+          width: 100%;
+
+          .workshop-icon-text {
+              
+            @include flex-layout($align: flex-start);
+            width: 90%;
+            padding-left: 12px;
+            h3 {
+              @include typography($color: $accent-color, $size: 0.833rem, $weight: 700, $lineHeight: 1.2, $align: center);
+            }
+      
+            img {
+              fill: $accent-color;
+              width: 24px;
+              height: 24px;
+              padding: 10px;
+              margin-right: 8px;
+              flex-shrink: 0;
+            }
+            .default-text {
+              display: none;
+            }
+          }
         }
-  
-        img {
-          fill: $accent-color;
-          width: 24px;
-          height: 24px;
-          padding: 10px;
-          margin-right: 18px;
-          flex-shrink: 0;
-        }
-  
-        .workshop-icon-text {
-          @include flex-layout($align: flex-start);
-          width: 238px;
-        //  gap: 9px;
-         // flex-shrink: 0;
-        }
-  
+
         .expandable-text {
-          position: relative;
-          //top: 30px;
-          left: 0;
-          padding: 10px;
-          border-radius: 4px;
-          z-index: 1;
-          width: max-content;
+         @include flex-layout($justify: space-between, $align: flex-start);
+         // margin-top: 10px;
+         // padding: 10px;
+         // border-radius: 4px;
+        //  z-index: 1;
+          width: 70%;
           display: none;
+          transition: opacity 0.3s ease-in-out; /* Añade una transición de opacidad */
+          p {
+            margin-top: 12px;
+            @include typography($color: $primary-text-color, $size: 0.833rem, $weight: 400, $lineHeight: 1.2, $align: left);
+     
+          }
         }
-      }
+    
+        .expandable-text.show {
+            display: block;
+            opacity: 1; /* Cambia a opacidad 1 para que sea visible */
+        }
+    }
     }
   }
   

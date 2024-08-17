@@ -145,30 +145,40 @@
                 <div class="workshop-image-left">
                     <img src="./assets/img/products/taller_1.png" alt="">
                 </div>
-                <div class="workshop-content-left">
-                    <img class="expand-icon" src="./assets/svg/expand.svg" alt="">
-                    <div class="workshop-icon-text">
-                        <h3>Medita con barro</h3>
-                        <div class="expandable-text">
-                            <p>Te invitamos a descubrir una nueva forma de conectar con la tierra, encontrar tu paz.</p>
+                <div class="workshop-content">
+                    <div class="workshop-info">
+                        <div class="workshop-icon-text">
+                            <img class="expand-icon" src="./assets/svg/expand.svg" alt="">
+                            <h3>Medita con barro</h3>
+                            <div class="default-text">
+                                <p>Te invitamos a descubrir una nueva forma de conectar con la tierra, encontrar tu paz.</p>
+                            </div>
                         </div>
+                        <button class="secondary-enabled-button">></button>
                     </div>
-                    <button class="secondary-enabled-button">></button>
+                     <div class="expandable-text">
+                        <p>Te invitamos a descubrir una nueva forma de conectar con la tierra, encontrar tu paz.</p>
+                    </div>
                 </div>
             </div>
             <div class="workshop">
                 <div class="workshop-image-right">
                     <img src="./assets/img/products/taller_2.png" alt="">
                 </div>
-                <div class="workshop-content-right">
-                    <img class="expand-icon" src="./assets/svg/expand.svg" alt="">
-                    <div class="workshop-icon-text">
-                        <h3>¡Crea tu set de desayuno!</h3>
-                        <div class="expandable-text">
-                            <p>Haz tus desayunos más divertidos con un set de taza, plato, cuchara y bowl hechos por ti.</p>
+                <div class="workshop-content">
+                    <div class="workshop-info">
+                        <div class="workshop-icon-text">
+                            <img class="expand-icon" src="./assets/svg/expand.svg" alt="">
+                            <h3>¡Crea tu set de desayuno!</h3>
+                            <div class="default-text">
+                                <p>Haz tus desayunos más divertidos con un set de taza, plato, cuchara y bowl hechos por ti.</p>
+                            </div>
                         </div>
+                        <button class="secondary-enabled-button">></button>
                     </div>
-                    <button class="secondary-enabled-button">></button>
+                    <div class="expandable-text">
+                        <p>Haz tus desayunos más divertidos con un set de taza, plato, cuchara y bowl hechos por ti.</p>
+                    </div>
                 </div>
             </div>
             
@@ -177,15 +187,20 @@
                 <div class="workshop-image-left">
                     <img src="./assets/img/products/taller_3.png" alt="">
                 </div>
-                <div class="workshop-content-left">
-                    <img class="expand-icon" src="./assets/svg/expand.svg" alt="">
-                    <div class="workshop-icon-text">
-                        <h3>Taller de esmaltado</h3>
-                        <div class="expandable-text">
-                            <p>En este taller te enseñamos a dar color a tus piezas, veremos las técnicas de engobe y esmaltado.</p>
+                <div class="workshop-content">
+                    <div class="workshop-info">
+                        <div class="workshop-icon-text">
+                            <img class="expand-icon" src="./assets/svg/expand.svg" alt="">
+                            <h3>Taller de esmaltado</h3>
+                            <div class="default-text">
+                                <p>En este taller te enseñamos a dar color a tus piezas, veremos las técnicas de engobe y esmaltado.</p>
+                            </div>
                         </div>
+                        <button class="secondary-enabled-button">></button>
                     </div>
-                    <button class="secondary-enabled-button">></button>
+                    <div class="expandable-text">
+                        <p>En este taller te enseñamos a dar color a tus piezas, veremos las técnicas de engobe y esmaltado.</p>
+                    </div>
                 </div>
             </div>
           
@@ -434,6 +449,7 @@
 
 
 <script>
+//Carrusel
 document.addEventListener("DOMContentLoaded", function() {
     const carouselWrapper = document.querySelector('.carousel-wrapper');
     const images = document.querySelectorAll('.carousel-wrapper img');
@@ -446,6 +462,30 @@ document.addEventListener("DOMContentLoaded", function() {
         carouselWrapper.style.transform = `translateX(${offset}%)`;
     }, 3000); // Cambia cada 3 segundos
 });
+
+//Mostrar u ocultar texto info talleres
+document.addEventListener('DOMContentLoaded', function () {
+    const expandIcons = document.querySelectorAll('.expand-icon');
+
+    expandIcons.forEach(icon => {
+        icon.addEventListener('click', function () {
+            // Encuentra el contenedor padre más cercano de .expand-icon que tenga la clase .workshop-content-left
+            const workshopContent = this.closest('.workshop-content');
+            
+            // Busca el .expandable-text dentro de ese contenedor
+            const expandableText = workshopContent.querySelector('.expandable-text');
+            
+            // Alterna la visibilidad del texto
+            if (expandableText.style.display === 'none' || expandableText.style.display === '') {
+                expandableText.style.display = 'flex';  // Muestra el texto
+            } else {
+                expandableText.style.display = 'none';  // Oculta el texto
+            }
+        });
+    });
+});
+
+
 </script>
 
 </body>

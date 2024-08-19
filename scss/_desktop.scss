@@ -1,8 +1,7 @@
 
 @media (min-width: 1280px) {
-  
-    
     .navbar {
+    //  box-sizing: border-box;
       .menu-icon {
         display: none; // Ocultar icono de menú en desktop
       }
@@ -153,7 +152,6 @@
     
     .features-section {
      
-    
       .features-content {
         @include flex-layout(row, center, center); // Usando flex-layout para alinear elementos en el centro
         text-align: center;

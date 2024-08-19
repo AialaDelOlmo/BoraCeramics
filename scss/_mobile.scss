@@ -1,3 +1,4 @@
+/*
 .main-section {
   position: relative;
   display: flex;
@@ -5,436 +6,465 @@
   align-items: stretch;
   width: 100%;
 }
-
+*/
 body {
-    margin: 0;
-    padding: 0;
-    background-color: $background-color;
-    font-family: $font-stack;
-    box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  background-color: $background-color;
+  font-family: $font-stack;
+  box-sizing: border-box;
+}
+
+nav {
+  box-sizing: border-box; // Incluir padding y border en el width
+  background-color: white;
+  width: 100%;
+  padding: 10px;
+  @include flex-layout(row, space-between, center);
+  color: $primary-text-color;
+
+  .menu-icon {
+    img {
+      width: 18px;
+      height: 18px;
+    }
   }
-  
-  nav {
-    background-color: white;
-    width: auto;
-    padding: 10px;
-    @include flex-layout(row, space-between, center); 
-    color: $primary-text-color;
-    .menu-icon {
-        img {
-          width: 18px;
-          height: 18px;
-        }
-      }
+
+  p {
+    font-size: 1.5em;
+    padding-left: 30px;
+  }
+
+  .logo {
+    img {
+      width: 38px;
+      height: 27px;
+    }
+  }
+
+  .nav-links {
+    display: none;
+  }
+
+  .icons {
+    @include flex-layout($align: center);
+    gap: 12px;
+
     p {
-        font-size: 1.5em;
-        padding-left: 30px;
+      margin-right: 0.5rem;
     }
-    
-    .logo {
-        img {
-          width: 38px;
-          height: 27px;
-        }
+
+    .login-text {
+      display: none;
     }
-    .nav-links {
-        display: none;
-      }
-    
-    .icons {
-      @include flex-layout($align: center); 
-        gap: 15px;
-        p {
-          margin-right: 0.5rem;
-        }
-        .login-text {
-            display: none;
-        }
-        .login-icon {
-            display: flex;
-        }
-        img {
-          width: 18px;
-          height: 18px;
-        }
+
+    .login-icon {
+      display: flex;
+    }
+
+    img {
+      width: 18px;
+      height: 18px;
     }
   }
-  
-  .primary-enabled-button {
-    @include flex-layout(row, center, center); 
-    @include typography($size: 13.33px, $weight: 500);
-    padding: 6px 12px;
-    gap: 10px;
-    border-radius: var(--Spacing-2, 8px);
-    border: 1px solid var(--Color-Blue-Blue-5, #6887D8);
-    background: var(--Color-button-background-primary, #A4B7E8);
-   
-    &:hover {
-      background: $accent-color;
-      color: white; 
-    }
-    // Pressed
-    &:active {
-      background: var(--Color-Blue-Blue-8, #2D3B62);
-      color: white;
-    }
-  
-     &:focus {
-    background: var(--Color-Blue-Blue-8, #2D3B62); 
+}
+
+.primary-enabled-button {
+  @include flex-layout(row, center, center);
+  @include typography($size: 13.33px, $weight: 500);
+  padding: 6px 12px;
+  gap: 10px;
+  border-radius: var(--Spacing-2, 8px);
+  border: 1px solid var(--Color-Blue-Blue-5, #6887D8);
+  background: var(--Color-button-background-primary, #A4B7E8);
+
+  &:hover {
+    background: $accent-color;
     color: white;
-    outline: none; 
   }
-    // Disabled
-    &:disabled,
-    &.disabled {
-      background: var(--Color-Neutral-Neutral-5, #B8B8B8);
-      color: white;
-      cursor: not-allowed; 
-      border: 1px solid var(--Color-Neutral-Neutral-5, #B8B8B8);
+
+  // Pressed
+  &:active {
+    background: var(--Color-Blue-Blue-8, #2D3B62);
+    color: white;
+  }
+
+  &:focus {
+    background: var(--Color-Blue-Blue-8, #2D3B62);
+    color: white;
+    outline: none;
+  }
+
+  // Disabled
+  &:disabled,
+  &.disabled {
+    background: var(--Color-Neutral-Neutral-5, #B8B8B8);
+    color: white;
+    cursor: not-allowed;
+    border: 1px solid var(--Color-Neutral-Neutral-5, #B8B8B8);
   }
 
 }
-  
-  .secondary-enabled-button {
-    @include flex-layout(row, flex-end, center);
-    height: 30px;
-    padding: 6px 12px;
-    gap: 10px;
-    border-radius: var(--Spacing-2, 8px);
-    border: 1px solid var(--Color-Blue-Blue-8, #2D3B62);
-    background: var(--Color-button-label-primary, #F8F8F8);
 
-    &:hover {
-      background: var(--Color-Neutral-Neutral-2, #E3E3E3);
-      color: $primary-text-color; 
-    }
-    // Pressed
-    &:active {
-      background: var(--Color-Blue-Blue-8, #2D3B62);
-      color: white;
-    }
-  
-     &:focus {
-    background: var(--Color-Blue-Blue-8, #2D3B62); 
+.secondary-enabled-button {
+  @include flex-layout(row, flex-end, center);
+  height: 30px;
+  padding: 6px 12px;
+  gap: 10px;
+  border-radius: var(--Spacing-2, 8px);
+  border: 1px solid var(--Color-Blue-Blue-8, #2D3B62);
+  background: var(--Color-button-label-primary, #F8F8F8);
+
+  &:hover {
+    background: var(--Color-Neutral-Neutral-2, #E3E3E3);
+    color: $primary-text-color;
+  }
+
+  // Pressed
+  &:active {
+    background: var(--Color-Blue-Blue-8, #2D3B62);
     color: white;
-    outline: none; 
   }
-    // Disabled
-    &:disabled,
-    &.disabled {
-      background: var(--Color-Neutral-Neutral-5, #B8B8B8);
-      color: white;
-      cursor: not-allowed; 
-      border: 1px solid var(--Color-Neutral-Neutral-5, #B8B8B8);
+
+  &:focus {
+    background: var(--Color-Blue-Blue-8, #2D3B62);
+    color: white;
+    outline: none;
   }
+
+  // Disabled
+  &:disabled,
+  &.disabled {
+    background: var(--Color-Neutral-Neutral-5, #B8B8B8);
+    color: white;
+    cursor: not-allowed;
+    border: 1px solid var(--Color-Neutral-Neutral-5, #B8B8B8);
   }
-  
-  .input-container {
-    position: relative;
+}
+
+.input-container {
+  position: relative;
+  width: 100%;
+
+  .input {
     width: 100%;
-  
-    .input {
-      width: 100%;
-      height: 34px;
-      padding: 8px 12px; 
-      border-radius: var(--Spacing-spacing-xs, 8px);
-      background: #FFF;
-      border: 1px solid #ccc; 
-      font-size: 13.33px; 
-      outline: none; /* Quita el borde azul predeterminado del input */
-      transition: all 0.3s ease; /* Transición suave para cambios de estilo */
-      
-      &:focus + .input-label, 
-      &:not(:placeholder-shown) 
-       {
-        top: -10px; /* Mueve el label hacia arriba */
-        left: 12px; /* Mantén la alineación horizontal */
-        font-size: 12px; /* Reduce el tamaño de la fuente */
+    height: 34px;
+    padding: 8px 12px;
+    border-radius: var(--Spacing-spacing-xs, 8px);
+    background: #FFF;
+    border: 1px solid #ccc;
+    font-size: 13.33px;
+    outline: none;
+    /* Quita el borde azul predeterminado del input */
+    transition: all 0.3s ease;
+    /* Transición suave para cambios de estilo */
+
+    &:focus+.input-label,
+    &:not(:placeholder-shown) {
+      top: -10px;
+      /* Mueve el label hacia arriba */
+      left: 12px;
+      /* Mantén la alineación horizontal */
+      font-size: 12px;
+      /* Reduce el tamaño de la fuente */
+    }
+  }
+
+  .input-label {
+    position: absolute;
+    top: 50%;
+    /* Centra verticalmente el label dentro del input */
+    left: 12px;
+    /* Alineación horizontal */
+    transform: translateY(-50%);
+    /* Asegura que el label esté centrado verticalmente */
+    color: #888;
+    font-size: 13.33px;
+    pointer-events: none;
+    /* Evita que el label interfiera con el clic en el input */
+    transition: all 0.3s ease;
+    /* Transición suave para cambios de estilo */
+  }
+}
+
+
+.hero-section {
+  @include flex-layout($direction: column);
+  min-height: auto;
+  width: 100%;
+  background: $background-color;
+  position: static;
+
+  .hero-background-image {
+    width: 288px;
+    height: 75px;
+    position: absolute;
+    left: 28.5px;
+    top: 124px;
+    z-index: -1;
+  }
+
+  .hero-content {
+    .hero-texts-button {
+      @include flex-layout($direction: column);
+      position: relative;
+      z-index: 2;
+      height: 246px;
+      padding-top: 54px;
+      padding-left: 18px;
+
+      .hero-text {
+        @include typography($size: 13.33px, $weight: 700);
+        padding-bottom: 12px;
+      }
+
+      .hero-title {
+        @include typography($color: $accent-color, $size: 36px, $lineHeight: 1.4);
+        letter-spacing: 1.44px;
+        flex: 1 0 0;
+        padding-bottom: 30px;
       }
     }
-  
-    .input-label {
-      position: absolute;
-      top: 50%; /* Centra verticalmente el label dentro del input */
-      left: 12px; /* Alineación horizontal */
-      transform: translateY(-50%); /* Asegura que el label esté centrado verticalmente */
-      color: #888;
-      font-size: 13.33px;
-      pointer-events: none; /* Evita que el label interfiera con el clic en el input */
-      transition: all 0.3s ease; /* Transición suave para cambios de estilo */
+
+    .hero-carousel {
+      background: $primary-light-color;
+      margin-top: 32px;
+      padding: 16px 0;
+      overflow: hidden;
+      width: 100%;
+      height: auto;
+      position: relative;
+
+      .carousel-wrapper {
+        @include flex-layout();
+        transition: transform 1s ease-in-out;
+        width: 100%;
+        left: 0;
+      }
+
+      .carousel-wrapper img {
+        @include image-resize(100vw, auto, cover);
+      }
     }
   }
-  
-  
-  
-  
-  
-  .hero-section {
-    @include flex-layout($direction: column);
+}
+
+.features-section {
+  position: relative;
+  overflow: hidden;
+  height: 500px;
+
+  background: url('../assets/svg/features-background.png') no-repeat center top;
+  background-size: 100% 500px;
+  /* 100% de ancho, altura fija */
+
+  .features-content {
     min-height: auto;
-    width: 100%;
-    background: $background-color;
-    position: static; 
-  
-    .hero-background-image {
-      width: 288px;
-      height: 75px;
+    // @include typography($size: 14px, $align: center);
+    @include flex-layout(column, center, center);
+    height: 457px;
+    gap: 10px;
+    position: relative;
+    z-index: 1;
+    /* Asegura que el contenido esté encima del fondo */
+
+    .feature {
+      @include flex-layout(row, flex-start, center);
+      padding: 7px 34px;
+      height: 76px;
+
+      .feature-image {
+        width: 62px;
+        height: 62px;
+        margin-right: 38px; // Espacio entre la imagen y el texto
+
+        img {
+          width: 100%;
+          height: 100%;
+          object-fit: cover;
+        }
+      }
+
+      .feature-text {
+        width: 200px;
+
+        h3 {
+          margin: 0;
+          @include typography($size: 12px, $weight: 700, $align: left);
+        }
+
+        p {
+          @include typography($size: 12px);
+        }
+      }
+    }
+  }
+}
+
+.feedback-section {
+  @include flex-layout(column, center, center);
+  height: 846px;
+  width: 357px;
+  gap: 28px;
+  margin: 0 auto;
+
+  .feedback-title {
+    @include typography($color: $accent-color, $size: 19.2px, $weight: 700, $align: center);
+    position: relative;
+
+    .feedback-background-image {
+      @include image-resize(270px, 34px);
       position: absolute;
-      left: 28.5px;
-      top: 124px;
+      left: 1.5px;
+      top: 46px;
       z-index: -1;
     }
-  
-    .hero-content {
-      .hero-texts-button {
-        @include flex-layout($direction: column);
-        position: relative; 
-        z-index: 2;
-        height: 246px;
-        padding-top: 54px;
-        padding-left: 18px;
-  
-        .hero-text {
-          @include typography($size: 13.33px, $weight: 700);
-          padding-bottom: 12px;
-        }
-  
-        .hero-title {
-          @include typography($color: $accent-color, $size: 36px, $lineHeight: 1.4);
-          letter-spacing: 1.44px;
-          flex: 1 0 0;
-          padding-bottom: 30px;
-        }
-      }
-  
-      .hero-carousel {
-        background: $primary-light-color;
-        margin-top: 32px;
-        padding: 16px 0;
-        overflow: hidden;
-        width: 100%;
-        height: auto;
-        position: relative;
-  
-        .carousel-wrapper {
-          @include flex-layout();
-          transition: transform 1s ease-in-out;
-          width: 100%;
-          left: 0;
-        }
-        
-        .carousel-wrapper img {
-          @include image-resize(100vw, auto, cover);
-        }
-      }
+  }
+
+  .feedbacks {
+    @include flex-layout(column, space-between, stretch);
+    width: 250px;
+    gap: 20px;
+    margin: 0 auto;
+
+    p {
+      @include typography($size: 13.33px, $align: center);
+    }
+
+    h3 {
+      @include typography($color: $accent-color, $size: 1rem, $weight: 700, $align: center);
+    }
+
+    img {
+      display: block;
+      margin: 0 auto;
+      padding-top: 8px;
     }
   }
-  
-  .features-section {
-    position: relative;
-    overflow: hidden;
-    height: 500px; 
-  
-    background: url('../assets/svg/features-background.png') no-repeat center top;
-    background-size: 100% 500px; /* 100% de ancho, altura fija */
-   
-    .features-content {
-      min-height: auto;
-      @include typography($size: 14px, $align: center);
-      @include flex-layout(column, center, center);
-      height: 457px;
-      gap: 10px;
-      position: relative;
-      z-index: 1; /* Asegura que el contenido esté encima del fondo */
- 
-      .feature {
-        @include flex-layout(row, flex-start, center);
-        padding: 7px 34px;
-        height: 76px;
+}
 
-        .feature-image {
-          width: 62px;
-          height: 62px;
-          margin-right: 38px; // Espacio entre la imagen y el texto
+.section-title h2 {
+  @include flex-layout($justify: center, $align: center);
+  @include typography($size: 1rem, $weight: 700, $align: center);
+  height: 48px;
+  padding: 0px 15px 0px 14px;
+  flex-shrink: 0;
+  background: $background-color;
+}
 
-          img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-          }
-        }
+.workshop-section {
+  @include flex-layout($direction: column);
 
-        .feature-text {
-          width: 200px;
+  .workshop {
+    padding-bottom: 28px;
+    width: 100%;
+
+    .workshop-image-left,
+    .workshop-image-right {
+      height: auto;
+
+      img {
+        width: 80%;
+        height: auto;
+      }
+    }
+
+    .workshop-image-right {
+      text-align: right;
+    }
+
+    .workshop-content {
+      width: 95%;
+      padding: 12px 0 18px 12px;
+
+      .workshop-info {
+        @include flex-layout($justify: space-between, $align: center);
+
+        .workshop-icon-text {
+          @include flex-layout($align: flex-start);
 
           h3 {
-            margin: 0;
-            @include typography($size: 12px, $weight: 700, $align: left);
+            @include typography($color: $accent-color, $size: 13.33px, $weight: 700);
           }
 
-          p {
-            @include typography($size: 12px);
+          img {
+            fill: $accent-color;
+            width: 24px;
+            height: 24px;
+            padding: 10px;
+          }
+
+          .default-text {
+            display: none;
+          }
+
+          .expand-icon {
+            transition: transform 0.3s ease, content 0.3s ease;
+            /* Transiciones suaves para rotación */
+          }
+
+          .expand-icon.rotate {
+            transform: rotate(180deg);
+            /* Rota el icono 180 grados */
           }
         }
       }
-    }
-  }
 
-  .feedback-section {
-    @include flex-layout(column, center, center);
-    height: 846px;
-    width: 357px;
-    gap: 28px;
-    margin: 0 auto;
-  
-    .feedback-title {
-      @include typography($color: $accent-color, $size: 19.2px, $weight: 700, $align: center);
-      position: relative; 
-  
-      .feedback-background-image {
-        @include image-resize(270px, 34px);
-        position: absolute;
-        left: 1.5px;
-        top: 46px;
-        z-index: -1;
-      }
-    }
-  
-    .feedbacks {
-      @include flex-layout(column, space-between, stretch);
-      width: 250px;
-      gap: 20px 7px;
-      margin: 0 auto;
-  
-      p {
-        @include typography($size: 13.33px, $align: center);
-      }
-      
-      h3 {
-        @include typography($color: $accent-color, $size: 1rem, $weight: 700, $align: center);
-      }
-  
-      img {
-        display: block;
-        margin: 0 auto;
-        padding-top: 8px;
-      }
-    }
-  }
-  
-  .section-title h2 {
-    @include flex-layout($justify: center, $align: center);
-    @include typography($size: 1rem, $weight: 700, $align: center);
-    height: 48px;
-    padding: 0px 15px 0px 14px;
-    flex-shrink: 0;
-    background: $background-color;
-  }
-  
-  .workshop-section {
-    @include flex-layout($direction: column);
-  
-    .workshop {
-      padding-bottom: 28px;
-      width: 100%;
-  
-      .workshop-image-left,
-      .workshop-image-right {
-        height: auto;
-  
-        img {
-          width: 80%;
-          height: auto;
-        }
-      }
-  
-      .workshop-image-right {
-        text-align: right;
-      }
-      .workshop-content {
-       width: 95%;
-        padding: 12px 0 18px 12px;
-
-        .workshop-info {
-          @include flex-layout($justify: space-between, $align: center);
-
-          .workshop-icon-text {
-            @include flex-layout($align: flex-start);
-            h3 {
-              @include typography($color: $accent-color, $size: 13.33px, $weight: 700);
-            }
-      
-            img {
-              fill: $accent-color;
-              width: 24px;
-              height: 24px;
-              padding: 10px;
-            }
-            .default-text {
-              display: none;
-            }
-
-            .expand-icon {
-              transition: transform 0.3s ease, content 0.3s ease; /* Transiciones suaves para rotación */
-            }
-            .expand-icon.rotate {
-              transform: rotate(180deg); /* Rota el icono 180 grados */
-            }
-          }
-        }
-
-        .expandable-text {
-          width: 75%;
-          display: none;
-          transition: opacity 0.3s ease-in-out; /* Añade una transición de opacidad */
-          p {
-            margin-top: 4px;
-            margin-left: 18px;
-            @include typography($size: 13.33px);
-          }
-        }
-    
-        .expandable-text.show {
-            display: block;
-            opacity: 1; /* Cambia a opacidad 1 para que sea visible */
-        }
-    }
-    }
-  }
-  
-  .shop-section {
-    width: 100%;
-   padding-bottom: 32px;
-    @include flex-layout($direction: column);
-  
-    .shop-image img {
-      width: 100%;
-    }
-  
-    .shop-content {
-      width: 90%;
-      padding-left: 24px;
-      padding-right: 42px;
-  
-      h3 {
-        @include typography($color: $accent-color, $size: 1rem, $weight: 700);
-        margin-top: 24px;
-        margin-bottom: 8px;
-      }
-  
-      p {
+      .expandable-text {
         width: 75%;
-        @include typography($size: 13.33px);
+        display: none;
+        transition: opacity 0.3s ease-in-out;
+
+        /* Añade una transición de opacidad */
+        p {
+          margin-top: 4px;
+          margin-left: 18px;
+          @include typography($size: 13.33px);
+        }
       }
-  
-      .text-button {
-        @include flex-layout($justify: space-between, $align: baseline);
+
+      .expandable-text.show {
+        display: block;
+        opacity: 1;
+        /* Cambia a opacidad 1 para que sea visible */
       }
     }
   }
-  
+}
+
+.shop-section {
+  width: 100%;
+  padding-bottom: 32px;
+  @include flex-layout($direction: column);
+
+  .shop-image img {
+    width: 100%;
+  }
+
+  .shop-content {
+    width: 90%;
+    padding-left: 24px;
+    padding-right: 42px;
+
+    h3 {
+      @include typography($color: $accent-color, $size: 1rem, $weight: 700);
+      margin-top: 24px;
+      margin-bottom: 8px;
+    }
+
+    p {
+      width: 75%;
+      @include typography($size: 13.33px);
+    }
+
+    .text-button {
+      @include flex-layout($justify: space-between, $align: baseline);
+    }
+  }
+}
+
 .product-section {
-   padding-bottom: 32px;
+  padding-bottom: 32px;
 
   .product-card-list {
     @include flex-layout();
@@ -445,106 +475,114 @@ body {
 
     overflow-x: auto; //scroll horizontal
     scroll-snap-type: x mandatory; // Ajuste de desplazamiento suave
-    scrollbar-width: none; /* Ocultar barra de desplazamiento en Firefox */
-    -ms-overflow-style: none;  /* Ocultar barra de desplazamiento en Internet Explorer y Edge */
-  
+    scrollbar-width: none;
+    /* Ocultar barra de desplazamiento en Firefox */
+    -ms-overflow-style: none;
+    /* Ocultar barra de desplazamiento en Internet Explorer y Edge */
 
-  ::-webkit-scrollbar {
-    display: none; /* Ocultar barra de desplazamiento en Chrome, Safari, Opera */
-  }
- 
- 
-  .product-card {
-    display: flex;
-    width: 224px;
-    height: 272px;
-    flex-direction: column;
-    align-items: center;
-    gap: 12px;
-    flex-shrink: 0;
-    border-radius: 12px;
-    background: #FFF;
-    box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.15);
- 
-    .card-image {
+
+    ::-webkit-scrollbar {
+      display: none;
+      /* Ocultar barra de desplazamiento en Chrome, Safari, Opera */
+    }
+
+
+    .product-card {
+      @include flex-layout($direction: column, $justify: space-between, $align: center); // Flexbox vertical centrado
+
+      // display: flex;
       width: 224px;
-      height: 180px;
-      img {
-        border-radius: var(--Spacing-spacing-s, 12px) var(--Spacing-spacing-s, 12px) 0px 0px;
-      }
-    }
-    .card-text{
-      @include flex-layout(column, space-between, flex-start);
-      gap: 8px;
-      width: 80%;
-      height: 72px;
+      height: 272px;
+      //flex-direction: column;
+      //align-items: center;
+      gap: 12px;
+      //flex-shrink: 0;
+      border-radius: 12px;
+      background: #FFF;
+      box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.15);
 
-      .card-title {
-        @include typography($size: 13.33px, $weight: 700);  
+      .card-image {
+        width: 224px;
+        height: 180px;
+
+        img {
+          border-radius: var(--Spacing-spacing-s, 12px) var(--Spacing-spacing-s, 12px) 0px 0px;
+        }
       }
-  
-      .card-info {
-        width: 100%;
-        height: 12px;
-        top: 20px;
-        white-space: nowrap;
-        text-overflow: ellipsis; // tres puntos al final
-        overflow: hidden; //evitar mostrarse todo el texto
-        @include typography($size: 12px);
+
+      .card-text {
+        @include flex-layout(column, space-between, flex-start);
+        gap: 8px;
+        width: 80%;
+        height: 72px;
+
+        .card-title {
+          @include typography($size: 13.33px, $weight: 700);
+        }
+
+        .card-info {
+          width: 100%;
+          height: 12px;
+          top: 20px;
+          white-space: nowrap;
+          text-overflow: ellipsis; // tres puntos al final
+          overflow: hidden; //evitar mostrarse todo el texto
+          @include typography($size: 12px);
+        }
+
+        .card-price {
+          padding-bottom: 8px;
+          @include typography($size: 13.33px);
+        }
+
       }
-  
-      .card-price {
-        padding-bottom: 8px;
-        @include typography($size: 13.33px);
-      }
-  
     }
-  }
   }
 }
 
-  .newsletter-section {
-    gap: 12px;
-  
-    .newsletter {
-  
-      .newsletter-image img {
-        width: 100%;
+.newsletter-section {
+  gap: 12px;
+
+  .newsletter {
+
+    .newsletter-image img {
+      width: 100%;
+    }
+
+    .newsletter-content {
+      padding: 24px 42px 12px 24px;
+
+      h3 {
+        width: 70%;
+        @include typography($color: $accent-color, $weight: 700);
       }
-  
-      .newsletter-content {
-        padding: 24px 42px 12px 24px;
-  
-        h3 {
-          width: 70%;
-          @include typography($color: $accent-color, $weight: 700);
-        }
-  
-        p {
-          @include typography($size: 13.33px);
-        }
-        .text-button {
-          @include flex-layout($direction: column, $justify: space-between, $align: baseline);
-          gap: 24px;
-        }
+
+      p {
+        @include typography($size: 13.33px);
+      }
+
+      .text-button {
+        @include flex-layout($direction: column, $justify: space-between, $align: baseline);
+        gap: 24px;
       }
     }
   }
-  
-  .footer-section {
-    @include flex-layout(column, center, center); 
-    background: url('../assets/svg/footer-mobile-background.png') no-repeat center center;
-    background-size: 100% 600px; 
-    margin-top: 30px;
-    padding-top: 80px;
-    
-    .footer-content {
-      @include flex-layout(column, center, stretch); 
-      gap: 26px;
-      padding-bottom: 30px;
-      width: 55%; 
+}
 
-      .footer-info {
+.footer-section {
+  @include flex-layout(column, center, center);
+  background: url('../assets/svg/footer-mobile-background.png') no-repeat center center;
+  background-size: 100% 600px;
+  margin-top: 30px;
+  padding-top: 80px;
+
+  .footer-content {
+    @include flex-layout(column, center, stretch);
+    gap: 26px;
+    padding-bottom: 30px;
+    width: 55%;
+
+    .footer-info {
       @include flex-layout(column, center, stretch);
       gap: 24px;
       position: relative;
@@ -554,31 +592,33 @@ body {
           @include typography($color: $background-color, $size: 13.33px, $weight: 700);
           margin-bottom: 10px;
         }
-  
-        a, p {
+
+        a,
+        p {
           @include typography($color: $background-color, $size: 13.33px);
           margin-top: 4px;
           margin-bottom: 0;
           text-decoration: none;
         }
       }
-  
+
     }
+
     .footer-social {
-      @include flex-layout($align: center); 
+      @include flex-layout($align: center);
       gap: 16px;
       margin-top: 16px;
+
       img {
         width: 18px;
         height: 18px;
       }
     }
-  
+
     .footer-credits {
-      @include typography($color:$background-color, $size: 12px);
+      @include typography($color: $background-color, $size: 12px);
       margin-top: 16px;
       margin-bottom: 16px;
     }
   }
 }
-  

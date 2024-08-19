@@ -3,11 +3,12 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="./assets/img/Bora_Logo_Notext.png" type="image/png">
     <link rel="stylesheet" href="./css/main.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
-    <title>Document</title>
+    <title>Bora Cerámica</title>
 </head> 
 <body>
     <nav class="navbar" >
@@ -15,7 +16,7 @@
             <img src="./assets/svg/menu.svg">
         </div>
         <div class="logo">
-            <img src="./assets/img/Bora_Logo_brown.png">
+            <img src="./assets/img/Bora_Logo_Onlytext.png">
         </div>
         <div class="nav-links">
             <p>TIENDA</p>
@@ -203,7 +204,6 @@
                     </div>
                 </div>
             </div>
-          
         </section>
 
         <!-- SHOP -->
@@ -321,7 +321,10 @@
                     <h3>¡Mantente al día con nuestra newsletter!</h3>
                     <div class="text-button">
                         <p>Sé el primero en conocer las novedades de nuestra tienda y los próximos talleres.</p>
-                        <input class="input">
+                        <div class="input-container">
+                            <input type="text" class="input" />
+                            <label class="input-label">Email</label>
+                        </div>
                         <button class="primary-enabled-button">Suscríbete</button>
                     </div>
                 </div>
@@ -334,7 +337,7 @@
                 <div class="footer-info">
                     <div class="footer-column">
                         <h4 class="footer-title">Dónde estamos</h4>
-                        <p>Calle de la Arcilla 123, 28045<br />Madrid, España</p>
+                        <p>Calle de la Arcilla 123, 28045 Madrid, España</p>
                         <p>+34 912 345 678</p>
                         <p><a href="mailto:hola@boraceramica.com">hola@boraceramica.com</a></p>
                       </div>
@@ -354,137 +357,56 @@
                         <p><a href="#">Aviso legal</a></p>
                       </div>
                 </div>
-            <div class="footer-social">
-                <img src="/assets/svg/facebook.svg" alt="Facebook logo" class="social-icon">
-                <img src="/assets/svg/twitter.svg" alt="Twitter logo"class="social-icon">
-                <img src="/assets/svg/instagram.svg" alt="Instagram logo" class="social-icon">
-                <img src="/assets/svg/youtube.svg" alt="YouTube logo"class="social-icon">
+                <div class="footer-social">
+                    <img src="/assets/svg/facebook.svg" alt="Facebook logo" class="social-icon">
+                    <img src="/assets/svg/twitter.svg" alt="Twitter logo"class="social-icon">
+                    <img src="/assets/svg/instagram.svg" alt="Instagram logo" class="social-icon">
+                    <img src="/assets/svg/youtube.svg" alt="YouTube logo"class="social-icon">
+                </div>
+                
+                <div class="footer-credits">
+                    <p>© Bora cerámica 2024 | Created with ♡ by Aiala</p>
+                </div>
             </div>
-            
-            <div class="footer-credits">
-                <p>© Bora ceramica 2024 | Created with ♡ by Aiala</p>
-            </div>
-        </div>
-          </footer>
+        </footer>
           
-        <!-- PRODUCTS 
-        <section class="products-section"></section>
-        <section class="workshops-section">
-            <h1>Nuestros talleres</h1>
-            <div class="workshops-right">
-                <h3>Medita con barro</h3>
-                <p>Te invitamos a descubrir una nueva forma de conectar con la tierra, encontrar tu paz.</p>
-                <button>¡Me apunto!</button>
-            </div>
-            <div class="image">
-                <img src="./assets/img/products/shop.jpg" alt="">
-            </div>
-
-            <div class="workshops-left">
-                <h3>¡Crea tu set te desayuno!</h3>
-                <p>Haz tus desayunos más divertidos con un set de taza, plato, cuchara y bowl hechos por ti.</p>
-                <button>¡Me apunto!</button>
-            </div>
-            <div class="image">
-                <img src="./assets/img/products/shop.jpg" alt="">
-            </div>
-
-            <div class="workshops-right">
-                <h3>Taller de esmaltado</h3>
-                <p>En este taller te enseñamos a dar color a tus piezas, veremos las técnicas de engobe y esmaltado.</p>
-                <button>¡Me apunto!</button>
-            </div>
-            <div class="image">
-                <img src="./assets/img/products/shop.jpg" alt="">
-            </div>
-        </section>
-        <section class="reviews-section">
-            <h1>Qué dicen nuestros clientes</h1>
-        </section>
-        <section class="newsletter-section">
-            <div class="newsletter">
-                <h3>¡Mantente al día con nuestra newsletter!</h3>
-                <p>Sé el primero en conocer las novedades de nuestra tienda y los próximos talleres.</p>
-                <input />
-                <button>Suscríbete</button>
-            </div>
-            <div class="image">
-                <img src="./assets/img/products/shop.jpg" alt="">
-            </div>
-        </section>
-    </main>
-    <footer class="footer">
-        <div class="footer-left">
-            <h3>Dónde estamos</h3>
-            <p>Calle de la Arcilla 123, 28045 Madrid, España
-                +34 912 345 678
-            </p>
-            <a>hola@boraceramica.com</a>
-        </div>
-        <div class="footer-middle">
-            <h3>Ayuda</h3>
-            <a>Mi cuenta</a>
-            <a>FAQ</a>
-            <a>Envíos y devoluciones</a>
-            <a>Formas de pago</a>
-        </div>
-
-        <div class="footer-rigth">
-            <h3>Políticas</h3>
-            <a>Términos y condiciones</a>
-            <a>Política de cookies</a>
-            <a>Aviso legal</a>
-        </div>
-
-        <div class="footer-rrss">
-            <a>facebook</a>
-            <a>Twitter</a>
-            <a>Intagram</a>
-            <a>Youtube</a>
-        </div>
-        <p>© Bora ceramica 2024 | Created with ♡ by Aiala</p>
-    </footer>
-
-    ---->
-
+       
 
 <script>
-//Carrusel
-document.addEventListener("DOMContentLoaded", function() {
-    const carouselWrapper = document.querySelector('.carousel-wrapper');
-    const images = document.querySelectorAll('.carousel-wrapper img');
-    const totalImages = images.length;
-    let currentIndex = 0;
+    //Carrusel
+    document.addEventListener("DOMContentLoaded", function() {
+        const carouselWrapper = document.querySelector('.carousel-wrapper');
+        const images = document.querySelectorAll('.carousel-wrapper img');
+        const totalImages = images.length;
+        let currentIndex = 0;
 
-    setInterval(() => {
-        currentIndex = (currentIndex + 1) % totalImages;
-        const offset = -currentIndex * 600 / totalImages;
-        carouselWrapper.style.transform = `translateX(${offset}%)`;
-    }, 3000); // Cambia cada 3 segundos
-});
+        setInterval(() => {
+            currentIndex = (currentIndex + 1) % totalImages;
+            const offset = -currentIndex * 600 / totalImages;
+            carouselWrapper.style.transform = `translateX(${offset}%)`;
+        }, 3000); // Cambia cada 3 segundos
+    });
 
-//Mostrar u ocultar texto info talleres
-document.addEventListener('DOMContentLoaded', function () {
-    const expandIcons = document.querySelectorAll('.expand-icon');
+    /// Mostrar u ocultar texto info talleres
+    document.addEventListener('DOMContentLoaded', function () {
+        const expandIcons = document.querySelectorAll('.expand-icon');
 
-    expandIcons.forEach(icon => {
-        icon.addEventListener('click', function () {
-            // Encuentra el contenedor padre más cercano de .expand-icon que tenga la clase .workshop-content-left
-            const workshopContent = this.closest('.workshop-content');
-            
-            // Busca el .expandable-text dentro de ese contenedor
-            const expandableText = workshopContent.querySelector('.expandable-text');
-            
-            // Alterna la visibilidad del texto
-            if (expandableText.style.display === 'none' || expandableText.style.display === '') {
-                expandableText.style.display = 'flex';  // Muestra el texto
-            } else {
-                expandableText.style.display = 'none';  // Oculta el texto
-            }
+        expandIcons.forEach(icon => {
+            icon.addEventListener('click', function () {
+                const workshopContent = this.closest('.workshop-content');
+                const expandableText = workshopContent.querySelector('.expandable-text');
+
+                // Alterna la visibilidad del texto
+                if (expandableText.style.display === 'none' || expandableText.style.display === '') {
+                    expandableText.style.display = 'flex';  // Muestra el texto
+                    this.classList.add('rotate'); // Rota el icono
+                } else {
+                    expandableText.style.display = 'none';  // Oculta el texto
+                    this.classList.remove('rotate'); // Quita la rotación
+                }
+            });
         });
     });
-});
-
 
 </script>
 

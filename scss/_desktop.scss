@@ -463,7 +463,7 @@
         }
     
         .text-button {
-          @include flex-layout(column, flex-start, start); // Aplicando el mixin flex-layout a text-button
+          @include flex-layout(column, flex-start, flex-start); // Aplicando el mixin flex-layout a text-button
           gap: 12px;
           
         }

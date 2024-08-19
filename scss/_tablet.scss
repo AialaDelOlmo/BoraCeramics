@@ -9,7 +9,9 @@
         @include flex-layout($justify: left); // Usamos el mixin flex-layout para justificar el contenido a la izquierda
         order: 1; // El logo va primero
         img {
-          width: 100px;
+          width: 77px;
+          height: 35px;
+          content: url('../assets/img/Bora_Logo_brown.png');
         }
       }
     

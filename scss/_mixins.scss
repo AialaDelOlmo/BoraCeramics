@@ -4,7 +4,7 @@
   $color: $primary-text-color,
   $size: 1rem, // Tamaño por defecto en rem
   $weight: 400, 
-  $lineHeight: 1.5, 
+  $lineHeight: 1.2, 
   $marginRight: 0, 
   $align: left, 
   $letter-spacing: normal,
@@ -27,8 +27,8 @@
 @mixin flex-layout ($direction: row, $justify: flex-start, $align: stretch) {
   display: flex;
   flex-direction: $direction;
-  justify-content: $justify;
-  align-items: $align;
+  justify-content: $justify;  //posicionamiento vertical (center, start, space-between, flex-start, left)
+  align-items: $align;  //posicionamiento horizontal (stretch, center, start, end)
 }
 
 @mixin image-resize($width: 100%, $height: auto, $object-fit: cover) {

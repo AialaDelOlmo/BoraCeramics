@@ -3,7 +3,7 @@
   display: flex;
   flex-direction: column;
   align-items: stretch;
-  width: 100%; /* Asegura que cada sección ocupe todo el ancho disponible */
+  width: 100%;
 }
 
 body {
@@ -15,7 +15,7 @@ body {
   }
   
   nav {
-    background-color: $background-color;
+    background-color: white;
     width: auto;
     padding: 10px;
     @include flex-layout(row, space-between, center); 
@@ -34,6 +34,7 @@ body {
     .logo {
         img {
           width: 38px;
+          height: 27px;
         }
     }
     .nav-links {
@@ -41,7 +42,7 @@ body {
       }
     
     .icons {
-      @include flex-layout(row, flex-start, center); 
+      @include flex-layout($align: center); 
         gap: 15px;
         p {
           margin-right: 0.5rem;
@@ -61,6 +62,7 @@ body {
   
   .primary-enabled-button {
     @include flex-layout(row, center, center); 
+    @include typography($size: 13.33px, $weight: 500);
     padding: 6px 12px;
     gap: 10px;
     border-radius: var(--Spacing-2, 8px);
@@ -69,26 +71,26 @@ body {
    
     &:hover {
       background: $accent-color;
-      color: white; /* Asegura que el texto sea blanco también en hover */
+      color: white; 
     }
     // Pressed
     &:active {
       background: var(--Color-Blue-Blue-8, #2D3B62);
-      color: white; /* Asegura que el texto sea blanco también en active */
+      color: white;
     }
   
      &:focus {
-    background: var(--Color-Blue-Blue-8, #2D3B62); /* Mismo color que el estado active */
+    background: var(--Color-Blue-Blue-8, #2D3B62); 
     color: white;
-    outline: none; /* Remueve el borde predeterminado que algunos navegadores aplican */
+    outline: none; 
   }
     // Disabled
     &:disabled,
     &.disabled {
       background: var(--Color-Neutral-Neutral-5, #B8B8B8);
-      color: white; /* Texto blanco cuando está deshabilitado */
-      cursor: not-allowed; /* Cambia el cursor para indicar que no es clicable */
-      border: 1px solid var(--Color-Neutral-Neutral-5, #B8B8B8); /* Opcional: hacer que el borde también esté deshabilitado */
+      color: white;
+      cursor: not-allowed; 
+      border: 1px solid var(--Color-Neutral-Neutral-5, #B8B8B8);
   }
 
 }
@@ -109,30 +111,63 @@ body {
     // Pressed
     &:active {
       background: var(--Color-Blue-Blue-8, #2D3B62);
-      color: white; /* Asegura que el texto sea blanco también en active */
+      color: white;
     }
   
      &:focus {
-    background: var(--Color-Blue-Blue-8, #2D3B62); /* Mismo color que el estado active */
+    background: var(--Color-Blue-Blue-8, #2D3B62); 
     color: white;
-    outline: none; /* Remueve el borde predeterminado que algunos navegadores aplican */
+    outline: none; 
   }
     // Disabled
     &:disabled,
     &.disabled {
       background: var(--Color-Neutral-Neutral-5, #B8B8B8);
-      color: white; /* Texto blanco cuando está deshabilitado */
-      cursor: not-allowed; /* Cambia el cursor para indicar que no es clicable */
-      border: 1px solid var(--Color-Neutral-Neutral-5, #B8B8B8); /* Opcional: hacer que el borde también esté deshabilitado */
+      color: white;
+      cursor: not-allowed; 
+      border: 1px solid var(--Color-Neutral-Neutral-5, #B8B8B8);
   }
   }
   
-  .input-decor {
-    width: 312px;
-    height: 34px;
-    border-radius: var(--Spacing-spacing-xs, 8px);
-    background: #FFF;
+  .input-container {
+    position: relative;
+    width: 100%;
+  
+    .input {
+      width: 100%;
+      height: 34px;
+      padding: 8px 12px; 
+      border-radius: var(--Spacing-spacing-xs, 8px);
+      background: #FFF;
+      border: 1px solid #ccc; 
+      font-size: 13.33px; 
+      outline: none; /* Quita el borde azul predeterminado del input */
+      transition: all 0.3s ease; /* Transición suave para cambios de estilo */
+      
+      &:focus + .input-label, 
+      &:not(:placeholder-shown) 
+       {
+        top: -10px; /* Mueve el label hacia arriba */
+        left: 12px; /* Mantén la alineación horizontal */
+        font-size: 12px; /* Reduce el tamaño de la fuente */
+      }
+    }
+  
+    .input-label {
+      position: absolute;
+      top: 50%; /* Centra verticalmente el label dentro del input */
+      left: 12px; /* Alineación horizontal */
+      transform: translateY(-50%); /* Asegura que el label esté centrado verticalmente */
+      color: #888;
+      font-size: 13.33px;
+      pointer-events: none; /* Evita que el label interfiera con el clic en el input */
+      transition: all 0.3s ease; /* Transición suave para cambios de estilo */
+    }
   }
+  
+  
+  
+  
   
   .hero-section {
     @include flex-layout($direction: column);
@@ -145,27 +180,27 @@ body {
       width: 288px;
       height: 75px;
       position: absolute;
-      left: 24.5px;
+      left: 28.5px;
       top: 124px;
       z-index: -1;
     }
   
     .hero-content {
       .hero-texts-button {
-        @include flex-layout($direction: column, $align: stretch, $justify: flex-start);
+        @include flex-layout($direction: column);
         position: relative; 
         z-index: 2;
         height: 246px;
         padding-top: 54px;
-        padding-left: 12px;
+        padding-left: 18px;
   
         .hero-text {
-          @include typography($primary-text-color, 1rem, 700, 1.2, 0, left);
+          @include typography($size: 13.33px, $weight: 700);
           padding-bottom: 12px;
         }
   
         .hero-title {
-          @include typography($accent-color, 2.25rem, 400, 1.4, 0, left);
+          @include typography($color: $accent-color, $size: 36px, $lineHeight: 1.4);
           letter-spacing: 1.44px;
           flex: 1 0 0;
           padding-bottom: 30px;
@@ -198,16 +233,14 @@ body {
   .features-section {
     position: relative;
     overflow: hidden;
-    height: 500px; /* Altura fija para el contenedor */
+    height: 500px; 
   
-    // Fondo SVG como imagen de fondo
     background: url('../assets/svg/features-background.png') no-repeat center top;
     background-size: 100% 500px; /* 100% de ancho, altura fija */
    
     .features-content {
       min-height: auto;
-      @include typography($color: $primary-text-color, $size: 14px, $weight: 400, $lineHeight: 1.2, $align: center, $letter-spacing: normal);
-      padding: 20px;
+      @include typography($size: 14px, $align: center);
       @include flex-layout(column, center, center);
       height: 457px;
       gap: 10px;
@@ -215,16 +248,13 @@ body {
       z-index: 1; /* Asegura que el contenido esté encima del fondo */
  
       .feature {
-        @include flex-layout(row, center, flex-start);
-        width: 310px;
+        @include flex-layout(row, flex-start, center);
         padding: 7px 34px;
         height: 76px;
 
         .feature-image {
           width: 62px;
           height: 62px;
-          border-radius: 50%;
-          overflow: hidden;
           margin-right: 38px; // Espacio entre la imagen y el texto
 
           img {
@@ -235,35 +265,30 @@ body {
         }
 
         .feature-text {
-          flex: 1;
-          @include flex-layout(column, center, flex-start);
+          width: 200px;
 
           h3 {
             margin: 0;
-            @include typography($color: $primary-text-color, $size: 14px, $weight: 700, $lineHeight: 1.2, $align: left);
+            @include typography($size: 12px, $weight: 700, $align: left);
           }
 
           p {
-            @include typography($primary-text-color, 13.33px, 400, 120%, 0, left, normal);
+            @include typography($size: 12px);
           }
         }
       }
     }
   }
 
- 
-  
   .feedback-section {
     @include flex-layout(column, center, center);
-    min-height: auto;
     height: 846px;
     width: 357px;
-    gap: 36px;
+    gap: 28px;
     margin: 0 auto;
-    position: static; 
   
     .feedback-title {
-      @include typography($color: $accent-color, $size: 1.2rem, $weight: 700, $lineHeight: 1.2, $align: center);
+      @include typography($color: $accent-color, $size: 19.2px, $weight: 700, $align: center);
       position: relative; 
   
       .feedback-background-image {
@@ -282,23 +307,24 @@ body {
       margin: 0 auto;
   
       p {
-        @include typography($size: 0.833rem, $lineHeight: 1.2, $align: center);
+        @include typography($size: 13.33px, $align: center);
       }
       
       h3 {
-        @include typography($color: $accent-color, $size: 1rem, $weight: 700, $lineHeight: 1.2, $align: center);
+        @include typography($color: $accent-color, $size: 1rem, $weight: 700, $align: center);
       }
   
       img {
         display: block;
         margin: 0 auto;
+        padding-top: 8px;
       }
     }
   }
   
   .section-title h2 {
     @include flex-layout($justify: center, $align: center);
-    @include typography($size: 1rem, $weight: 700, $lineHeight: 1.2, $align: center);
+    @include typography($size: 1rem, $weight: 700, $align: center);
     height: 48px;
     padding: 0px 15px 0px 14px;
     flex-shrink: 0;
@@ -309,57 +335,33 @@ body {
     @include flex-layout($direction: column);
   
     .workshop {
-      @include flex-layout($direction: column);
-      padding-bottom: 40px;
+      padding-bottom: 28px;
       width: 100%;
-  
-      .workshop-image-left {
-        height: auto;
-        margin-left: 0;
-        flex-shrink: 0;
-        flex-grow: 0;
-  
-        img {
-          @include image-resize(280px, auto);
-        }
-      }
   
       .workshop-image-left,
       .workshop-image-right {
         height: auto;
   
         img {
-          width: 100%; 
-          max-width: 280px;
+          width: 80%;
           height: auto;
         }
       }
   
       .workshop-image-right {
-        margin-left: auto;
-        margin-right: 0;
         text-align: right;
-        align-self: flex-end;
       }
-  
-     // .workshop-content-left, 
       .workshop-content {
-        @include flex-layout($direction: column, $justify: space-between, $align: center);
-        width: 90%;
-        padding-left: 18px;
-        padding-right: 24px;
+       width: 95%;
+        padding: 12px 0 18px 12px;
 
         .workshop-info {
-          @include flex-layout($direction: row, $justify: space-between, $align: center);
-          width: 100%;
+          @include flex-layout($justify: space-between, $align: center);
 
           .workshop-icon-text {
-              
             @include flex-layout($align: flex-start);
-            width: 90%;
-            padding-left: 12px;
             h3 {
-              @include typography($color: $accent-color, $size: 0.833rem, $weight: 700, $lineHeight: 1.2, $align: center);
+              @include typography($color: $accent-color, $size: 13.33px, $weight: 700);
             }
       
             img {
@@ -367,28 +369,28 @@ body {
               width: 24px;
               height: 24px;
               padding: 10px;
-              margin-right: 8px;
-              flex-shrink: 0;
             }
             .default-text {
               display: none;
+            }
+
+            .expand-icon {
+              transition: transform 0.3s ease, content 0.3s ease; /* Transiciones suaves para rotación */
+            }
+            .expand-icon.rotate {
+              transform: rotate(180deg); /* Rota el icono 180 grados */
             }
           }
         }
 
         .expandable-text {
-         @include flex-layout($justify: space-between, $align: flex-start);
-         // margin-top: 10px;
-         // padding: 10px;
-         // border-radius: 4px;
-        //  z-index: 1;
-          width: 70%;
+          width: 75%;
           display: none;
           transition: opacity 0.3s ease-in-out; /* Añade una transición de opacidad */
           p {
-            margin-top: 12px;
-            @include typography($color: $primary-text-color, $size: 0.833rem, $weight: 400, $lineHeight: 1.2, $align: left);
-     
+            margin-top: 4px;
+            margin-left: 18px;
+            @include typography($size: 13.33px);
           }
         }
     
@@ -402,10 +404,11 @@ body {
   
   .shop-section {
     width: 100%;
+   padding-bottom: 32px;
     @include flex-layout($direction: column);
   
     .shop-image img {
-      max-width: 100%;
+      width: 100%;
     }
   
     .shop-content {
@@ -414,12 +417,14 @@ body {
       padding-right: 42px;
   
       h3 {
-        @include typography($color: $accent-color, $size: 1rem, $weight: 700, $lineHeight: 1.2, $align: left);
+        @include typography($color: $accent-color, $size: 1rem, $weight: 700);
+        margin-top: 24px;
+        margin-bottom: 8px;
       }
   
       p {
-        width: 258px;
-        @include typography($color: $primary-text-color, $size: 0.833rem, $weight: 400, $lineHeight: 1.2, $align: left);
+        width: 75%;
+        @include typography($size: 13.33px);
       }
   
       .text-button {
@@ -429,17 +434,25 @@ body {
   }
   
 .product-section {
-  
+   padding-bottom: 32px;
+
   .product-card-list {
-    @include flex-layout($direction: row);
+    @include flex-layout();
     height: 307px;
-    padding: 12px;
-    gap: 12px;
+    padding: 16px;
+    gap: 16px;
     overflow: hidden;
 
     overflow-x: auto; //scroll horizontal
     scroll-snap-type: x mandatory; // Ajuste de desplazamiento suave
-  //  -webkit-overflow-scrolling: touch;
+    scrollbar-width: none; /* Ocultar barra de desplazamiento en Firefox */
+    -ms-overflow-style: none;  /* Ocultar barra de desplazamiento en Internet Explorer y Edge */
+  
+
+  ::-webkit-scrollbar {
+    display: none; /* Ocultar barra de desplazamiento en Chrome, Safari, Opera */
+  }
+ 
  
   .product-card {
     display: flex;
@@ -456,7 +469,9 @@ body {
     .card-image {
       width: 224px;
       height: 180px;
-      border-radius: var(--Spacing-spacing-s, 12px) var(--Spacing-spacing-s, 12px) 0px 0px;
+      img {
+        border-radius: var(--Spacing-spacing-s, 12px) var(--Spacing-spacing-s, 12px) 0px 0px;
+      }
     }
     .card-text{
       @include flex-layout(column, space-between, flex-start);
@@ -465,7 +480,7 @@ body {
       height: 72px;
 
       .card-title {
-        @include typography($color: $primary-text-color, $size: 12px, $weight: 700, $lineHeight: 1.2, $align: left);  
+        @include typography($size: 13.33px, $weight: 700);  
       }
   
       .card-info {
@@ -475,12 +490,12 @@ body {
         white-space: nowrap;
         text-overflow: ellipsis; // tres puntos al final
         overflow: hidden; //evitar mostrarse todo el texto
-        @include typography($color: $primary-text-color, $size: 12px, $weight: 400, $lineHeight: 1.2, $align: left);
+        @include typography($size: 12px);
       }
   
       .card-price {
         padding-bottom: 8px;
-        @include typography($color: $primary-text-color, $size: 12px, $weight: 400, $lineHeight: 1.2, $align: left);
+        @include typography($size: 13.33px);
       }
   
     }
@@ -489,9 +504,6 @@ body {
 }
 
   .newsletter-section {
-    width: 100%;
-    @include flex-layout($direction: column);
-  
     gap: 12px;
   
     .newsletter {
@@ -501,66 +513,50 @@ body {
       }
   
       .newsletter-content {
-        padding-left: 24px;
-        padding-right: 42px;
+        padding: 24px 42px 12px 24px;
   
         h3 {
-          @include typography($color: $accent-color, $size: 1rem, $weight: 700, $lineHeight: 1.2, $align: left);
+          width: 70%;
+          @include typography($color: $accent-color, $weight: 700);
         }
   
         p {
-          @include typography($color: $primary-text-color, $size: 0.833rem, $weight: 400, $lineHeight: 1.2, $align: left);
+          @include typography($size: 13.33px);
         }
         .text-button {
           @include flex-layout($direction: column, $justify: space-between, $align: baseline);
-          gap: 20px;
+          gap: 24px;
         }
       }
     }
   }
   
   .footer-section {
-    @include flex-layout(column, center, center); // Aplicamos el diseño flexbox
+    @include flex-layout(column, center, center); 
     background: url('../assets/svg/footer-mobile-background.png') no-repeat center center;
     background-size: 100% 600px; 
-    // background-size: cover; 
     margin-top: 30px;
     padding-top: 80px;
     
     .footer-content {
-      @include flex-layout(column, center, stretch); // Aplicamos el diseño flexbox
+      @include flex-layout(column, center, stretch); 
       gap: 26px;
       padding-bottom: 30px;
+      width: 55%; 
 
       .footer-info {
-      @include flex-layout(column, center, stretch); // Aplicamos el diseño flexbox
-      gap: 10px;
-      width: 75%; 
+      @include flex-layout(column, center, stretch);
+      gap: 24px;
       position: relative;
 
-  
       .footer-column {
         h4 {
-          @include typography(
-            $color: $background-color,
-            $size: 13.33px,
-            $weight: 700,
-            $lineHeight: 120%,
-            $letter-spacing: 0,
-            $align: left
-          );
+          @include typography($color: $background-color, $size: 13.33px, $weight: 700);
           margin-bottom: 10px;
         }
   
         a, p {
-          @include typography(
-            $color: $background-color,
-            $size: 13.33px,
-            $weight: 400,
-            $lineHeight: 120%,
-            $letter-spacing: 0,
-            $align: left,
-          );
+          @include typography($color: $background-color, $size: 13.33px);
           margin-top: 4px;
           margin-bottom: 0;
           text-decoration: none;
@@ -569,7 +565,7 @@ body {
   
     }
     .footer-social {
-      @include flex-layout(row, flex-start, center); // Aplicamos el diseño flexbox
+      @include flex-layout($align: center); 
       gap: 16px;
       margin-top: 16px;
       img {
@@ -579,16 +575,9 @@ body {
     }
   
     .footer-credits {
-      @include typography(
-        $color:$background-color,
-        $size: 12px,
-        $weight: 400,
-        $lineHeight: 120%,
-        $letter-spacing: 0,
-        $align: left
-      );
-    margin-top: 16px;
-    margin-bottom: 16px;
+      @include typography($color:$background-color, $size: 12px);
+      margin-top: 16px;
+      margin-bottom: 16px;
     }
   }
 }

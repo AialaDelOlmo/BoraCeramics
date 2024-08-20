@@ -363,6 +363,7 @@ nav {
     .workshop-image-right {
       height: auto;
       max-width: 542px;
+
       img {
         @include image-resize(80%, auto);
       }
@@ -469,75 +470,81 @@ nav {
 .product-section {
   padding-bottom: 32px;
 
-  .product-card-list {
-    @include flex-layout();
-    height: 307px;
-    padding: 16px;
-    gap: 16px;
-    overflow: hidden;
-
-    overflow-x: auto; //scroll horizontal
-    scroll-snap-type: x mandatory; // Ajuste de desplazamiento suave
-    scrollbar-width: none;
-    /* Ocultar barra de desplazamiento en Firefox */
-    -ms-overflow-style: none;
-    /* Ocultar barra de desplazamiento en Internet Explorer y Edge */
-
-
-    ::-webkit-scrollbar {
+  .carousel-container {
+    .carousel-button {
       display: none;
-      /* Ocultar barra de desplazamiento en Chrome, Safari, Opera */
     }
 
+    .product-card-list {
+      @include flex-layout();
+      height: 307px;
+      padding: 16px;
+      gap: 16px;
+      overflow: hidden;
 
-    .product-card {
-      @include flex-layout($direction: column, $justify: space-between, $align: center); // Flexbox vertical centrado
+      overflow-x: auto; //scroll horizontal
+      scroll-snap-type: x mandatory; // Ajuste de desplazamiento suave
+      scrollbar-width: none;
+      /* Ocultar barra de desplazamiento en Firefox */
+      -ms-overflow-style: none;
+      /* Ocultar barra de desplazamiento en Internet Explorer y Edge */
 
-      // display: flex;
-      width: 224px;
-      height: 272px;
-      //flex-direction: column;
-      //align-items: center;
-      gap: 12px;
-      //flex-shrink: 0;
-      border-radius: 12px;
-      background: #FFF;
-      box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.15);
 
-      .card-image {
-        width: 224px;
-        height: 180px;
-
-        img {
-          border-radius: var(--Spacing-spacing-s, 12px) var(--Spacing-spacing-s, 12px) 0px 0px;
-        }
+      ::-webkit-scrollbar {
+        display: none;
+        /* Ocultar barra de desplazamiento en Chrome, Safari, Opera */
       }
 
-      .card-text {
-        @include flex-layout(column, space-between, flex-start);
-        gap: 8px;
-        width: 80%;
-        height: 72px;
 
-        .card-title {
-          @include typography($size: 13.33px, $weight: 700);
+      .product-card {
+        @include flex-layout($direction: column, $justify: space-between, $align: center); // Flexbox vertical centrado
+
+        // display: flex;
+        width: 224px;
+        height: 272px;
+        //flex-direction: column;
+        //align-items: center;
+        gap: 12px;
+        //flex-shrink: 0;
+        border-radius: 12px;
+        background: #FFF;
+        box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.15);
+
+        .card-image {
+          width: 224px;
+          height: 180px;
+
+          img {
+            border-radius: var(--Spacing-spacing-s, 12px) var(--Spacing-spacing-s, 12px) 0px 0px;
+          }
         }
 
-        .card-info {
-          width: 100%;
-          height: 12px;
-          top: 20px;
-          white-space: nowrap;
-          text-overflow: ellipsis; // tres puntos al final
-          overflow: hidden; //evitar mostrarse todo el texto
-          @include typography($size: 12px);
-        }
+        .card-text {
+          @include flex-layout(column, space-between, flex-start);
+          gap: 8px;
+          width: 80%;
+          height: 72px;
 
-        .card-price {
-          padding-bottom: 8px;
-          @include typography($size: 13.33px);
-        }
+          .card-title {
+            @include typography($size: 13.33px, $weight: 700);
+          }
 
+          .card-info {
+            width: 100%;
+            height: 12px;
+            top: 20px;
+            white-space: nowrap;
+            text-overflow: ellipsis; // tres puntos al final
+            overflow: hidden; //evitar mostrarse todo el texto
+            @include typography($size: 12px);
+          }
+
+          .card-price {
+            padding-bottom: 8px;
+            @include typography($size: 13.33px);
+          }
+
+        }
       }
     }
   }

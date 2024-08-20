@@ -564,7 +564,10 @@ nav .icons img {
 .product-section {
   padding-bottom: 32px;
 }
-.product-section .product-card-list {
+.product-section .carousel-container .carousel-button {
+  display: none;
+}
+.product-section .carousel-container .product-card-list {
   display: flex;
   flex-direction: row;
   justify-content: flex-start;
@@ -580,11 +583,11 @@ nav .icons img {
   -ms-overflow-style: none;
   /* Ocultar barra de desplazamiento en Internet Explorer y Edge */
 }
-.product-section .product-card-list ::-webkit-scrollbar {
+.product-section .carousel-container .product-card-list ::-webkit-scrollbar {
   display: none;
   /* Ocultar barra de desplazamiento en Chrome, Safari, Opera */
 }
-.product-section .product-card-list .product-card {
+.product-section .carousel-container .product-card-list .product-card {
   display: flex;
   flex-direction: column;
   justify-content: space-between;
@@ -596,14 +599,14 @@ nav .icons img {
   background: #FFF;
   box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.15);
 }
-.product-section .product-card-list .product-card .card-image {
+.product-section .carousel-container .product-card-list .product-card .card-image {
   width: 224px;
   height: 180px;
 }
-.product-section .product-card-list .product-card .card-image img {
+.product-section .carousel-container .product-card-list .product-card .card-image img {
   border-radius: var(--Spacing-spacing-s, 12px) var(--Spacing-spacing-s, 12px) 0px 0px;
 }
-.product-section .product-card-list .product-card .card-text {
+.product-section .carousel-container .product-card-list .product-card .card-text {
   display: flex;
   flex-direction: column;
   justify-content: space-between;
@@ -612,7 +615,7 @@ nav .icons img {
   width: 80%;
   height: 72px;
 }
-.product-section .product-card-list .product-card .card-text .card-title {
+.product-section .carousel-container .product-card-list .product-card .card-text .card-title {
   color: #1F1F1D;
   font-size: 0.833125rem;
   font-weight: 700;
@@ -622,7 +625,7 @@ nav .icons img {
   letter-spacing: normal;
   font-family: "Montserrat";
 }
-.product-section .product-card-list .product-card .card-text .card-info {
+.product-section .carousel-container .product-card-list .product-card .card-text .card-info {
   width: 100%;
   height: 12px;
   top: 20px;
@@ -638,7 +641,7 @@ nav .icons img {
   letter-spacing: normal;
   font-family: "Montserrat";
 }
-.product-section .product-card-list .product-card .card-text .card-price {
+.product-section .carousel-container .product-card-list .product-card .card-text .card-price {
   padding-bottom: 8px;
   color: #1F1F1D;
   font-size: 0.833125rem;
@@ -884,9 +887,11 @@ nav .icons img {
   }
   .input-container .input-label {
     position: absolute;
-    top: 50%; /* Centra verticalmente el label dentro del input */
+    top: 50%;
+    /* Centra verticalmente el label dentro del input */
     left: 12px;
-    transform: translateY(-50%); /* Asegura que el label esté centrado verticalmente */
+    transform: translateY(-50%);
+    /* Asegura que el label esté centrado verticalmente */
     color: #888;
     font-size: 16px;
     pointer-events: none;
@@ -1270,7 +1275,10 @@ nav .icons img {
   .product-section {
     padding-bottom: 38px;
   }
-  .product-section .product-card-list {
+  .product-section .carousel-container .carousel-button {
+    display: none;
+  }
+  .product-section .carousel-container .product-card-list {
     display: flex;
     flex-direction: row;
     justify-content: flex-start;
@@ -1287,11 +1295,11 @@ nav .icons img {
     -ms-overflow-style: none;
     /* Ocultar barra de desplazamiento en Internet Explorer y Edge */
   }
-  .product-section .product-card-list ::-webkit-scrollbar {
+  .product-section .carousel-container .product-card-list ::-webkit-scrollbar {
     display: none;
     /* Ocultar barra de desplazamiento en Chrome, Safari, Opera */
   }
-  .product-section .product-card-list .product-card {
+  .product-section .carousel-container .product-card-list .product-card {
     display: flex;
     flex-direction: column;
     justify-content: flex-start;
@@ -1303,19 +1311,19 @@ nav .icons img {
     background: #FFF;
     box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.15);
   }
-  .product-section .product-card-list .product-card .card-image {
+  .product-section .carousel-container .product-card-list .product-card .card-image {
     width: 232px;
     height: 188px;
     border-radius: 12px 12px 0 0;
   }
-  .product-section .product-card-list .product-card .card-image img {
+  .product-section .carousel-container .product-card-list .product-card .card-image img {
     width: 100%;
     height: 100%;
   }
-  .product-section .product-card-list .product-card .card-text {
+  .product-section .carousel-container .product-card-list .product-card .card-text {
     padding-top: 12px;
   }
-  .product-section .product-card-list .product-card .card-text .card-title {
+  .product-section .carousel-container .product-card-list .product-card .card-text .card-title {
     color: #1F1F1D;
     font-size: 0.833125rem;
     font-weight: 700;
@@ -1325,7 +1333,7 @@ nav .icons img {
     letter-spacing: normal;
     font-family: "Montserrat";
   }
-  .product-section .product-card-list .product-card .card-text .card-info {
+  .product-section .carousel-container .product-card-list .product-card .card-text .card-info {
     color: #1F1F1D;
     font-size: 0.75rem;
     font-weight: 400;
@@ -1335,7 +1343,7 @@ nav .icons img {
     letter-spacing: normal;
     font-family: "Montserrat";
   }
-  .product-section .product-card-list .product-card .card-text .card-price {
+  .product-section .carousel-container .product-card-list .product-card .card-text .card-price {
     padding-bottom: 8px;
     color: #1F1F1D;
     font-size: 0.833125rem;
@@ -2007,7 +2015,29 @@ nav .icons img {
   .product-section {
     padding-bottom: 42px;
   }
-  .product-section .product-card-list {
+  .product-section .carousel-container {
+    position: relative;
+    display: flex;
+    align-items: center;
+  }
+  .product-section .carousel-container .carousel-button {
+    display: flex;
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background-color: rgba(255, 255, 255, 0.7);
+    border: none;
+    padding: 10px;
+    cursor: pointer;
+    z-index: 2;
+  }
+  .product-section .carousel-container .carousel-button.left-button {
+    left: 0;
+  }
+  .product-section .carousel-container .carousel-button.right-button {
+    right: 0;
+  }
+  .product-section .carousel-container .product-card-list {
     display: flex;
     flex-direction: row;
     justify-content: flex-start;
@@ -2019,7 +2049,7 @@ nav .icons img {
     overflow: hidden;
     scroll-snap-type: x mandatory;
   }
-  .product-section .product-card-list .product-card {
+  .product-section .carousel-container .product-card-list .product-card {
     display: flex;
     flex-direction: column;
     justify-content: flex-start;
@@ -2031,22 +2061,22 @@ nav .icons img {
     background: #FFF;
     box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.15);
   }
-  .product-section .product-card-list .product-card .card-image {
+  .product-section .carousel-container .product-card-list .product-card .card-image {
     width: 298px;
     height: 228px;
     border-radius: 12px 12px 0 0;
     overflow: hidden;
   }
-  .product-section .product-card-list .product-card .card-image img {
+  .product-section .carousel-container .product-card-list .product-card .card-image img {
     width: 100%;
     height: 100%;
   }
-  .product-section .product-card-list .product-card .card-text {
+  .product-section .carousel-container .product-card-list .product-card .card-text {
     padding-top: 12px;
     gap: 1px;
     height: 92px;
   }
-  .product-section .product-card-list .product-card .card-text .card-title {
+  .product-section .carousel-container .product-card-list .product-card .card-text .card-title {
     color: #1F1F1D;
     font-size: 1rem;
     font-weight: 700;
@@ -2056,7 +2086,7 @@ nav .icons img {
     letter-spacing: normal;
     font-family: "Montserrat";
   }
-  .product-section .product-card-list .product-card .card-text .card-info {
+  .product-section .carousel-container .product-card-list .product-card .card-text .card-info {
     width: 100%;
     height: 18px;
     color: #1F1F1D;
@@ -2068,7 +2098,7 @@ nav .icons img {
     letter-spacing: normal;
     font-family: "Montserrat";
   }
-  .product-section .product-card-list .product-card .card-text .card-price {
+  .product-section .carousel-container .product-card-list .product-card .card-text .card-price {
     padding-bottom: 12px;
     color: #1F1F1D;
     font-size: 1rem;

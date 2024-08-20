@@ -237,6 +237,8 @@
             <div class="section-title">
                 <h2>Lo más vendido</h2>
             </div>
+            <div class="carousel-container">
+            <button class="carousel-button left-button">←</button>
             <div class="product-card-list">
                 <div class="product-card">
                     <div class="card-image">
@@ -318,7 +320,10 @@
                         <div class="card-price">55 €</div>
                     </div>
                 </div>
+               
             </div>
+            <button class="carousel-button right-button">→</button>
+        </div>
         </section>
 
         <!--NEWSLETTER-->
@@ -417,6 +422,30 @@
                     });
                 });
             });
+
+            //desplazamiento cards en desktop
+            document.addEventListener('DOMContentLoaded', function() {
+            const productCardList = document.querySelector('.product-card-list');
+            const leftButton = document.querySelector('.left-button');
+            const rightButton = document.querySelector('.right-button');
+
+            // Obteniendo el ancho de una sola card (incluyendo gap)
+            const cardWidth = document.querySelector('.product-card').offsetWidth + parseInt(getComputedStyle(productCardList).gap);
+
+            leftButton.addEventListener('click', () => {
+                productCardList.scrollBy({
+                    left: -cardWidth * 5, // Desplaza 5 cards hacia la izquierda
+                    behavior: 'smooth'
+                });
+            });
+
+            rightButton.addEventListener('click', () => {
+                productCardList.scrollBy({
+                    left: cardWidth * 5, // Desplaza 5 cards hacia la derecha
+                    behavior: 'smooth'
+                });
+            });
+        });
 
         </script>
 

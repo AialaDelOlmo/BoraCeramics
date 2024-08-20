@@ -14,7 +14,7 @@
       order: 1; // El logo va primero
 
       img {
-        width: 100px;
+        width: 96px;
         height: auto;
         content: url('../assets/img/Bora_Logo_brown.png');
       }
@@ -72,6 +72,31 @@
     border: 1px solid var(--Color-Blue-Blue-8, #2D3B62);
     background: var(--Color-button-label-primary, #F8F8F8);
 
+  }
+
+
+.input-container {
+    position: relative;
+    width: 100%;
+  
+    .input {
+      width: 344px;
+      height: 40px;
+      font-size: 14px;
+    }
+
+    .input-label {
+      position: absolute;
+      top: 50%; /* Centra verticalmente el label dentro del input */
+      left: 12px;
+      transform: translateY(-50%); /* Asegura que el label esté centrado verticalmente */
+      color: #888;
+      font-size: 16px;
+      pointer-events: none;
+      /* Evita que el label interfiera con el clic en el input */
+      transition: all 0.3s ease;
+      /* Transición suave para cambios de estilo */
+    }
   }
 
   .hero-section {
@@ -161,7 +186,7 @@
       padding-top: 24px;
 
       .feature {
-        @include flex-layout($direction: column, $justify: center, $align: center);
+        @include flex-layout(column, center, center);
         width: 257px;
         height: 170px;
         padding: 0;
@@ -170,11 +195,11 @@
         .feature-image {
           width: 86px;
           height: 86px;
-          margin: 0 0 20px 0;
+          margin: 0 0 20px 0; // centrado con 20px bottom
         }
 
         .feature-text {
-          @include flex-layout($direction: column, $justify: center, $align: center);
+          @include flex-layout(column, center, center);
           width: 257px;
 
           h3 {
@@ -248,7 +273,7 @@
     @include flex-layout(row, center, center);
     height: 48px;
     padding: 0 15px 0 14px;
-    flex-shrink: 0;
+ //   flex-shrink: 0;
     background: $background-color;
     @include typography($color: $primary-text-color, $size: 19.2px, $weight: 700, $lineHeight: 120%, $align: center);
   }
@@ -257,23 +282,21 @@
     @include flex-layout(column, center, stretch);
 
     .secondary-enabled-button::before {
-      content: "¡Me apunto!";
+      content: "¡Me apunto!"; //añade texto al botón
     }
 
     .workshop {
-      @include flex-layout(row, space-between, flex-start);
+      @include flex-layout(row, flex-start, center);
       padding-bottom: 40px;
       padding-top: 32px;
       width: 100%;
-      align-items: center;
 
       .workshop-image-left,
       .workshop-image-right {
         height: auto;
-
+        max-width: 656px;
         img {
-          @include image-resize(100%, auto);
-          width: 96%;
+          @include image-resize(96%, auto);
         }
       }
 
@@ -283,12 +306,12 @@
         order: 2;
         text-align: right;
         align-self: flex-end;
+        border: 0;
       }
 
       .workshop-content {
         @include flex-layout(column, flex-start, flex-start);
         width: 256px;
-        //  gap: 15px;
         padding-left: 126px;
         padding-right: 126px;
         text-align: left;
@@ -374,6 +397,7 @@
   }
 
   .product-section {
+    padding-bottom: 38px;
     .product-card-list {
       @include flex-layout();
       height: 348px;
@@ -467,6 +491,7 @@
 
         h3 {
           @include typography($color: $accent-color, $size: 16px, $weight: 700, $lineHeight: 120%, $align: left);
+          margin: 0;
         }
 
         p {
@@ -475,7 +500,7 @@
 
         .text-button {
           @include flex-layout(column, flex-start, flex-start);
-          gap: 12px;
+          gap: 18px;
 
         }
 
@@ -483,19 +508,7 @@
           align-self: flex-start;
         }
 
-        input {
-          margin-bottom: 20px;
-          width: 312px;
-        }
-
-        .input-label {
-          transform: translateY(-110%);
-          top: 50%;
-          /* Centra verticalmente el label dentro del input */
-          left: 12px;
-          /* Alineación horizontal */
-          position: absolute;
-        }
+      
       }
     }
   }
@@ -506,6 +519,7 @@
 
     .footer-content {
       gap: 32px;
+      width: 65%;
 
       .footer-info {
         @include flex-layout(row, center, flex-start);
@@ -536,6 +550,8 @@
               $letter-spacing: 0,
               $align: left,
             );
+
+            margin-bottom: 8px;
           }
         }
 

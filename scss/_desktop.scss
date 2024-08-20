@@ -1,558 +1,577 @@
-
 @media (min-width: 1280px) {
-    .navbar {
-    //  box-sizing: border-box;
-      .menu-icon {
-        display: none; // Ocultar icono de menú en desktop
-      }
-    
-      .logo {
-        @include flex-layout(row, flex-start, center); // Usando el mixin para alinear el logo a la izquierda
-        order: 1; // El logo va primero
-        img {
-          width: 120px;
-        }
-      }
-     
-      .nav-links {
-        @include flex-layout(row, center, center); // Usando el mixin para centrar los enlaces de navegación
-        order: 2;
-    
-        p {
-          margin: 0 1rem; // Espaciado entre los enlaces
-        }
-      }
-    
-      .icons {
-        order: 3; // Iconos van al final
-    
-        .login-icon {
-          display: none; // Ocultar icono de login en desktop
-        }
-    
-        .login-text {
-          @include flex-layout(row, center, center); // Mostrar el texto de login
-        }
-        img {
-          width: 26px;
-          height: 26px;
-        }
-      }
+  nav {
+    padding: 12px 24px 12px 24px;
+
+    .menu-icon {
+      display: none; // Ocultar icono de menú en desktop
     }
-    
-    .hero-section {
-      @include flex-layout(column, center, center); // Alinear contenido al centro
-      width: 100%;
-      height: 698px;
-      background: url('../assets/svg/Hero_desk_background.PNG') no-repeat center center;
-      background-size: cover; // Asegura que la imagen cubra todo el contenedor
-      position: relative;
-    
-      .hero-background-image {
-        width: 450px;
-        height: 124px;
-        position: absolute;
-        left: 30.5px;
-        top: 136px;
-        z-index: -1; // Envía la imagen al fondo
-      }
-    
-      .hero-content {
-        @include flex-layout(row, center, center); // Usando el mixin para alinear el contenido de la hero section
-        gap: 87px;
-        height: 424px;
-    
-        .hero-texts-button {
-          @include flex-layout(column, flex-start, flex-start); // Alineación del texto a la izquierda
-          width: 563px;
-          height: 350px;
-          order: 2;
-    
-          .hero-text {
-            @include typography($primary-text-color, 19.2px, 700, 120%, 0, left); // Usando el mixin de typography para estilo de texto
-            font-style: normal;
-          }
-        
-          .hero-title {
-            @include typography($accent-color, 56px, 400, 140%, 0, left); // Usando el mixin de typography para estilo del título
-            font-style: normal;
-            letter-spacing: 2.24px;
-            flex: 1 0 0;
-          }
-        }
-    
-        .hero-carousel {
-          @include flex-layout(row, center, center); // Centrar el carousel
-          width: 592px;
-          height: 424px;
-          background: #FFF;
-          overflow: hidden; // Ocultar contenido que sobrepase el contenedor
-          box-shadow: 0 0 0 18px #FFF; // Ajusta el tamaño del marco según sea necesario
-          order: 1;
-          padding: 0;
-    
-          img {
-            width: 570px;
-            height: 400.5px;
-            object-fit: cover; // Asegura que la imagen mantenga su proporción
-          }
-    
-          .carousel-wrapper {
-            @include flex-layout(row, flex-start, stretch); // Aplicando flexbox a carousel-wrapper
-            width: 600%; // 100% por cada imagen (6 en total)
-            height: 100%;
-            transition: transform 1s ease-in-out; // Animación de deslizamiento
-    
-            img {
-              width: 600%; // Ajusta el ancho de cada imagen (100%/6 imágenes)
-              height: 100%;
-              object-fit: cover;
-            }
-          }
-        }
-      }
-    }
-    
-  
-    .primary-enabled-button {
-      @include flex-layout(row, center, center); // Usando flex-layout para centrar el contenido del botón
-      height: 43px;
-      padding: 12px 72px;
-      border: 1px solid var(--Color-Blue-Blue-8, #2D3B62);
-      background: var(--Color-button-background-primary, #A4B7E8);
-      gap: 10px;
-      @include typography(
-        $color: $primary-text-color,
-        $size: 19.2px,
-        $weight: 500,
-        $lineHeight: 120%,
-        $letter-spacing: 0,
-        $align: center
-      ); // Usando el mixin typography para estilizar
-    }
-    
-    .secondary-enabled-button {
-      @include flex-layout(row, center, center); // Usando flex-layout para centrar el contenido del botón
-      height: 48px; // Corrección de la altura duplicada
-      padding: 12px 72px;
-      gap: 10px;
-      border-radius: var(--Spacing-2, 8px);
-      border: 1px solid var(--Color-Blue-Blue-8, #2D3B62);
-      background: var(--Color-button-label-primary, #F8F8F8);
-      @include typography(
-        $color: $primary-text-color,
-        $size: 19.2px,
-        $weight: 500,
-        $lineHeight: 120%,
-        $letter-spacing: 0,
-        $align: center
-      ); // Usando el mixin typography para estilizar
-    }
-    
-    
-    .features-section {
-     
-      .features-content {
-        @include flex-layout(row, center, center); // Usando flex-layout para alinear elementos en el centro
-        text-align: center;
-        justify-content: center;
-      .feature {
-        @include flex-layout(column, center, center); // Usando flex-layout para centrar contenido en columna
-        width: 265px; // Corrección del ancho (px estaba incompleto)
+
+    .logo {
+      @include flex-layout(row, flex-start, center);
+      order: 1; // El logo va primero
+
+      img {
+        width: 110px;
         height: auto;
-    
-        .feature-image {
-          width: 98px;
-          height: 98px;
-          margin-bottom: 20px; // Espacio entre la imagen y el texto
-          border-radius: 50%;
-          overflow: hidden;
-        }
-    
-        .feature-text {
-          @include flex-layout(column, center, center); // Usando flex-layout para centrar texto
-          text-align: center;
-    
-          h3 {
-            @include typography($color: $primary-text-color, $size: 16px, $weight: 700, $lineHeight: 120%, $align: center); // Usando el mixin typography para h3
-          }
-    
-          p {
-            @include typography($color: $primary-text-color, $size: 16px, $weight: 400, $lineHeight: 120%, $align: center); // Usando el mixin typography para p
-            font-style: normal;
-          }
-        }
-      }
-    }
-  }
-    
-    .feedback-section {
-      @include flex-layout(column, center, center); // Usando flex-layout para alinear en columna
-      height: 529px;
-      width: 1012px;
-      margin: 0 auto;
-    
-      .feedback-title {
-        h3 {
-          @include typography($color: $accent-color, $size: 36px, $weight: 700, $lineHeight: 120%, $letter-spacing: 1.8px, $align: center); // Usando el mixin typography
-          width: 1012px;
-        }
-    
-        .feedback-background-image {
-          width: 452px;
-          height: 66px;
-          position: absolute;
-          left: 573.5px;
-          top: 25px;
-          z-index: -1; // Envía la imagen al fondo
-        }
-      }
-    
-      .feedbacks {
-        @include flex-layout(row, center, center); // Usando flex-layout para alineación en fila
-        width: 1021px;
-        gap: 48px 7px;
-        flex-shrink: 0;
-        margin: 0 auto;
-    
-        p {
-          @include typography($color: $primary-text-color, $size: 16px, $weight: 400, $lineHeight: 120%, $letter-spacing: 0, $align: center); // Usando el mixin typography
-          width: 264px;
-        }
-    
-        h3 {
-          @include typography($color: $accent-color, $size: 19.2px, $weight: 700, $lineHeight: 120%, $letter-spacing: 0, $align: center); // Usando el mixin typography
-        }
-    
-        img {
-          display: block; // Para que las imágenes se comporten como elementos de bloque
-          margin: 0 auto;
-        }
-      }
-    }
-    
-    .section-title h2 {
-      @include flex-layout(row, center, center); // Usando flex-layout para alinear el título
-      height: 72px;
-      padding: 0 15px 0 14px;
-      flex-shrink: 0;
-      background: $background-color;
-      @include typography($color: $primary-text-color, $size: 23.04px, $weight: 700, $lineHeight: 120%, $letter-spacing: 0, $align: center); // Usando el mixin typography
-    }
-    
-    .workshop-section {
-      .secondary-enabled-button::before {
-        content: "¡Me apunto!"; 
-      }
-    
-      display: flex;
-      flex-direction: column;
-    
-      .workshop {
-        @include flex-layout(row, space-between, center); // Aplicando flexbox con mixin
-        padding-bottom: 40px;
-        width: 100%;
-    
-        .workshop-image-left,
-        .workshop-image-right {
-          height: auto;
-          
-          img {
-            width: 100%; /* Ocupará el ancho máximo del contenedor sin desbordarse */
-            max-width: 640px; /* No crecerá más allá de 640px */
-            height: auto;
-          }
-        }
-    
-        .workshop-image-right {
-          margin-left: auto; /* Alinea la imagen a la derecha */
-          margin-right: 0;
-          order: 2;
-          text-align: right; /* Asegura que la imagen esté alineada a la derecha dentro de su contenedor */
-          align-self: flex-end; /* Alinea el contenedor en el borde derecho */
-        }
-    
-        .workshop-content {
-          @include flex-layout(column, flex-start, center); // Ajuste del layout
-          width: 300px;
-          padding-left: 156px;
-          padding-right: 156px;
-          gap: 45px;
-          text-align: left;
-    
-          .workshop-info {
-            @include flex-layout($direction: column, $justify: space-between, $align: flex-start);
-            width: 100%;
-         
-            .workshop-icon-text {
-              @include flex-layout(column, flex-start, flex-start); // Aplicando layout a la columna de íconos
-              text-align: left;
-              padding-left: 0;
-              padding-bottom: 18px;
-              width: 100%;
-
-              h3 {
-                @include typography($color: $accent-color, $size: 19.2px, $weight: 700, $lineHeight: 120%, $letter-spacing: 0, $align: left); // Usando typography
-              }
-
-              .default-text {
-                display: block ;
-                @include typography($color: $primary-text-color, $size: 19.2px, $weight: 400, $lineHeight: 120%, $letter-spacing: 0, $align: left); // Usando typography
-              }
-            }
-          }
-    
-          .expandable-text {
-            display: none;
-          }
-    
-          .expand-icon {
-            display: none;
-          }
-        }
-      }
-    }
-    
-  
-    .shop-section {
-      width: 100%;
-      @include flex-layout(row, space-between, stretch); // Usando flexbox para distribución de la sección
-    
-      .secondary-enabled-button::before {
-        content: "Ver productos"; 
-      }
-    
-      .shop {
-        @include flex-layout(row, flex-start, stretch); // Aplicando flexbox a la sección shop
-        width: 100%; // Asegura que el contenedor ocupe el 100% del ancho de la sección
-      }
-    
-      .shop-image {
-        width: 65%; // 65% del ancho para la imagen
-        order: 2; // Para que la imagen aparezca a la derecha
-        @include flex-layout(row, flex-end, center); // Alineación y justificación de la imagen
-        img {
-          width: 100%; // La imagen ocupa todo el contenedor de la derecha
-          height: auto; // Mantiene la proporción de la imagen
-        }
-      }
-    
-      .shop-content {
-        width: 35%; // 35% del ancho para los textos
-        order: 1; // Para que el contenido aparezca a la izquierda
-        @include flex-layout(column, center, flex-start); // Mantiene los textos en una columna y centrados verticalmente
-        padding-left: 88px;
-        padding-right: 88px;
-    
-        h3 {
-          @include typography($color: $accent-color, $size: 23.04px, $weight: 700, $lineHeight: 120%, $letter-spacing: 0, $align: left); // Usando typography para los encabezados
-        }
-    
-        p {
-          @include typography($color: $primary-text-color, $size: 19.2px, $weight: 400, $lineHeight: 120%, $letter-spacing: 0, $align: left); // Usando typography para los párrafos
-        }
-    
-        .text-button {
-          @include flex-layout(column, flex-start, flex-start); // Alineación de los botones en columna
-          gap: 16px; // Espacio entre los elementos del botón
-        }
-    
-        button {
-          align-self: flex-start; // Alinea el botón a la izquierda
-        }
-      }
-    }
-    
-    .product-section {
-      .product-card-list {
-        @include flex-layout($direction: row); // Usar el mixin para flexbox en dirección horizontal
-        height: 337px;
-        padding: 18px;
-        gap: 28px;
-        overflow-x: auto; // Scroll horizontal
-        overflow: hidden;
-        scroll-snap-type: x mandatory; // Ajuste de desplazamiento suave
-       // -webkit-overflow-scrolling: touch; // Scroll suave en dispositivos móviles
-    
-        .product-card {
-          @include flex-layout($direction: column, $justify: center, $align: center); // Flexbox vertical centrado
-          width: 298px;
-          height: 334px;
-          gap: 24px;
-          border-radius: 12px;
-          background: #FFF;
-          box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.15);
-    
-          .card-image {
-            width: 298px;
-            height: 228px;
-            border-radius: 12px 12px 0 0; // Ajuste de las esquinas redondeadas
-            overflow: hidden; // Asegura que la imagen se ajuste al contenedor
-            img {
-              width: 100%; // Asegura que la imagen ocupe todo el contenedor
-              height: 100%;
-            }
-          }
-    
-          .card-text {
-            @include flex-layout($direction: column, $justify: space-between, $align: flex-start);
-            gap: 8px;
-            width: 80%;
-            height: 78px;
-    
-            .card-title {
-              @include typography($color: $primary-text-color, $size: 16px, $weight: 700, $lineHeight: 1.2, $align: left);
-            }
-    
-            .card-info {
-              width: 100%;
-              white-space: nowrap;
-              text-overflow: ellipsis; // Tres puntos al final del texto
-              overflow: hidden; // Evita que se muestre todo el texto
-              @include typography($color: $primary-text-color, $size: 13.33px, $weight: 400, $lineHeight: 1.2, $align: left);
-            }
-    
-            .card-price {
-              padding-bottom: 12px;
-              @include typography($color: $primary-text-color, $size: 16px, $weight: 400, $lineHeight: 1.2, $align: left);
-            }
-          }
-        }
+        content: url('../assets/img/Bora_Logo_brown.png');
       }
     }
 
-    .newsletter-section {
-      @include flex-layout(row, space-between, stretch); // Aplicando el mixin flex-layout al contenedor principal
-      width: 100%;
-    
-      .secondary-enabled-button::before {
-        content: "Ver productos";
-      }
-    
-      .newsletter {
-        @include flex-layout(row, space-between, stretch); // Aplicando el mixin flex-layout a newsletter
-        width: 100%; // Asegura que el contenedor ocupe el 100% del ancho de la sección
-      
-    
-        .newsletter-image {
-          @include flex-layout(row, flex-end, stretch); // Aplicando el mixin flex-layout a newsletter-image
-          width: 50%; // 50% del ancho para la imagen
-          order: 2; // Para que la imagen aparezca a la derecha
-      
-          img {
-            width: 100%; // La imagen ocupa todo el contenedor
-            height: auto; // Mantiene la proporción de la imagen
-          }
-        }
-    
-      .newsletter-content {
-        @include flex-layout(column, center, flex-start); // Aplicando el mixin flex-layout a newsletter-content
-        width: 376px; // 50% del ancho para los textos
-        order: 1; // Para que el contenido aparezca a la izquierda
-        padding-left: 108px;
-        padding-right: 88px;
-    
-        h3 {
-          @include typography($color: $accent-color, $size: 16px, $weight: 700, $lineHeight: 120%, $align: left); // Aplicando el mixin typography a h3
-        }
-    
-        p {
-          @include typography($color: $primary-text-color, $size: 16px, $weight: 400, $lineHeight: 120%, $align: left); // Aplicando el mixin typography a p
-        }
-    
-        .text-button {
-          @include flex-layout(column, flex-start, flex-start); // Aplicando el mixin flex-layout a text-button
-          gap: 12px;
-          
-        }
-    
-        button {
-          align-self: flex-start; // Alinea el botón a la izquierda
-        }
-    
-        input {
-          margin-bottom: 20px; // Asegura un espacio debajo del campo de entrada
-          width: 312px;
-        }
+    .nav-links {
+      @include flex-layout(row, center, center);
+      order: 2;
+
+      p {
+        margin: 0 1rem; // Espaciado entre los enlaces
+        @include typography($size: 16px, $weight: 500, $align: center);
+
       }
     }
-  }
-  
-  
-  .footer-section {
-    @include flex-layout(column, center, center); // Aplicamos el diseño flexbox
-   // background: url('../assets/svg/footer-mobile-background.svg') no-repeat center center;
-    //background-size: cover; 
-    //margin-top: 0;
-    background-size: 100% 460px; 
-    padding-bottom: 0;
 
-    .footer-content {
-    //  @include flex-layout(column, center, stretch); // Aplicamos el diseño flexbox
-      gap: 32px;
-     padding-left: 100px;
-     
-      .footer-info {
-      @include flex-layout(row, flex-start, stretch); // Aplicamos el diseño flexbox
-      gap: 100px;
-      width: 100%;
-      padding-left: 0;
-
-      .footer-column {
-        margin-bottom: 0;
-        text-decoration: none;
-        width: 280px;
-
-        h4 {
-          @include typography(
-            $color: $background-color,
-            $size: 19.2px,
-            $weight: 700,
-            $lineHeight: 120%,
-            $letter-spacing: 0,
-            $align: left
-          );
-          margin-bottom: 10px;
-          
-        }
-  
-        a, p {
-          @include typography(
-            $color: $background-color,
-            $size: 19.2px,
-            $weight: 400,
-            $lineHeight: 120%,
-            $letter-spacing: 0,
-            $align: left,
-          );
-        }
-      }
-  
-    }
-    .footer-social {
-      @include flex-layout(row, flex-start, center); // Aplicamos el diseño flexbox
+    .icons {
+      order: 3; // Iconos van al final
       gap: 24px;
+
+      .login-icon {
+        display: none;
+      }
+
+      .login-text {
+        @include flex-layout(row, center, center);
+        @include typography($size: 16px, $weight: 500, $align: flex-start);
+      }
+
       img {
         width: 26px;
         height: 26px;
       }
     }
-  
-    .footer-credits {
-      @include typography(
-        $color:$background-color,
-        $size: 19.2px,
-        $weight: 300,
-        $lineHeight: 120%,
-        $letter-spacing: 0,
-        $align: left
-      );
-      margin-bottom: 16px;
+  }
+
+  .hero-section {
+    @include flex-layout(column, center, center);
+    width: 100%;
+    height: 698px;
+    background: url('../assets/svg/Hero_desk_background.PNG') no-repeat center bottom;
+    background-size: cover; // Asegura que la imagen cubra todo el contenedor
+    position: relative;
+
+    .hero-background-image {
+      width: 450px;
+      height: 124px;
+      position: absolute;
+      left: 30.5px;
+      top: 136px;
+      z-index: -1; // Envía la imagen al fondo
+    }
+
+    .hero-content {
+      @include flex-layout(row, center, center);
+      gap: 87px;
+      height: 424px;
+
+      .hero-texts-button {
+        @include flex-layout(column, flex-start, flex-start);
+        width: 563px;
+        height: 350px;
+        order: 2;
+
+        .hero-text {
+          @include typography($primary-text-color, 19.2px, 700, 120%, 0, left);
+          font-style: normal;
+        }
+
+        .hero-title {
+          @include typography($accent-color, 56px, 400, 140%, 0, left);
+          font-style: normal;
+          letter-spacing: 2.24px;
+          flex: 1 0 0;
+        }
+      }
+
+      .hero-carousel {
+        @include flex-layout(row, center, center);
+        width: 592px;
+        height: 424px;
+        background: #FFF;
+        overflow: hidden; // Ocultar contenido que sobrepase el contenedor
+        box-shadow: 0 0 0 12px #FFF;
+        order: 1;
+        padding: 0;
+
+        img {
+          width: 570px;
+          height: 400.5px;
+          object-fit: cover; // Asegura que la imagen mantenga su proporción
+        }
+
+        .carousel-wrapper {
+          @include flex-layout(row, flex-start, stretch);
+          width: 600%; // 100% por cada imagen (6 en total)
+          height: 100%;
+          transition: transform 1s ease-in-out; // Animación de deslizamiento
+
+          img {
+            width: 600%; // Ajusta el ancho de cada imagen (100%/6 imágenes)
+            height: 100%;
+            object-fit: cover;
+          }
+        }
+      }
     }
   }
-}
 
+  .input-container {
+    position: relative;
+    width: 100%;
+
+    .input {
+      width: 376px;
+      height: 48px;
+    }
+
+    .input-label {
+      position: absolute;
+      top: 50%; // Centra verticalmente el label dentro del input 
+      left: 12px; // Alineación horizontal 
+      transform: translateY(-50%); // Asegura que el label esté centrado verticalmente 
+      color: #888;
+      font-size: 16px;
+      pointer-events: none; // Evita que el label interfiera con el clic en el input
+      transition: all 0.3s ease; // Transición suave 
+    }
   }
-  
-  
-  
+
+  .primary-enabled-button {
+    @include flex-layout(row, center, center);
+    height: 43px;
+    padding: 12px 72px;
+    border: 1px solid var(--Color-Blue-Blue-8, #2D3B62);
+    background: var(--Color-button-background-primary, #A4B7E8);
+    gap: 10px;
+    @include typography($color: $primary-text-color,
+      $size: 19.2px,
+      $weight: 500,
+      $lineHeight: 120%,
+      $letter-spacing: 0,
+      $align: center);
+  }
+
+  .secondary-enabled-button {
+    @include flex-layout(row, center, center);
+    height: 48px;
+    padding: 12px 72px;
+    gap: 10px;
+    border-radius: var(--Spacing-2, 8px);
+    border: 1px solid var(--Color-Blue-Blue-8, #2D3B62);
+    background: var(--Color-button-label-primary, #F8F8F8);
+    @include typography($color: $primary-text-color,
+      $size: 19.2px,
+      $weight: 500,
+      $lineHeight: 120%,
+      $letter-spacing: 0,
+      $align: center);
+  }
+
+
+  .features-section {
+    height: 480px;
+    background-size: 100% 380px;
+
+    .features-content {
+      @include flex-layout(row, center, center);
+      text-align: center;
+      justify-content: center;
+      height: 320px;
+      margin-top: 30px;
+
+      .feature {
+        @include flex-layout(column, center, center);
+        width: 265px;
+        height: auto;
+        padding: 4px 12px;
+
+        .feature-image {
+          width: 98px;
+          height: 98px;
+          margin: 0 0 20px 0; // centra con 20px bottom
+        }
+
+        .feature-text {
+          @include flex-layout(column, center, center);
+          text-align: center;
+
+          h3 {
+            @include typography($color: $primary-text-color, $size: 16px, $weight: 700, $lineHeight: 120%, $align: center);
+          }
+
+          p {
+            @include typography($color: $primary-text-color, $size: 16px, $weight: 400, $lineHeight: 120%, $align: center);
+            font-style: normal;
+          }
+        }
+      }
+    }
+  }
+
+  .feedback-section {
+    @include flex-layout(column, flex-start, center);
+    height: 529px;
+    width: 1012px;
+    margin: 0 auto;
+    gap: 32px;
+
+    .feedback-title {
+      h3 {
+        @include typography($color: $accent-color, $size: 36px, $weight: 700, $lineHeight: 120%, $letter-spacing: 1.8px, $align: center);
+        width: 1012px;
+      }
+
+      .feedback-background-image {
+        width: 452px;
+        height: 66px;
+        position: absolute;
+        left: 573.5px;
+        top: 25px;
+        z-index: -1; // Envía la imagen al fondo
+      }
+    }
+
+    .feedbacks {
+      @include flex-layout(row, center, center);
+      width: 1021px;
+      gap: 56px;
+      flex-shrink: 0;
+      margin: 0 auto;
+
+      p {
+        @include typography($color: $primary-text-color, $size: 16px, $weight: 400, $lineHeight: 120%, $letter-spacing: 0, $align: center);
+        width: 264px;
+      }
+
+      h3 {
+        @include typography($color: $accent-color, $size: 19.2px, $weight: 700, $lineHeight: 120%, $letter-spacing: 0, $align: center);
+      }
+
+      img {
+        display: block;
+        margin: 0 auto;
+      }
+    }
+  }
+
+  .section-title h2 {
+    @include flex-layout(column, center, center);
+    height: 72px;
+    padding: 0 24px 0 16px;
+    flex-shrink: 0;
+    background: $background-color;
+    @include typography($color: $primary-text-color, $size: 23.04px, $weight: 700, $lineHeight: 120%, $letter-spacing: 0, $align: center);
+  }
+
+  .workshop-section {
+    .secondary-enabled-button::before {
+      content: "¡Me apunto!";
+    }
+
+    .workshop,
+    .workshop-left {
+      @include flex-layout(row, flex-start, center);
+      padding-bottom: 40px;
+      padding-top: 32px;
+      width: 100%;
+
+      .workshop-image-left,
+      .workshop-image-right {
+        height: auto;
+        width: 70%;
+        max-width: 920px;
+
+        img {
+          @include image-resize(96%, auto);
+        }
+      }
+
+
+      .workshop-image-right {
+        margin-left: auto;
+        margin-right: 0;
+        order: 2;
+        text-align: right;
+        align-self: flex-end; // Alinea el contenedor en el borde derecho
+      }
+
+      .workshop-content {
+        @include flex-layout(column, center, center);
+        width: 390px;
+        //width: 30%;
+        padding-left: 220px;
+        padding-right: 120px;
+        text-align: left;
+
+        .workshop-info {
+          @include flex-layout($direction: column, $justify: space-between, $align: flex-start);
+          width: 100%;
+
+          .workshop-icon-text {
+            @include flex-layout(column, flex-start, flex-start);
+            text-align: left;
+            padding-left: 0;
+            padding-bottom: 18px;
+            width: 100%;
+
+            h3 {
+              @include typography($color: $accent-color, $size: 19.2px, $weight: 700, $lineHeight: 120%, $letter-spacing: 0, $align: left);
+            }
+
+            .default-text {
+              display: block;
+              @include typography($color: $primary-text-color, $size: 19.2px, $weight: 400, $lineHeight: 120%, $letter-spacing: 0, $align: left);
+            }
+          }
+        }
+
+        .expandable-text {
+          display: none;
+        }
+
+        .expand-icon {
+          display: none;
+        }
+      }
+    }
+  }
+
+  .shop-section {
+    width: 100%;
+    @include flex-layout(row, space-between, stretch);
+
+    .secondary-enabled-button::before {
+      content: "Ver productos";
+    }
+
+    .shop {
+      @include flex-layout(row, flex-start, stretch);
+      width: 100%;
+    }
+
+    .shop-image {
+      width: 65%;
+      order: 2; // Para que la imagen aparezca a la derecha
+      @include flex-layout(row, flex-end, center);
+
+      img {
+        width: 100%;
+        height: auto;
+      }
+    }
+
+    .shop-content {
+      width: 35%;
+      order: 1; // Para que el contenido aparezca a la izquierda
+      @include flex-layout(column, center, flex-start);
+      padding-right: 88px;
+      padding-left: 120px;
+
+      h3 {
+        @include typography($color: $accent-color, $size: 23.04px, $weight: 700, $lineHeight: 120%, $letter-spacing: 0, $align: left); // Usando typography para los encabezados
+      }
+
+      p {
+        @include typography($color: $primary-text-color, $size: 19.2px, $weight: 400, $lineHeight: 120%, $letter-spacing: 0, $align: left);
+      }
+
+      .text-button {
+        @include flex-layout(column, flex-start, flex-start);
+        gap: 16px;
+      }
+
+      button {
+        align-self: flex-start;
+      }
+    }
+  }
+
+  .product-section {
+    padding-bottom: 42px;
+    .product-card-list {
+      @include flex-layout();
+      height: 414px;
+      padding: 18px;
+      gap: 28px;
+      overflow-x: auto; // Scroll horizontal
+      overflow: hidden;
+      scroll-snap-type: x mandatory; // Ajuste de desplazamiento suave
+      // -webkit-overflow-scrolling: touch; // Scroll suave en dispositivos móviles
+
+      .product-card {
+        @include flex-layout($direction: column, $justify: flex-start, $align: center);
+        width: 298px;
+        height: 334px;
+        gap: 0;
+        border-radius: 12px;
+        background: #FFF;
+        box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.15);
+
+        .card-image {
+          width: 298px;
+          height: 228px;
+          border-radius: 12px 12px 0 0;
+          overflow: hidden;
+
+          img {
+            width: 100%;
+            height: 100%;
+          }
+        }
+
+        .card-text {
+          padding-top: 12px;
+          gap: 1px;
+          height: 92px;
+
+          .card-title {
+            @include typography($color: $primary-text-color, $size: 16px, $weight: 700, $lineHeight: 1.2, $align: left);
+          }
+
+          .card-info {
+            width: 100%;
+            height: 18px;
+            @include typography($color: $primary-text-color, $size: 13.33px, $weight: 400, $lineHeight: 1.2, $align: left);
+          }
+
+          .card-price {
+            padding-bottom: 12px;
+            @include typography($color: $primary-text-color, $size: 16px, $weight: 400, $lineHeight: 1.2, $align: left);
+          }
+        }
+      }
+    }
+  }
+
+  .newsletter-section {
+    @include flex-layout(row, space-between, stretch);
+    width: 100%;
+    padding-bottom: 32px;
+
+    .secondary-enabled-button::before {
+      content: "Ver productos";
+    }
+
+    .newsletter {
+      @include flex-layout(row, space-between, stretch);
+      width: 100%;
+
+
+      .newsletter-image {
+        @include flex-layout(row, flex-end, stretch);
+        width: 50%;
+        order: 2; // Para que la imagen aparezca a la derecha
+
+        img {
+          width: 100%;
+          height: auto;
+        }
+      }
+
+      .newsletter-content {
+        @include flex-layout(column, center, flex-start);
+        width: 376px;
+        order: 1;
+        padding-left: 120px;
+        padding-right: 88px;
+
+        h3 {
+          @include typography($color: $accent-color, $size: 19.2px, $weight: 700, $lineHeight: 120%, $align: left);
+          margin: 0;
+        }
+
+        p {
+          @include typography($color: $primary-text-color, $size: 16px, $weight: 400, $lineHeight: 120%, $align: left);
+        }
+
+        .text-button {
+          @include flex-layout(column, flex-start, flex-start);
+          @include flex-layout(column, flex-start, start); // Aplicando el mixin flex-layout a text-button
+
+          gap: 24px;
+
+        }
+
+        button {
+          align-self: flex-start;
+        }
+      }
+    }
+  }
+
+  .footer-section {
+    @include flex-layout(column, center, center);
+    background-size: 100% 600px;
+    height: 600px;
+    padding-top: 0;
+    padding-bottom: 0;
+
+    .footer-content {
+      gap: 36px;
+      padding-bottom: 0;
+      width: 65%;
+
+      .footer-info {
+        @include flex-layout(row, center, flex-start);
+        gap: 160px;
+
+        .footer-column {
+          margin-bottom: 0;
+          text-decoration: none;
+          width: 320px;
+
+          h4 {
+            @include typography($color: $background-color,
+              $size: 19.2px,
+              $weight: 700,
+              $lineHeight: 120%,
+              $letter-spacing: 0,
+              $align: left);
+            margin-bottom: 10px;
+
+          }
+
+          a,
+          p {
+            @include typography($color: $background-color,
+              $size: 19.2px,
+              $weight: 400,
+              $lineHeight: 120%,
+              $letter-spacing: 0,
+              $align: left,
+            );
+
+            margin-bottom: 12px;
+          }
+        }
+      }
+
+      .footer-social {
+        @include flex-layout(row, flex-start, center);
+        gap: 24px;
+
+        img {
+          width: 26px;
+          height: 26px;
+        }
+      }
+
+      .footer-credits {
+        @include typography($color: $background-color,
+          $size: 19.2px,
+          $weight: 300,
+          $lineHeight: 120%,
+          $letter-spacing: 0,
+          $align: left);
+        margin-bottom: 16px;
+      }
+    }
+  }
+
+}

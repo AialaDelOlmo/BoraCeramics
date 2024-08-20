@@ -362,15 +362,18 @@ nav {
     .workshop-image-left,
     .workshop-image-right {
       height: auto;
-
+      max-width: 542px;
       img {
-        width: 80%;
-        height: auto;
+        @include image-resize(80%, auto);
       }
     }
 
     .workshop-image-right {
+      margin-left: auto;
+      margin-right: 0;
+      order: 2;
       text-align: right;
+      align-self: flex-end;
     }
 
     .workshop-content {

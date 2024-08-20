@@ -432,14 +432,21 @@ nav .icons img {
 .workshop-section .workshop .workshop-image-left,
 .workshop-section .workshop .workshop-image-right {
   height: auto;
+  max-width: 542px;
 }
 .workshop-section .workshop .workshop-image-left img,
 .workshop-section .workshop .workshop-image-right img {
   width: 80%;
   height: auto;
+  -o-object-fit: cover;
+     object-fit: cover;
 }
 .workshop-section .workshop .workshop-image-right {
+  margin-left: auto;
+  margin-right: 0;
+  order: 2;
   text-align: right;
+  align-self: flex-end;
 }
 .workshop-section .workshop .workshop-content {
   width: 95%;
@@ -779,7 +786,7 @@ nav .icons img {
     order: 1;
   }
   nav .logo img {
-    width: 100px;
+    width: 96px;
     height: auto;
     content: url("../assets/img/Bora_Logo_brown.png");
   }
@@ -865,6 +872,27 @@ nav .icons img {
     border-radius: var(--Spacing-2, 8px);
     border: 1px solid var(--Color-Blue-Blue-8, #2D3B62);
     background: var(--Color-button-label-primary, #F8F8F8);
+  }
+  .input-container {
+    position: relative;
+    width: 100%;
+  }
+  .input-container .input {
+    width: 344px;
+    height: 40px;
+    font-size: 14px;
+  }
+  .input-container .input-label {
+    position: absolute;
+    top: 50%; /* Centra verticalmente el label dentro del input */
+    left: 12px;
+    transform: translateY(-50%); /* Asegura que el label esté centrado verticalmente */
+    color: #888;
+    font-size: 16px;
+    pointer-events: none;
+    /* Evita que el label interfiera con el clic en el input */
+    transition: all 0.3s ease;
+    /* Transición suave para cambios de estilo */
   }
   .hero-section {
     position: relative;
@@ -1070,7 +1098,6 @@ nav .icons img {
     align-items: center;
     height: 48px;
     padding: 0 15px 0 14px;
-    flex-shrink: 0;
     background: #F8F8F8;
     color: #1F1F1D;
     font-size: 1.2rem;
@@ -1093,24 +1120,23 @@ nav .icons img {
   .workshop-section .workshop {
     display: flex;
     flex-direction: row;
-    justify-content: space-between;
-    align-items: flex-start;
+    justify-content: flex-start;
+    align-items: center;
     padding-bottom: 40px;
     padding-top: 32px;
     width: 100%;
-    align-items: center;
   }
   .workshop-section .workshop .workshop-image-left,
   .workshop-section .workshop .workshop-image-right {
     height: auto;
+    max-width: 656px;
   }
   .workshop-section .workshop .workshop-image-left img,
   .workshop-section .workshop .workshop-image-right img {
-    width: 100%;
+    width: 96%;
     height: auto;
     -o-object-fit: cover;
        object-fit: cover;
-    width: 96%;
   }
   .workshop-section .workshop .workshop-image-right {
     margin-left: auto;
@@ -1118,6 +1144,7 @@ nav .icons img {
     order: 2;
     text-align: right;
     align-self: flex-end;
+    border: 0;
   }
   .workshop-section .workshop .workshop-content {
     display: flex;
@@ -1239,6 +1266,9 @@ nav .icons img {
   }
   .shop-section .shop-content button {
     align-self: flex-start;
+  }
+  .product-section {
+    padding-bottom: 38px;
   }
   .product-section .product-card-list {
     display: flex;
@@ -1364,6 +1394,7 @@ nav .icons img {
     text-align: left;
     letter-spacing: normal;
     font-family: "Montserrat";
+    margin: 0;
   }
   .newsletter-section .newsletter .newsletter-content p {
     color: #1F1F1D;
@@ -1380,22 +1411,10 @@ nav .icons img {
     flex-direction: column;
     justify-content: flex-start;
     align-items: flex-start;
-    gap: 12px;
+    gap: 18px;
   }
   .newsletter-section .newsletter .newsletter-content button {
     align-self: flex-start;
-  }
-  .newsletter-section .newsletter .newsletter-content input {
-    margin-bottom: 20px;
-    width: 312px;
-  }
-  .newsletter-section .newsletter .newsletter-content .input-label {
-    transform: translateY(-110%);
-    top: 50%;
-    /* Centra verticalmente el label dentro del input */
-    left: 12px;
-    /* Alineación horizontal */
-    position: absolute;
   }
   .footer-section {
     display: flex;
@@ -1406,6 +1425,7 @@ nav .icons img {
   }
   .footer-section .footer-content {
     gap: 32px;
+    width: 65%;
   }
   .footer-section .footer-content .footer-info {
     display: flex;
@@ -1440,6 +1460,7 @@ nav .icons img {
     text-align: left;
     letter-spacing: 0;
     font-family: "Montserrat";
+    margin-bottom: 8px;
   }
   .footer-section .footer-content .footer-social {
     display: flex;
@@ -1465,42 +1486,64 @@ nav .icons img {
   }
 }
 @media (min-width: 1280px) {
-  .navbar .menu-icon {
+  nav {
+    padding: 12px 24px 12px 24px;
+  }
+  nav .menu-icon {
     display: none;
   }
-  .navbar .logo {
+  nav .logo {
     display: flex;
     flex-direction: row;
     justify-content: flex-start;
     align-items: center;
     order: 1;
   }
-  .navbar .logo img {
-    width: 120px;
+  nav .logo img {
+    width: 110px;
+    height: auto;
+    content: url("../assets/img/Bora_Logo_brown.png");
   }
-  .navbar .nav-links {
+  nav .nav-links {
     display: flex;
     flex-direction: row;
     justify-content: center;
     align-items: center;
     order: 2;
   }
-  .navbar .nav-links p {
+  nav .nav-links p {
     margin: 0 1rem;
+    color: #1F1F1D;
+    font-size: 1rem;
+    font-weight: 500;
+    line-height: 1.2;
+    margin-right: 0;
+    text-align: center;
+    letter-spacing: normal;
+    font-family: "Montserrat";
   }
-  .navbar .icons {
+  nav .icons {
     order: 3;
+    gap: 24px;
   }
-  .navbar .icons .login-icon {
+  nav .icons .login-icon {
     display: none;
   }
-  .navbar .icons .login-text {
+  nav .icons .login-text {
     display: flex;
     flex-direction: row;
     justify-content: center;
     align-items: center;
+    color: #1F1F1D;
+    font-size: 1rem;
+    font-weight: 500;
+    line-height: 1.2;
+    margin-right: 0;
+    text-align: flex-start;
+    letter-spacing: normal;
+    font-family: "Montserrat";
   }
-  .navbar .icons img {
+  nav .icons img {
     width: 26px;
     height: 26px;
   }
@@ -1511,7 +1554,7 @@ nav .icons img {
     align-items: center;
     width: 100%;
     height: 698px;
-    background: url("../assets/svg/Hero_desk_background.PNG") no-repeat center center;
+    background: url("../assets/svg/Hero_desk_background.PNG") no-repeat center bottom;
     background-size: cover;
     position: relative;
   }
@@ -1573,7 +1616,7 @@ nav .icons img {
     height: 424px;
     background: #FFF;
     overflow: hidden;
-    box-shadow: 0 0 0 18px #FFF;
+    box-shadow: 0 0 0 12px #FFF;
     order: 1;
     padding: 0;
   }
@@ -1597,6 +1640,24 @@ nav .icons img {
     height: 100%;
     -o-object-fit: cover;
        object-fit: cover;
+  }
+  .input-container {
+    position: relative;
+    width: 100%;
+  }
+  .input-container .input {
+    width: 376px;
+    height: 48px;
+  }
+  .input-container .input-label {
+    position: absolute;
+    top: 50%;
+    left: 12px;
+    transform: translateY(-50%);
+    color: #888;
+    font-size: 16px;
+    pointer-events: none;
+    transition: all 0.3s ease;
   }
   .primary-enabled-button {
     display: flex;
@@ -1637,6 +1698,10 @@ nav .icons img {
     letter-spacing: 0;
     font-family: "Montserrat";
   }
+  .features-section {
+    height: 480px;
+    background-size: 100% 380px;
+  }
   .features-section .features-content {
     display: flex;
     flex-direction: row;
@@ -1644,6 +1709,8 @@ nav .icons img {
     align-items: center;
     text-align: center;
     justify-content: center;
+    height: 320px;
+    margin-top: 30px;
   }
   .features-section .features-content .feature {
     display: flex;
@@ -1652,13 +1719,12 @@ nav .icons img {
     align-items: center;
     width: 265px;
     height: auto;
+    padding: 4px 12px;
   }
   .features-section .features-content .feature .feature-image {
     width: 98px;
     height: 98px;
-    margin-bottom: 20px;
-    border-radius: 50%;
-    overflow: hidden;
+    margin: 0 0 20px 0;
   }
   .features-section .features-content .feature .feature-text {
     display: flex;
@@ -1691,11 +1757,12 @@ nav .icons img {
   .feedback-section {
     display: flex;
     flex-direction: column;
-    justify-content: center;
+    justify-content: flex-start;
     align-items: center;
     height: 529px;
     width: 1012px;
     margin: 0 auto;
+    gap: 32px;
   }
   .feedback-section .feedback-title h3 {
     color: #546eb1;
@@ -1722,7 +1789,7 @@ nav .icons img {
     justify-content: center;
     align-items: center;
     width: 1021px;
-    gap: 48px 7px;
+    gap: 56px;
     flex-shrink: 0;
     margin: 0 auto;
   }
@@ -1753,11 +1820,11 @@ nav .icons img {
   }
   .section-title h2 {
     display: flex;
-    flex-direction: row;
+    flex-direction: column;
     justify-content: center;
     align-items: center;
     height: 72px;
-    padding: 0 15px 0 14px;
+    padding: 0 24px 0 16px;
     flex-shrink: 0;
     background: #F8F8F8;
     color: #1F1F1D;
@@ -1769,57 +1836,65 @@ nav .icons img {
     letter-spacing: 0;
     font-family: "Montserrat";
   }
-  .workshop-section {
-    display: flex;
-    flex-direction: column;
-  }
   .workshop-section .secondary-enabled-button::before {
     content: "¡Me apunto!";
   }
-  .workshop-section .workshop {
+  .workshop-section .workshop,
+  .workshop-section .workshop-left {
     display: flex;
     flex-direction: row;
-    justify-content: space-between;
+    justify-content: flex-start;
     align-items: center;
     padding-bottom: 40px;
+    padding-top: 32px;
     width: 100%;
   }
   .workshop-section .workshop .workshop-image-left,
-  .workshop-section .workshop .workshop-image-right {
+  .workshop-section .workshop .workshop-image-right,
+  .workshop-section .workshop-left .workshop-image-left,
+  .workshop-section .workshop-left .workshop-image-right {
     height: auto;
+    width: 70%;
+    max-width: 920px;
   }
   .workshop-section .workshop .workshop-image-left img,
-  .workshop-section .workshop .workshop-image-right img {
-    width: 100%; /* Ocupará el ancho máximo del contenedor sin desbordarse */
-    max-width: 640px; /* No crecerá más allá de 640px */
+  .workshop-section .workshop .workshop-image-right img,
+  .workshop-section .workshop-left .workshop-image-left img,
+  .workshop-section .workshop-left .workshop-image-right img {
+    width: 96%;
     height: auto;
+    -o-object-fit: cover;
+       object-fit: cover;
   }
-  .workshop-section .workshop .workshop-image-right {
-    margin-left: auto; /* Alinea la imagen a la derecha */
+  .workshop-section .workshop .workshop-image-right,
+  .workshop-section .workshop-left .workshop-image-right {
+    margin-left: auto;
     margin-right: 0;
     order: 2;
-    text-align: right; /* Asegura que la imagen esté alineada a la derecha dentro de su contenedor */
-    align-self: flex-end; /* Alinea el contenedor en el borde derecho */
+    text-align: right;
+    align-self: flex-end;
   }
-  .workshop-section .workshop .workshop-content {
+  .workshop-section .workshop .workshop-content,
+  .workshop-section .workshop-left .workshop-content {
     display: flex;
     flex-direction: column;
-    justify-content: flex-start;
+    justify-content: center;
     align-items: center;
-    width: 300px;
-    padding-left: 156px;
-    padding-right: 156px;
-    gap: 45px;
+    width: 390px;
+    padding-left: 220px;
+    padding-right: 120px;
     text-align: left;
   }
-  .workshop-section .workshop .workshop-content .workshop-info {
+  .workshop-section .workshop .workshop-content .workshop-info,
+  .workshop-section .workshop-left .workshop-content .workshop-info {
     display: flex;
     flex-direction: column;
     justify-content: space-between;
     align-items: flex-start;
     width: 100%;
   }
-  .workshop-section .workshop .workshop-content .workshop-info .workshop-icon-text {
+  .workshop-section .workshop .workshop-content .workshop-info .workshop-icon-text,
+  .workshop-section .workshop-left .workshop-content .workshop-info .workshop-icon-text {
     display: flex;
     flex-direction: column;
     justify-content: flex-start;
@@ -1829,7 +1904,8 @@ nav .icons img {
     padding-bottom: 18px;
     width: 100%;
   }
-  .workshop-section .workshop .workshop-content .workshop-info .workshop-icon-text h3 {
+  .workshop-section .workshop .workshop-content .workshop-info .workshop-icon-text h3,
+  .workshop-section .workshop-left .workshop-content .workshop-info .workshop-icon-text h3 {
     color: #546eb1;
     font-size: 1.2rem;
     font-weight: 700;
@@ -1839,7 +1915,8 @@ nav .icons img {
     letter-spacing: 0;
     font-family: "Montserrat";
   }
-  .workshop-section .workshop .workshop-content .workshop-info .workshop-icon-text .default-text {
+  .workshop-section .workshop .workshop-content .workshop-info .workshop-icon-text .default-text,
+  .workshop-section .workshop-left .workshop-content .workshop-info .workshop-icon-text .default-text {
     display: block;
     color: #1F1F1D;
     font-size: 1.2rem;
@@ -1850,10 +1927,12 @@ nav .icons img {
     letter-spacing: 0;
     font-family: "Montserrat";
   }
-  .workshop-section .workshop .workshop-content .expandable-text {
+  .workshop-section .workshop .workshop-content .expandable-text,
+  .workshop-section .workshop-left .workshop-content .expandable-text {
     display: none;
   }
-  .workshop-section .workshop .workshop-content .expand-icon {
+  .workshop-section .workshop .workshop-content .expand-icon,
+  .workshop-section .workshop-left .workshop-content .expand-icon {
     display: none;
   }
   .shop-section {
@@ -1892,8 +1971,8 @@ nav .icons img {
     flex-direction: column;
     justify-content: center;
     align-items: flex-start;
-    padding-left: 88px;
     padding-right: 88px;
+    padding-left: 120px;
   }
   .shop-section .shop-content h3 {
     color: #546eb1;
@@ -1925,12 +2004,15 @@ nav .icons img {
   .shop-section .shop-content button {
     align-self: flex-start;
   }
+  .product-section {
+    padding-bottom: 42px;
+  }
   .product-section .product-card-list {
     display: flex;
     flex-direction: row;
     justify-content: flex-start;
     align-items: stretch;
-    height: 337px;
+    height: 414px;
     padding: 18px;
     gap: 28px;
     overflow-x: auto;
@@ -1940,11 +2022,11 @@ nav .icons img {
   .product-section .product-card-list .product-card {
     display: flex;
     flex-direction: column;
-    justify-content: center;
+    justify-content: flex-start;
     align-items: center;
     width: 298px;
     height: 334px;
-    gap: 24px;
+    gap: 0;
     border-radius: 12px;
     background: #FFF;
     box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.15);
@@ -1960,13 +2042,9 @@ nav .icons img {
     height: 100%;
   }
   .product-section .product-card-list .product-card .card-text {
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    align-items: flex-start;
-    gap: 8px;
-    width: 80%;
-    height: 78px;
+    padding-top: 12px;
+    gap: 1px;
+    height: 92px;
   }
   .product-section .product-card-list .product-card .card-text .card-title {
     color: #1F1F1D;
@@ -1980,9 +2058,7 @@ nav .icons img {
   }
   .product-section .product-card-list .product-card .card-text .card-info {
     width: 100%;
-    white-space: nowrap;
-    text-overflow: ellipsis;
-    overflow: hidden;
+    height: 18px;
     color: #1F1F1D;
     font-size: 0.833125rem;
     font-weight: 400;
@@ -2009,6 +2085,7 @@ nav .icons img {
     justify-content: space-between;
     align-items: stretch;
     width: 100%;
+    padding-bottom: 32px;
   }
   .newsletter-section .secondary-enabled-button::before {
     content: "Ver productos";
@@ -2039,18 +2116,19 @@ nav .icons img {
     align-items: flex-start;
     width: 376px;
     order: 1;
-    padding-left: 108px;
+    padding-left: 120px;
     padding-right: 88px;
   }
   .newsletter-section .newsletter .newsletter-content h3 {
     color: #546eb1;
-    font-size: 1rem;
+    font-size: 1.2rem;
     font-weight: 700;
     line-height: 120%;
     margin-right: 0;
     text-align: left;
     letter-spacing: normal;
     font-family: "Montserrat";
+    margin: 0;
   }
   .newsletter-section .newsletter .newsletter-content p {
     color: #1F1F1D;
@@ -2067,40 +2145,41 @@ nav .icons img {
     flex-direction: column;
     justify-content: flex-start;
     align-items: flex-start;
-    gap: 12px;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: start;
+    gap: 24px;
   }
   .newsletter-section .newsletter .newsletter-content button {
     align-self: flex-start;
-  }
-  .newsletter-section .newsletter .newsletter-content input {
-    margin-bottom: 20px;
-    width: 312px;
   }
   .footer-section {
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    background-size: 100% 460px;
+    background-size: 100% 600px;
+    height: 600px;
+    padding-top: 0;
     padding-bottom: 0;
   }
   .footer-section .footer-content {
-    gap: 32px;
-    padding-left: 100px;
+    gap: 36px;
+    padding-bottom: 0;
+    width: 65%;
   }
   .footer-section .footer-content .footer-info {
     display: flex;
     flex-direction: row;
-    justify-content: flex-start;
-    align-items: stretch;
-    gap: 100px;
-    width: 100%;
-    padding-left: 0;
+    justify-content: center;
+    align-items: flex-start;
+    gap: 160px;
   }
   .footer-section .footer-content .footer-info .footer-column {
     margin-bottom: 0;
     text-decoration: none;
-    width: 280px;
+    width: 320px;
   }
   .footer-section .footer-content .footer-info .footer-column h4 {
     color: #F8F8F8;
@@ -2113,7 +2192,8 @@ nav .icons img {
     font-family: "Montserrat";
     margin-bottom: 10px;
   }
-  .footer-section .footer-content .footer-info .footer-column a, .footer-section .footer-content .footer-info .footer-column p {
+  .footer-section .footer-content .footer-info .footer-column a,
+  .footer-section .footer-content .footer-info .footer-column p {
     color: #F8F8F8;
     font-size: 1.2rem;
     font-weight: 400;
@@ -2122,6 +2202,7 @@ nav .icons img {
     text-align: left;
     letter-spacing: 0;
     font-family: "Montserrat";
+    margin-bottom: 12px;
   }
   .footer-section .footer-content .footer-social {
     display: flex;

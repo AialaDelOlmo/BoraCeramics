@@ -7,8 +7,7 @@
   $lineHeight: 1.2, 
   $marginRight: 0, 
   $align: left, 
-  $letter-spacing: normal,
-  $font-stack: $font-stack
+  $letter-spacing: normal
 ) {
   // Convertir el tamaño de fuente a rem si es necesario
   $font-size: if(unit($size) == px, px-to-rem($size), $size);

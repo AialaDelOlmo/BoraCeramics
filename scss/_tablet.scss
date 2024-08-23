@@ -1,13 +1,13 @@
 @media (min-width: 1024px) and (max-width: 1280px) {
   nav {
-    padding: 12px 24px 12px 24px;
+    padding: 12px 32px 12px 32px;
 
     .menu-icon {
       display: none; // Ocultar icono de menú en desktop
     }
 
     p {
-      @include typography($size: 16px, $weight: 500, $align: center);
+      @include typography($size: $tablet-M, $weight: 500, $align: center);
     }
 
     .logo {
@@ -21,18 +21,45 @@
     }
 
     .nav-links {
-      @include typography($size: 16px, $weight: 500, $align: center);
+      @include typography($size: $tablet-M, $weight: 500, $align: center);
       @include flex-layout(row, center, center);
       order: 2;
 
-      p {
-        margin: 0 1rem; // Espaciado entre los enlaces
+      .nav-link {
+        margin: 8px; // Espaciado entre los enlaces
+        text-decoration: none;
+        color: $primary-text-color; // Color por defecto
+        position: relative; // Necesario para posicionar ::after
+
+        &::after {
+          content: "";
+          position: absolute;
+          left: 26;
+          bottom: -5px; // Ajusta la distancia desde el texto
+          width: 80%;
+          height: 2px; // Ajusta el grosor de la línea
+          background-color: transparent; // Invisible por defecto
+          transition: background-color 0.3s ease, transform 0.3s ease;
+          transform: scaleX(0); // Inicialmente oculto
+          transform-origin: left; // Hace que la animación comience desde la izquierda
+
+        }
+
+        &.active {
+          color: $accent-color; // Cambia el color del texto cuando está activo
+        }
+
+        &.active::after {
+          $color: $accent-color;
+          background-color: $accent-color; // Color de la línea
+          transform: scaleX(1); // Expande la línea al 100%
+        }
       }
     }
 
     .icons {
       order: 3; // Iconos van al final
-      gap: 24px;
+      gap: 30px;
 
       .login-icon {
         display: none; // Ocultar icono de login en tablet
@@ -40,19 +67,20 @@
 
       .login-text {
         @include flex-layout(row, center, center);
-        @include typography($size: 16px, $weight: 500, $align: flex-start);
+        @include typography($size: $tablet-M, $weight: 500, $align: flex-start);
       }
 
       img {
         width: 22px;
         height: 22px;
       }
+
     }
   }
 
   .primary-enabled-button {
     @include flex-layout(row, center, center);
-    @include typography($size: 16px, $weight: 500, $align: center);
+    @include typography($size: $tablet-M, $weight: 500, $align: center);
     height: 40px;
     padding: 12px 24px;
     gap: 10px;
@@ -64,7 +92,7 @@
 
   .secondary-enabled-button {
     @include flex-layout(row, flex-end, center);
-    @include typography($size: 16px, $weight: 500, $align: center);
+    @include typography($size: $tablet-M, $weight: 500, $align: center);
     height: 40px;
     padding: 12px 24px;
     gap: 10px;
@@ -105,10 +133,10 @@
     position: relative;
 
     .hero-background-image {
-      @include image-resize(352px, 82px);
+      @include image-resize(352px, 88px);
       position: absolute;
-      left: 110.5px;
-      top: 139px;
+      left: 106.5px;
+      top: 145px;
       z-index: -1; // Envía la imagen al fondo
     }
 
@@ -125,12 +153,12 @@
         height: 300px;
 
         .hero-text {
-          @include typography($size: 16px, $weight: 700);
+          @include typography($size: $tablet-M, $weight: 700);
           font-style: normal;
         }
 
         .hero-title {
-          @include typography($color: $accent-color, $size: 48px, $weight: 400, $lineHeight: 140%);
+          @include typography($color: $accent-color, $size: 48px, $lineHeight: 140%);
         }
       }
 
@@ -180,11 +208,14 @@
   }
 
   .features-section {
+    height: 560px;
+    background-size: 100% 560px;
+    padding-bottom: 42px;
 
     .features-content {
       display: grid;
       grid-template-columns: repeat(2, 257px); // Dos columnas de 257px
-      grid-column-gap: 42px; // Espaciado entre las columnas
+      grid-column-gap: 68px; // Espaciado entre las columnas
       padding-top: 24px;
 
       .feature {
@@ -205,12 +236,12 @@
           width: 257px;
 
           h3 {
-            @include typography($size: 13.33px, $weight: 700, $align: center);
+            @include typography($size: $tablet-M, $weight: 700, $align: center);
             font-style: normal;
           }
 
           p {
-            @include typography($size: 13.33px, $align: center);
+            @include typography($size: $tablet-S, $align: center);
             font-style: normal;
           }
         }
@@ -246,18 +277,17 @@
 
     .feedbacks {
       @include flex-layout(row, space-between, flex-start);
-      width: 904px;
-      gap: 48px;
-      flex-shrink: 0;
+      width: 900px;
       margin: 0 auto;
 
       p {
-        width: 250px;
+        @include typography($size: $tablet-S, $align: center);
+        width: 260px;
       }
 
       h3 {
         @include typography($color: $accent-color,
-          $size: 16px,
+          $size: $tablet-X,
           $weight: 700,
           $lineHeight: 120%,
           $align: center);
@@ -275,9 +305,8 @@
     @include flex-layout(row, center, center);
     height: 48px;
     padding: 0 15px 0 14px;
-    //   flex-shrink: 0;
     background: $background-color;
-    @include typography($color: $primary-text-color, $size: 19.2px, $weight: 700, $lineHeight: 120%, $align: center);
+    @include typography($color: $primary-text-color, $size: $tablet-X, $weight: 700, $lineHeight: 120%, $align: center);
   }
 
   .workshop-section {
@@ -331,12 +360,12 @@
             width: 100%;
 
             h3 {
-              @include typography($color: $accent-color, $size: 16px, $weight: 700, $lineHeight: 120%, $align: left);
+              @include typography($color: $accent-color, $size: $tablet-M, $weight: 700, $lineHeight: 120%, $align: left);
             }
 
             .default-text {
               display: block;
-              @include typography($color: $primary-text-color, $size: 16px, $weight: 400, $lineHeight: 120%, $letter-spacing: 0, $align: left);
+              @include typography($color: $primary-text-color, $size: $tablet-S, $weight: 400, $lineHeight: 120%, $letter-spacing: 0, $align: left);
               padding-bottom: 16px;
             }
           }
@@ -356,6 +385,10 @@
   .shop-section {
     width: 100%;
     @include flex-layout(row, space-between, stretch);
+
+    .secondary-enabled-button::before {
+      content: "Ver productos"; //añade texto al botón
+    }
 
     .shop {
       @include flex-layout(row, flex-start, stretch);
@@ -381,11 +414,11 @@
       padding-right: 126px;
 
       h3 {
-        @include typography($color: $accent-color, $size: 19.2px, $weight: 700);
+        @include typography($color: $accent-color, $size: $tablet-X, $weight: 700);
       }
 
       p {
-        @include typography($size: 1rem);
+        @include typography($size: $tablet-M);
       }
 
       .text-button {
@@ -428,39 +461,44 @@
         }
 
         .product-card {
-          @include flex-layout($direction: column, $justify: flex-start, $align: center); // Flexbox vertical centrado
-          width: 232px;
-          height: 283px;
+          @include flex-layout($direction: column, $justify: flex-start, $align: center);
+          width: 248px;
+          height: 293px;
           gap: 0;
           border-radius: 12px;
           background: #FFF;
           box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.15);
 
           .card-image {
-            width: 232px;
-            height: 188px;
+            width: 248px;
+            height: 192px;
             border-radius: 12px 12px 0 0; // Ajuste de las esquinas redondeadas
 
             img {
               width: 100%; // Asegura que la imagen ocupe todo el contenedor
               height: 100%;
             }
+
+            .overlay-buttons {
+              display: none;
+            }
           }
 
           .card-text {
             padding-top: 12px;
+            height: 86px;
 
             .card-title {
-              @include typography($size: 13.33px, $weight: 700);
+              @include typography($size: $tablet-M, $weight: 700);
             }
 
             .card-info {
-              @include typography($size: 12px);
+              @include typography($size: $tablet-S);
             }
 
             .card-price {
               padding-bottom: 8px;
-              @include typography($size: 13.33px);
+              @include typography($size: $tablet-M);
             }
           }
         }
@@ -500,12 +538,12 @@
         padding-right: 88px;
 
         h3 {
-          @include typography($color: $accent-color, $size: 16px, $weight: 700, $lineHeight: 120%, $align: left);
+          @include typography($color: $accent-color, $size: $tablet-X, $weight: 700);
           margin: 0;
         }
 
         p {
-          @include typography($color: $primary-text-color, $size: 16px, $weight: 400, $lineHeight: 120%, $align: left);
+          @include typography($color: $primary-text-color, $size: $tablet-M);
         }
 
         .text-button {
@@ -528,8 +566,8 @@
     background-size: 100% 440px;
 
     .footer-content {
-      gap: 32px;
-      width: 65%;
+      gap: 24px;
+      width: 75%;
 
       .footer-info {
         @include flex-layout(row, center, flex-start);
@@ -542,7 +580,7 @@
 
           h4 {
             @include typography($color: $background-color,
-              $size: 16px,
+              $size: $tablet-M,
               $weight: 700,
               $lineHeight: 120%,
               $letter-spacing: 0,
@@ -554,7 +592,7 @@
           a,
           p {
             @include typography($color: $background-color,
-              $size: 16px,
+              $size: $tablet-S,
               $weight: 400,
               $lineHeight: 120%,
               $letter-spacing: 0,
@@ -579,7 +617,7 @@
 
       .footer-credits {
         @include typography($color: $background-color,
-          $size: 16px,
+          $size: $tablet-S,
           $weight: 300,
           $lineHeight: 120%,
           $letter-spacing: 0,

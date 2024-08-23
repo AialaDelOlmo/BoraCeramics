@@ -1,12 +1,3 @@
-/*
-.main-section {
-  position: relative;
-  display: flex;
-  flex-direction: column;
-  align-items: stretch;
-  width: 100%;
-}
-*/
 body {
   margin: 0;
   padding: 0;
@@ -19,7 +10,7 @@ nav {
   box-sizing: border-box; // Incluir padding y border en el width
   background-color: white;
   width: 100%;
-  padding: 10px;
+  padding: 10px 12px 10px 12px;
   @include flex-layout(row, space-between, center);
   color: $primary-text-color;
 
@@ -31,7 +22,7 @@ nav {
   }
 
   p {
-    font-size: 1.5em;
+    font-size: $mobile-X;
     padding-left: 30px;
   }
 
@@ -71,12 +62,12 @@ nav {
 
 .primary-enabled-button {
   @include flex-layout(row, center, center);
-  @include typography($size: 13.33px, $weight: 500);
+  @include typography($size: $mobile-M, $weight: 500);
   padding: 6px 12px;
   gap: 10px;
   border-radius: var(--Spacing-2, 8px);
   border: 1px solid var(--Color-Blue-Blue-5, #6887D8);
-  background: var(--Color-button-background-primary, #A4B7E8);
+  background: $secondary-color;
 
   &:hover {
     background: $accent-color;
@@ -196,11 +187,11 @@ nav {
   position: static;
 
   .hero-background-image {
-    width: 288px;
-    height: 75px;
+    width: 284px;
+    height: 68px;
     position: absolute;
-    left: 28.5px;
-    top: 124px;
+    left: 34.5px;
+    top: 128px;
     z-index: -1;
   }
 
@@ -211,10 +202,10 @@ nav {
       z-index: 2;
       height: 246px;
       padding-top: 54px;
-      padding-left: 18px;
+      padding-left: 24px;
 
       .hero-text {
-        @include typography($size: 13.33px, $weight: 700);
+        @include typography($size: $mobile-S, $weight: 700);
         padding-bottom: 12px;
       }
 
@@ -255,18 +246,15 @@ nav {
   height: 500px;
 
   background: url('../assets/svg/features-background.png') no-repeat center top;
-  background-size: 100% 500px;
-  /* 100% de ancho, altura fija */
+  background-size: 100% 500px; // 100% de ancho, altura fija de 500px
 
   .features-content {
     min-height: auto;
-    // @include typography($size: 14px, $align: center);
     @include flex-layout(column, center, center);
     height: 457px;
     gap: 10px;
     position: relative;
-    z-index: 1;
-    /* Asegura que el contenido esté encima del fondo */
+    z-index: 1; // Contenido encima del fondo
 
     .feature {
       @include flex-layout(row, flex-start, center);
@@ -286,15 +274,15 @@ nav {
       }
 
       .feature-text {
-        width: 200px;
+        width: 280px;
 
         h3 {
           margin: 0;
-          @include typography($size: 12px, $weight: 700, $align: left);
+          @include typography($size: $mobile-M, $weight: 700, $align: left);
         }
 
         p {
-          @include typography($size: 12px);
+          @include typography($size: $mobile-S);
         }
       }
     }
@@ -309,14 +297,14 @@ nav {
   margin: 0 auto;
 
   .feedback-title {
-    @include typography($color: $accent-color, $size: 19.2px, $weight: 700, $align: center);
+    @include typography($color: $accent-color, $size: $mobile-X, $weight: 700, $align: center);
     position: relative;
 
     .feedback-background-image {
-      @include image-resize(270px, 34px);
+      @include image-resize(248px, 31px);
       position: absolute;
-      left: 1.5px;
-      top: 46px;
+      left: 17.5px;
+      top: 45px;
       z-index: -1;
     }
   }
@@ -328,11 +316,11 @@ nav {
     margin: 0 auto;
 
     p {
-      @include typography($size: 13.33px, $align: center);
+      @include typography($size: $mobile-S, $align: center);
     }
 
     h3 {
-      @include typography($color: $accent-color, $size: 1rem, $weight: 700, $align: center);
+      @include typography($color: $accent-color, $size: $mobile-M, $weight: 700, $align: center);
     }
 
     img {
@@ -345,7 +333,7 @@ nav {
 
 .section-title h2 {
   @include flex-layout($justify: center, $align: center);
-  @include typography($size: 1rem, $weight: 700, $align: center);
+  @include typography($size: $mobile-X, $weight: 700, $align: center);
   height: 48px;
   padding: 0px 15px 0px 14px;
   flex-shrink: 0;
@@ -354,6 +342,10 @@ nav {
 
 .workshop-section {
   @include flex-layout($direction: column);
+
+  .secondary-enabled-button::before {
+    content: ">"; //añade texto al botón
+  }
 
   .workshop {
     padding-bottom: 28px;
@@ -385,10 +377,10 @@ nav {
         @include flex-layout($justify: space-between, $align: center);
 
         .workshop-icon-text {
-          @include flex-layout($align: flex-start);
+          @include flex-layout($align: center);
 
           h3 {
-            @include typography($color: $accent-color, $size: 13.33px, $weight: 700);
+            @include typography($color: $accent-color, $size: $mobile-M, $weight: 700);
           }
 
           img {
@@ -423,7 +415,7 @@ nav {
         p {
           margin-top: 4px;
           margin-left: 18px;
-          @include typography($size: 13.33px);
+          @include typography($size: $mobile-M);
         }
       }
 
@@ -441,8 +433,13 @@ nav {
   padding-bottom: 32px;
   @include flex-layout($direction: column);
 
+  .secondary-enabled-button::before {
+    content: ">"; //añade texto al botón
+  }
+
   .shop-image img {
     width: 100%;
+    border-radius: 12px 0 0 12px;
   }
 
   .shop-content {
@@ -451,14 +448,14 @@ nav {
     padding-right: 42px;
 
     h3 {
-      @include typography($color: $accent-color, $size: 1rem, $weight: 700);
+      @include typography($color: $accent-color, $size: $mobile-X, $weight: 700);
       margin-top: 24px;
       margin-bottom: 8px;
     }
 
     p {
       width: 75%;
-      @include typography($size: 13.33px);
+      @include typography($size: $mobile-S);
     }
 
     .text-button {
@@ -484,28 +481,21 @@ nav {
 
       overflow-x: auto; //scroll horizontal
       scroll-snap-type: x mandatory; // Ajuste de desplazamiento suave
-      scrollbar-width: none;
-      /* Ocultar barra de desplazamiento en Firefox */
-      -ms-overflow-style: none;
-      /* Ocultar barra de desplazamiento en Internet Explorer y Edge */
+      scrollbar-width: none; //Ocultar barra de desplazamiento en Firefox
+      -ms-overflow-style: none; // Ocultar barra de desplazamiento en Internet Explorer y Edge
 
 
       ::-webkit-scrollbar {
-        display: none;
-        /* Ocultar barra de desplazamiento en Chrome, Safari, Opera */
+        display: none; //Ocultar barra de desplazamiento en Chrome, Safari, Opera 
       }
 
 
       .product-card {
-        @include flex-layout($direction: column, $justify: space-between, $align: center); // Flexbox vertical centrado
+        @include flex-layout($direction: column, $justify: flex-start, $align: center);
 
-        // display: flex;
         width: 224px;
-        height: 272px;
-        //flex-direction: column;
-        //align-items: center;
+        height: 282px;
         gap: 12px;
-        //flex-shrink: 0;
         border-radius: 12px;
         background: #FFF;
         box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.15);
@@ -514,34 +504,34 @@ nav {
           width: 224px;
           height: 180px;
 
-          img {
-            border-radius: var(--Spacing-spacing-s, 12px) var(--Spacing-spacing-s, 12px) 0px 0px;
+          .overlay-buttons {
+            display: none;
           }
         }
 
         .card-text {
           @include flex-layout(column, space-between, flex-start);
-          gap: 8px;
           width: 80%;
-          height: 72px;
+          padding-top: 0;
+          height: 76px;
 
           .card-title {
-            @include typography($size: 13.33px, $weight: 700);
+            @include typography($size: $mobile-M, $weight: 700);
           }
 
           .card-info {
             width: 100%;
-            height: 12px;
-            top: 20px;
+            height: 20px;
+            top: 16px;
             white-space: nowrap;
             text-overflow: ellipsis; // tres puntos al final
             overflow: hidden; //evitar mostrarse todo el texto
-            @include typography($size: 12px);
+            @include typography($size: $mobile-S);
           }
 
           .card-price {
             padding-bottom: 8px;
-            @include typography($size: 13.33px);
+            @include typography($size: $mobile-M);
           }
 
         }
@@ -557,6 +547,7 @@ nav {
 
     .newsletter-image img {
       width: 100%;
+      border-radius: 12px 0 0 12px;
     }
 
     .newsletter-content {
@@ -564,11 +555,11 @@ nav {
 
       h3 {
         width: 70%;
-        @include typography($color: $accent-color, $weight: 700);
+        @include typography($size: $mobile-X, $color: $accent-color, $weight: 700);
       }
 
       p {
-        @include typography($size: 13.33px);
+        @include typography($size: $mobile-M);
       }
 
       .text-button {
@@ -581,8 +572,8 @@ nav {
 
 .footer-section {
   @include flex-layout(column, center, center);
-  background: url('../assets/svg/footer-mobile-background.png') no-repeat center center;
-  background-size: 100% 600px;
+  background: url('../assets/svg/footer-mobile-background.png') no-repeat center bottom;
+  background-size: 100% 650px;
   margin-top: 30px;
   padding-top: 80px;
 
@@ -599,13 +590,13 @@ nav {
 
       .footer-column {
         h4 {
-          @include typography($color: $background-color, $size: 13.33px, $weight: 700);
+          @include typography($color: $background-color, $size: $mobile-M, $weight: 700);
           margin-bottom: 10px;
         }
 
         a,
         p {
-          @include typography($color: $background-color, $size: 13.33px);
+          @include typography($color: $background-color, $size: $mobile-S);
           margin-top: 4px;
           margin-bottom: 0;
           text-decoration: none;
@@ -626,7 +617,7 @@ nav {
     }
 
     .footer-credits {
-      @include typography($color: $background-color, $size: 12px);
+      @include typography($color: $background-color, $size: $mobile-S);
       margin-top: 16px;
       margin-bottom: 16px;
     }

@@ -8,15 +8,6 @@
   width: 100%;
 }
 
-/*
-.main-section {
-  position: relative;
-  display: flex;
-  flex-direction: column;
-  align-items: stretch;
-  width: 100%;
-}
-*/
 body {
   margin: 0;
   padding: 0;
@@ -29,7 +20,7 @@ nav {
   box-sizing: border-box;
   background-color: white;
   width: 100%;
-  padding: 10px;
+  padding: 10px 12px 10px 12px;
   display: flex;
   flex-direction: row;
   justify-content: space-between;
@@ -41,7 +32,7 @@ nav .menu-icon img {
   height: 18px;
 }
 nav p {
-  font-size: 1.5em;
+  font-size: 18px;
   padding-left: 30px;
 }
 nav .logo img {
@@ -78,7 +69,7 @@ nav .icons img {
   justify-content: center;
   align-items: center;
   color: #1F1F1D;
-  font-size: 0.833125rem;
+  font-size: 1rem;
   font-weight: 500;
   line-height: 1.2;
   margin-right: 0;
@@ -89,7 +80,7 @@ nav .icons img {
   gap: 10px;
   border-radius: var(--Spacing-2, 8px);
   border: 1px solid var(--Color-Blue-Blue-5, #6887D8);
-  background: var(--Color-button-background-primary, #A4B7E8);
+  background: #A4B7E8;
 }
 .primary-enabled-button:hover {
   background: #546eb1;
@@ -203,11 +194,11 @@ nav .icons img {
   position: static;
 }
 .hero-section .hero-background-image {
-  width: 288px;
-  height: 75px;
+  width: 284px;
+  height: 68px;
   position: absolute;
-  left: 28.5px;
-  top: 124px;
+  left: 34.5px;
+  top: 128px;
   z-index: -1;
 }
 .hero-section .hero-content .hero-texts-button {
@@ -219,11 +210,11 @@ nav .icons img {
   z-index: 2;
   height: 246px;
   padding-top: 54px;
-  padding-left: 18px;
+  padding-left: 24px;
 }
 .hero-section .hero-content .hero-texts-button .hero-text {
   color: #1F1F1D;
-  font-size: 0.833125rem;
+  font-size: 0.875rem;
   font-weight: 700;
   line-height: 1.2;
   margin-right: 0;
@@ -276,7 +267,6 @@ nav .icons img {
   height: 500px;
   background: url("../assets/svg/features-background.png") no-repeat center top;
   background-size: 100% 500px;
-  /* 100% de ancho, altura fija */
 }
 .features-section .features-content {
   min-height: auto;
@@ -288,7 +278,6 @@ nav .icons img {
   gap: 10px;
   position: relative;
   z-index: 1;
-  /* Asegura que el contenido esté encima del fondo */
 }
 .features-section .features-content .feature {
   display: flex;
@@ -310,12 +299,12 @@ nav .icons img {
      object-fit: cover;
 }
 .features-section .features-content .feature .feature-text {
-  width: 200px;
+  width: 280px;
 }
 .features-section .features-content .feature .feature-text h3 {
   margin: 0;
   color: #1F1F1D;
-  font-size: 0.75rem;
+  font-size: 1rem;
   font-weight: 700;
   line-height: 1.2;
   margin-right: 0;
@@ -325,7 +314,7 @@ nav .icons img {
 }
 .features-section .features-content .feature .feature-text p {
   color: #1F1F1D;
-  font-size: 0.75rem;
+  font-size: 0.875rem;
   font-weight: 400;
   line-height: 1.2;
   margin-right: 0;
@@ -346,7 +335,7 @@ nav .icons img {
 }
 .feedback-section .feedback-title {
   color: #546eb1;
-  font-size: 1.2rem;
+  font-size: 1.125rem;
   font-weight: 700;
   line-height: 1.2;
   margin-right: 0;
@@ -356,13 +345,13 @@ nav .icons img {
   position: relative;
 }
 .feedback-section .feedback-title .feedback-background-image {
-  width: 270px;
-  height: 34px;
+  width: 248px;
+  height: 31px;
   -o-object-fit: cover;
      object-fit: cover;
   position: absolute;
-  left: 1.5px;
-  top: 46px;
+  left: 17.5px;
+  top: 45px;
   z-index: -1;
 }
 .feedback-section .feedbacks {
@@ -376,7 +365,7 @@ nav .icons img {
 }
 .feedback-section .feedbacks p {
   color: #1F1F1D;
-  font-size: 0.833125rem;
+  font-size: 0.875rem;
   font-weight: 400;
   line-height: 1.2;
   margin-right: 0;
@@ -406,7 +395,7 @@ nav .icons img {
   justify-content: center;
   align-items: center;
   color: #1F1F1D;
-  font-size: 1rem;
+  font-size: 1.125rem;
   font-weight: 700;
   line-height: 1.2;
   margin-right: 0;
@@ -424,6 +413,9 @@ nav .icons img {
   flex-direction: column;
   justify-content: flex-start;
   align-items: stretch;
+}
+.workshop-section .secondary-enabled-button::before {
+  content: ">";
 }
 .workshop-section .workshop {
   padding-bottom: 28px;
@@ -462,11 +454,11 @@ nav .icons img {
   display: flex;
   flex-direction: row;
   justify-content: flex-start;
-  align-items: flex-start;
+  align-items: center;
 }
 .workshop-section .workshop .workshop-content .workshop-info .workshop-icon-text h3 {
   color: #546eb1;
-  font-size: 0.833125rem;
+  font-size: 1rem;
   font-weight: 700;
   line-height: 1.2;
   margin-right: 0;
@@ -501,7 +493,7 @@ nav .icons img {
   margin-top: 4px;
   margin-left: 18px;
   color: #1F1F1D;
-  font-size: 0.833125rem;
+  font-size: 1rem;
   font-weight: 400;
   line-height: 1.2;
   margin-right: 0;
@@ -523,8 +515,12 @@ nav .icons img {
   justify-content: flex-start;
   align-items: stretch;
 }
+.shop-section .secondary-enabled-button::before {
+  content: ">";
+}
 .shop-section .shop-image img {
   width: 100%;
+  border-radius: 12px 0 0 12px;
 }
 .shop-section .shop-content {
   width: 90%;
@@ -533,7 +529,7 @@ nav .icons img {
 }
 .shop-section .shop-content h3 {
   color: #546eb1;
-  font-size: 1rem;
+  font-size: 1.125rem;
   font-weight: 700;
   line-height: 1.2;
   margin-right: 0;
@@ -546,7 +542,7 @@ nav .icons img {
 .shop-section .shop-content p {
   width: 75%;
   color: #1F1F1D;
-  font-size: 0.833125rem;
+  font-size: 0.875rem;
   font-weight: 400;
   line-height: 1.2;
   margin-right: 0;
@@ -579,21 +575,18 @@ nav .icons img {
   overflow-x: auto;
   scroll-snap-type: x mandatory;
   scrollbar-width: none;
-  /* Ocultar barra de desplazamiento en Firefox */
   -ms-overflow-style: none;
-  /* Ocultar barra de desplazamiento en Internet Explorer y Edge */
 }
 .product-section .carousel-container .product-card-list ::-webkit-scrollbar {
   display: none;
-  /* Ocultar barra de desplazamiento en Chrome, Safari, Opera */
 }
 .product-section .carousel-container .product-card-list .product-card {
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
+  justify-content: flex-start;
   align-items: center;
   width: 224px;
-  height: 272px;
+  height: 282px;
   gap: 12px;
   border-radius: 12px;
   background: #FFF;
@@ -603,21 +596,21 @@ nav .icons img {
   width: 224px;
   height: 180px;
 }
-.product-section .carousel-container .product-card-list .product-card .card-image img {
-  border-radius: var(--Spacing-spacing-s, 12px) var(--Spacing-spacing-s, 12px) 0px 0px;
+.product-section .carousel-container .product-card-list .product-card .card-image .overlay-buttons {
+  display: none;
 }
 .product-section .carousel-container .product-card-list .product-card .card-text {
   display: flex;
   flex-direction: column;
   justify-content: space-between;
   align-items: flex-start;
-  gap: 8px;
   width: 80%;
-  height: 72px;
+  padding-top: 0;
+  height: 76px;
 }
 .product-section .carousel-container .product-card-list .product-card .card-text .card-title {
   color: #1F1F1D;
-  font-size: 0.833125rem;
+  font-size: 1rem;
   font-weight: 700;
   line-height: 1.2;
   margin-right: 0;
@@ -627,13 +620,13 @@ nav .icons img {
 }
 .product-section .carousel-container .product-card-list .product-card .card-text .card-info {
   width: 100%;
-  height: 12px;
-  top: 20px;
+  height: 20px;
+  top: 16px;
   white-space: nowrap;
   text-overflow: ellipsis;
   overflow: hidden;
   color: #1F1F1D;
-  font-size: 0.75rem;
+  font-size: 0.875rem;
   font-weight: 400;
   line-height: 1.2;
   margin-right: 0;
@@ -644,7 +637,7 @@ nav .icons img {
 .product-section .carousel-container .product-card-list .product-card .card-text .card-price {
   padding-bottom: 8px;
   color: #1F1F1D;
-  font-size: 0.833125rem;
+  font-size: 1rem;
   font-weight: 400;
   line-height: 1.2;
   margin-right: 0;
@@ -658,6 +651,7 @@ nav .icons img {
 }
 .newsletter-section .newsletter .newsletter-image img {
   width: 100%;
+  border-radius: 12px 0 0 12px;
 }
 .newsletter-section .newsletter .newsletter-content {
   padding: 24px 42px 12px 24px;
@@ -665,7 +659,7 @@ nav .icons img {
 .newsletter-section .newsletter .newsletter-content h3 {
   width: 70%;
   color: #546eb1;
-  font-size: 1rem;
+  font-size: 1.125rem;
   font-weight: 700;
   line-height: 1.2;
   margin-right: 0;
@@ -675,7 +669,7 @@ nav .icons img {
 }
 .newsletter-section .newsletter .newsletter-content p {
   color: #1F1F1D;
-  font-size: 0.833125rem;
+  font-size: 1rem;
   font-weight: 400;
   line-height: 1.2;
   margin-right: 0;
@@ -696,8 +690,8 @@ nav .icons img {
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  background: url("../assets/svg/footer-mobile-background.png") no-repeat center center;
-  background-size: 100% 600px;
+  background: url("../assets/svg/footer-mobile-background.png") no-repeat center bottom;
+  background-size: 100% 650px;
   margin-top: 30px;
   padding-top: 80px;
 }
@@ -720,7 +714,7 @@ nav .icons img {
 }
 .footer-section .footer-content .footer-info .footer-column h4 {
   color: #F8F8F8;
-  font-size: 0.833125rem;
+  font-size: 1rem;
   font-weight: 700;
   line-height: 1.2;
   margin-right: 0;
@@ -732,7 +726,7 @@ nav .icons img {
 .footer-section .footer-content .footer-info .footer-column a,
 .footer-section .footer-content .footer-info .footer-column p {
   color: #F8F8F8;
-  font-size: 0.833125rem;
+  font-size: 0.875rem;
   font-weight: 400;
   line-height: 1.2;
   margin-right: 0;
@@ -757,7 +751,7 @@ nav .icons img {
 }
 .footer-section .footer-content .footer-credits {
   color: #F8F8F8;
-  font-size: 0.75rem;
+  font-size: 0.875rem;
   font-weight: 400;
   line-height: 1.2;
   margin-right: 0;
@@ -770,14 +764,14 @@ nav .icons img {
 
 @media (min-width: 1024px) and (max-width: 1280px) {
   nav {
-    padding: 12px 24px 12px 24px;
+    padding: 12px 32px 12px 32px;
   }
   nav .menu-icon {
     display: none;
   }
   nav p {
     color: #1F1F1D;
-    font-size: 1rem;
+    font-size: 1.125rem;
     font-weight: 500;
     line-height: 1.2;
     margin-right: 0;
@@ -795,7 +789,7 @@ nav .icons img {
   }
   nav .nav-links {
     color: #1F1F1D;
-    font-size: 1rem;
+    font-size: 1.125rem;
     font-weight: 500;
     line-height: 1.2;
     margin-right: 0;
@@ -808,12 +802,34 @@ nav .icons img {
     align-items: center;
     order: 2;
   }
-  nav .nav-links p {
-    margin: 0 1rem;
+  nav .nav-links .nav-link {
+    margin: 8px;
+    text-decoration: none;
+    color: #1F1F1D;
+    position: relative;
+  }
+  nav .nav-links .nav-link::after {
+    content: "";
+    position: absolute;
+    left: 26;
+    bottom: -5px;
+    width: 80%;
+    height: 2px;
+    background-color: transparent;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+    transform: scaleX(0);
+    transform-origin: left;
+  }
+  nav .nav-links .nav-link.active {
+    color: #546eb1;
+  }
+  nav .nav-links .nav-link.active::after {
+    background-color: #546eb1;
+    transform: scaleX(1);
   }
   nav .icons {
     order: 3;
-    gap: 24px;
+    gap: 30px;
   }
   nav .icons .login-icon {
     display: none;
@@ -824,7 +840,7 @@ nav .icons img {
     justify-content: center;
     align-items: center;
     color: #1F1F1D;
-    font-size: 1rem;
+    font-size: 1.125rem;
     font-weight: 500;
     line-height: 1.2;
     margin-right: 0;
@@ -842,7 +858,7 @@ nav .icons img {
     justify-content: center;
     align-items: center;
     color: #1F1F1D;
-    font-size: 1rem;
+    font-size: 1.125rem;
     font-weight: 500;
     line-height: 1.2;
     margin-right: 0;
@@ -862,7 +878,7 @@ nav .icons img {
     justify-content: flex-end;
     align-items: center;
     color: #1F1F1D;
-    font-size: 1rem;
+    font-size: 1.125rem;
     font-weight: 500;
     line-height: 1.2;
     margin-right: 0;
@@ -904,12 +920,12 @@ nav .icons img {
   }
   .hero-section .hero-background-image {
     width: 352px;
-    height: 82px;
+    height: 88px;
     -o-object-fit: cover;
        object-fit: cover;
     position: absolute;
-    left: 110.5px;
-    top: 139px;
+    left: 106.5px;
+    top: 145px;
     z-index: -1;
   }
   .hero-section .hero-content {
@@ -926,7 +942,7 @@ nav .icons img {
   }
   .hero-section .hero-content .hero-texts-button .hero-text {
     color: #1F1F1D;
-    font-size: 1rem;
+    font-size: 1.125rem;
     font-weight: 700;
     line-height: 1.2;
     margin-right: 0;
@@ -991,10 +1007,15 @@ nav .icons img {
     background-color: #F2E6DE;
     z-index: 1;
   }
+  .features-section {
+    height: 560px;
+    background-size: 100% 560px;
+    padding-bottom: 42px;
+  }
   .features-section .features-content {
     display: grid;
     grid-template-columns: repeat(2, 257px);
-    grid-column-gap: 42px;
+    grid-column-gap: 68px;
     padding-top: 24px;
   }
   .features-section .features-content .feature {
@@ -1021,7 +1042,7 @@ nav .icons img {
   }
   .features-section .features-content .feature .feature-text h3 {
     color: #1F1F1D;
-    font-size: 0.833125rem;
+    font-size: 1.125rem;
     font-weight: 700;
     line-height: 1.2;
     margin-right: 0;
@@ -1032,7 +1053,7 @@ nav .icons img {
   }
   .features-section .features-content .feature .feature-text p {
     color: #1F1F1D;
-    font-size: 0.833125rem;
+    font-size: 1rem;
     font-weight: 400;
     line-height: 1.2;
     margin-right: 0;
@@ -1074,17 +1095,23 @@ nav .icons img {
     flex-direction: row;
     justify-content: space-between;
     align-items: flex-start;
-    width: 904px;
-    gap: 48px;
-    flex-shrink: 0;
+    width: 900px;
     margin: 0 auto;
   }
   .feedback-section .feedbacks p {
-    width: 250px;
+    color: #1F1F1D;
+    font-size: 1rem;
+    font-weight: 400;
+    line-height: 1.2;
+    margin-right: 0;
+    text-align: center;
+    letter-spacing: normal;
+    font-family: "Montserrat";
+    width: 260px;
   }
   .feedback-section .feedbacks h3 {
     color: #546eb1;
-    font-size: 1rem;
+    font-size: 1.375rem;
     font-weight: 700;
     line-height: 120%;
     margin-right: 0;
@@ -1105,7 +1132,7 @@ nav .icons img {
     padding: 0 15px 0 14px;
     background: #F8F8F8;
     color: #1F1F1D;
-    font-size: 1.2rem;
+    font-size: 1.375rem;
     font-weight: 700;
     line-height: 120%;
     margin-right: 0;
@@ -1180,7 +1207,7 @@ nav .icons img {
   }
   .workshop-section .workshop .workshop-content .workshop-info .workshop-icon-text h3 {
     color: #546eb1;
-    font-size: 1rem;
+    font-size: 1.125rem;
     font-weight: 700;
     line-height: 120%;
     margin-right: 0;
@@ -1213,6 +1240,9 @@ nav .icons img {
     justify-content: space-between;
     align-items: stretch;
   }
+  .shop-section .secondary-enabled-button::before {
+    content: "Ver productos";
+  }
   .shop-section .shop {
     display: flex;
     flex-direction: row;
@@ -1244,7 +1274,7 @@ nav .icons img {
   }
   .shop-section .shop-content h3 {
     color: #546eb1;
-    font-size: 1.2rem;
+    font-size: 1.375rem;
     font-weight: 700;
     line-height: 1.2;
     margin-right: 0;
@@ -1254,7 +1284,7 @@ nav .icons img {
   }
   .shop-section .shop-content p {
     color: #1F1F1D;
-    font-size: 1rem;
+    font-size: 1.125rem;
     font-weight: 400;
     line-height: 1.2;
     margin-right: 0;
@@ -1304,28 +1334,32 @@ nav .icons img {
     flex-direction: column;
     justify-content: flex-start;
     align-items: center;
-    width: 232px;
-    height: 283px;
+    width: 248px;
+    height: 293px;
     gap: 0;
     border-radius: 12px;
     background: #FFF;
     box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.15);
   }
   .product-section .carousel-container .product-card-list .product-card .card-image {
-    width: 232px;
-    height: 188px;
+    width: 248px;
+    height: 192px;
     border-radius: 12px 12px 0 0;
   }
   .product-section .carousel-container .product-card-list .product-card .card-image img {
     width: 100%;
     height: 100%;
   }
+  .product-section .carousel-container .product-card-list .product-card .card-image .overlay-buttons {
+    display: none;
+  }
   .product-section .carousel-container .product-card-list .product-card .card-text {
     padding-top: 12px;
+    height: 86px;
   }
   .product-section .carousel-container .product-card-list .product-card .card-text .card-title {
     color: #1F1F1D;
-    font-size: 0.833125rem;
+    font-size: 1.125rem;
     font-weight: 700;
     line-height: 1.2;
     margin-right: 0;
@@ -1335,7 +1369,7 @@ nav .icons img {
   }
   .product-section .carousel-container .product-card-list .product-card .card-text .card-info {
     color: #1F1F1D;
-    font-size: 0.75rem;
+    font-size: 1rem;
     font-weight: 400;
     line-height: 1.2;
     margin-right: 0;
@@ -1346,7 +1380,7 @@ nav .icons img {
   .product-section .carousel-container .product-card-list .product-card .card-text .card-price {
     padding-bottom: 8px;
     color: #1F1F1D;
-    font-size: 0.833125rem;
+    font-size: 1.125rem;
     font-weight: 400;
     line-height: 1.2;
     margin-right: 0;
@@ -1395,9 +1429,9 @@ nav .icons img {
   }
   .newsletter-section .newsletter .newsletter-content h3 {
     color: #546eb1;
-    font-size: 1rem;
+    font-size: 1.375rem;
     font-weight: 700;
-    line-height: 120%;
+    line-height: 1.2;
     margin-right: 0;
     text-align: left;
     letter-spacing: normal;
@@ -1406,9 +1440,9 @@ nav .icons img {
   }
   .newsletter-section .newsletter .newsletter-content p {
     color: #1F1F1D;
-    font-size: 1rem;
+    font-size: 1.125rem;
     font-weight: 400;
-    line-height: 120%;
+    line-height: 1.2;
     margin-right: 0;
     text-align: left;
     letter-spacing: normal;
@@ -1432,8 +1466,8 @@ nav .icons img {
     background-size: 100% 440px;
   }
   .footer-section .footer-content {
-    gap: 32px;
-    width: 65%;
+    gap: 24px;
+    width: 75%;
   }
   .footer-section .footer-content .footer-info {
     display: flex;
@@ -1449,7 +1483,7 @@ nav .icons img {
   }
   .footer-section .footer-content .footer-info .footer-column h4 {
     color: #F8F8F8;
-    font-size: 1rem;
+    font-size: 1.125rem;
     font-weight: 700;
     line-height: 120%;
     margin-right: 0;
@@ -1495,7 +1529,7 @@ nav .icons img {
 }
 @media (min-width: 1280px) {
   nav {
-    padding: 12px 24px 12px 24px;
+    padding: 12px 36px 12px 36px;
   }
   nav .menu-icon {
     display: none;
@@ -1522,7 +1556,7 @@ nav .icons img {
   nav .nav-links p {
     margin: 0 1rem;
     color: #1F1F1D;
-    font-size: 1rem;
+    font-size: 1.25rem;
     font-weight: 500;
     line-height: 1.2;
     margin-right: 0;
@@ -1530,9 +1564,35 @@ nav .icons img {
     letter-spacing: normal;
     font-family: "Montserrat";
   }
+  nav .nav-links .nav-link {
+    margin: 0 1rem;
+    cursor: pointer;
+    text-decoration: none;
+    color: #1F1F1D;
+    position: relative;
+  }
+  nav .nav-links .nav-link::after {
+    content: "";
+    position: absolute;
+    left: 26;
+    bottom: -5px;
+    width: 80%;
+    height: 2px;
+    background-color: transparent;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+    transform: scaleX(0);
+    transform-origin: left;
+  }
+  nav .nav-links .nav-link.active {
+    color: #546eb1;
+  }
+  nav .nav-links .nav-link.active::after {
+    background-color: #546eb1;
+    transform: scaleX(1);
+  }
   nav .icons {
     order: 3;
-    gap: 24px;
+    gap: 32px;
   }
   nav .icons .login-icon {
     display: none;
@@ -1543,7 +1603,7 @@ nav .icons img {
     justify-content: center;
     align-items: center;
     color: #1F1F1D;
-    font-size: 1rem;
+    font-size: 1.25rem;
     font-weight: 500;
     line-height: 1.2;
     margin-right: 0;
@@ -1567,11 +1627,11 @@ nav .icons img {
     position: relative;
   }
   .hero-section .hero-background-image {
-    width: 450px;
-    height: 124px;
+    width: 439px;
+    height: 121px;
     position: absolute;
-    left: 30.5px;
-    top: 136px;
+    left: 41.5px;
+    top: 152px;
     z-index: -1;
   }
   .hero-section .hero-content {
@@ -1593,9 +1653,9 @@ nav .icons img {
   }
   .hero-section .hero-content .hero-texts-button .hero-text {
     color: #1F1F1D;
-    font-size: 1.2rem;
+    font-size: 1.25rem;
     font-weight: 700;
-    line-height: 120%;
+    line-height: 1.2;
     margin-right: 0;
     text-align: left;
     letter-spacing: normal;
@@ -1678,13 +1738,17 @@ nav .icons img {
     background: var(--Color-button-background-primary, #A4B7E8);
     gap: 10px;
     color: #1F1F1D;
-    font-size: 1.2rem;
+    font-size: 1.25rem;
     font-weight: 500;
-    line-height: 120%;
+    line-height: 1.2;
     margin-right: 0;
     text-align: center;
-    letter-spacing: 0;
+    letter-spacing: normal;
     font-family: "Montserrat";
+  }
+  .primary-enabled-button img {
+    width: 26px;
+    height: 26px;
   }
   .secondary-enabled-button {
     display: flex;
@@ -1698,13 +1762,17 @@ nav .icons img {
     border: 1px solid var(--Color-Blue-Blue-8, #2D3B62);
     background: var(--Color-button-label-primary, #F8F8F8);
     color: #1F1F1D;
-    font-size: 1.2rem;
+    font-size: 1.25rem;
     font-weight: 500;
-    line-height: 120%;
+    line-height: 1.2;
     margin-right: 0;
     text-align: center;
-    letter-spacing: 0;
+    letter-spacing: normal;
     font-family: "Montserrat";
+  }
+  .secondary-enabled-button img {
+    width: 26px;
+    height: 26px;
   }
   .features-section {
     height: 480px;
@@ -1714,7 +1782,7 @@ nav .icons img {
     display: flex;
     flex-direction: row;
     justify-content: center;
-    align-items: center;
+    align-items: flex-start;
     text-align: center;
     justify-content: center;
     height: 320px;
@@ -1725,7 +1793,7 @@ nav .icons img {
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    width: 265px;
+    width: 298px;
     height: auto;
     padding: 4px 12px;
   }
@@ -1743,9 +1811,9 @@ nav .icons img {
   }
   .features-section .features-content .feature .feature-text h3 {
     color: #1F1F1D;
-    font-size: 1rem;
+    font-size: 1.25rem;
     font-weight: 700;
-    line-height: 120%;
+    line-height: 1.2;
     margin-right: 0;
     text-align: center;
     letter-spacing: normal;
@@ -1753,9 +1821,9 @@ nav .icons img {
   }
   .features-section .features-content .feature .feature-text p {
     color: #1F1F1D;
-    font-size: 1rem;
+    font-size: 1.125rem;
     font-weight: 400;
-    line-height: 120%;
+    line-height: 1.2;
     margin-right: 0;
     text-align: center;
     letter-spacing: normal;
@@ -1767,7 +1835,7 @@ nav .icons img {
     flex-direction: column;
     justify-content: flex-start;
     align-items: center;
-    height: 529px;
+    height: 590px;
     width: 1012px;
     margin: 0 auto;
     gap: 32px;
@@ -1776,7 +1844,7 @@ nav .icons img {
     color: #546eb1;
     font-size: 2.25rem;
     font-weight: 700;
-    line-height: 120%;
+    line-height: 1.2;
     margin-right: 0;
     text-align: center;
     letter-spacing: 1.8px;
@@ -1784,18 +1852,18 @@ nav .icons img {
     width: 1012px;
   }
   .feedback-section .feedback-title .feedback-background-image {
-    width: 452px;
-    height: 66px;
+    width: 434px;
+    height: 61px;
     position: absolute;
-    left: 573.5px;
-    top: 25px;
+    left: 583.5px;
+    top: 29px;
     z-index: -1;
   }
   .feedback-section .feedbacks {
     display: flex;
     flex-direction: row;
-    justify-content: center;
-    align-items: center;
+    justify-content: space-between;
+    align-items: flex-start;
     width: 1021px;
     gap: 56px;
     flex-shrink: 0;
@@ -1803,23 +1871,23 @@ nav .icons img {
   }
   .feedback-section .feedbacks p {
     color: #1F1F1D;
-    font-size: 1rem;
+    font-size: 1.125rem;
     font-weight: 400;
-    line-height: 120%;
+    line-height: 1.2;
     margin-right: 0;
     text-align: center;
-    letter-spacing: 0;
+    letter-spacing: normal;
     font-family: "Montserrat";
-    width: 264px;
+    width: 294px;
   }
   .feedback-section .feedbacks h3 {
     color: #546eb1;
-    font-size: 1.2rem;
+    font-size: 1.625rem;
     font-weight: 700;
-    line-height: 120%;
+    line-height: 1.2;
     margin-right: 0;
     text-align: center;
-    letter-spacing: 0;
+    letter-spacing: normal;
     font-family: "Montserrat";
   }
   .feedback-section .feedbacks img {
@@ -1836,12 +1904,12 @@ nav .icons img {
     flex-shrink: 0;
     background: #F8F8F8;
     color: #1F1F1D;
-    font-size: 1.44rem;
+    font-size: 1.625rem;
     font-weight: 700;
-    line-height: 120%;
+    line-height: 1.2;
     margin-right: 0;
     text-align: center;
-    letter-spacing: 0;
+    letter-spacing: normal;
     font-family: "Montserrat";
   }
   .workshop-section .secondary-enabled-button::before {
@@ -1888,7 +1956,7 @@ nav .icons img {
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    width: 390px;
+    width: 400px;
     padding-left: 220px;
     padding-right: 120px;
     text-align: left;
@@ -1915,24 +1983,24 @@ nav .icons img {
   .workshop-section .workshop .workshop-content .workshop-info .workshop-icon-text h3,
   .workshop-section .workshop-left .workshop-content .workshop-info .workshop-icon-text h3 {
     color: #546eb1;
-    font-size: 1.2rem;
+    font-size: 1.25rem;
     font-weight: 700;
-    line-height: 120%;
+    line-height: 1.2;
     margin-right: 0;
     text-align: left;
-    letter-spacing: 0;
+    letter-spacing: normal;
     font-family: "Montserrat";
   }
   .workshop-section .workshop .workshop-content .workshop-info .workshop-icon-text .default-text,
   .workshop-section .workshop-left .workshop-content .workshop-info .workshop-icon-text .default-text {
     display: block;
     color: #1F1F1D;
-    font-size: 1.2rem;
+    font-size: 1.125rem;
     font-weight: 400;
-    line-height: 120%;
+    line-height: 1.2;
     margin-right: 0;
     text-align: left;
-    letter-spacing: 0;
+    letter-spacing: normal;
     font-family: "Montserrat";
   }
   .workshop-section .workshop .workshop-content .expandable-text,
@@ -1984,22 +2052,22 @@ nav .icons img {
   }
   .shop-section .shop-content h3 {
     color: #546eb1;
-    font-size: 1.44rem;
+    font-size: 1.625rem;
     font-weight: 700;
-    line-height: 120%;
+    line-height: 1.2;
     margin-right: 0;
     text-align: left;
-    letter-spacing: 0;
+    letter-spacing: normal;
     font-family: "Montserrat";
   }
   .shop-section .shop-content p {
     color: #1F1F1D;
-    font-size: 1.2rem;
+    font-size: 1.25rem;
     font-weight: 400;
-    line-height: 120%;
+    line-height: 1.2;
     margin-right: 0;
     text-align: left;
-    letter-spacing: 0;
+    letter-spacing: normal;
     font-family: "Montserrat";
   }
   .shop-section .shop-content .text-button {
@@ -2024,18 +2092,32 @@ nav .icons img {
     display: flex;
     position: absolute;
     top: 50%;
-    transform: translateY(-50%);
+    transform: translateY(-100%);
     background-color: rgba(255, 255, 255, 0.7);
     border: none;
     padding: 10px;
     cursor: pointer;
     z-index: 2;
+    border-radius: 50%;
+  }
+  .product-section .carousel-container .carousel-button img {
+    width: 48px;
+    height: auto;
+    transition: transform 0.3s ease;
   }
   .product-section .carousel-container .carousel-button.left-button {
     left: 0;
   }
+  .product-section .carousel-container .carousel-button.left-button img {
+    transform: rotate(90deg);
+    /* Rotar 90º a la izquierda */
+  }
   .product-section .carousel-container .carousel-button.right-button {
     right: 0;
+  }
+  .product-section .carousel-container .carousel-button.right-button img {
+    transform: rotate(-90deg);
+    /* Rotar 90º a la derecha */
   }
   .product-section .carousel-container .product-card-list {
     display: flex;
@@ -2054,31 +2136,64 @@ nav .icons img {
     flex-direction: column;
     justify-content: flex-start;
     align-items: center;
-    width: 298px;
-    height: 334px;
-    gap: 0;
+    width: 320px;
+    height: 354px;
     border-radius: 12px;
-    background: #FFF;
-    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.15);
+    position: relative;
   }
   .product-section .carousel-container .product-card-list .product-card .card-image {
-    width: 298px;
+    width: 320px;
     height: 228px;
     border-radius: 12px 12px 0 0;
     overflow: hidden;
+    position: relative;
   }
   .product-section .carousel-container .product-card-list .product-card .card-image img {
     width: 100%;
     height: 100%;
+    transition: opacity 0.3s ease;
+  }
+  .product-section .carousel-container .product-card-list .product-card .card-image .overlay-buttons {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+  }
+  .product-section .carousel-container .product-card-list .product-card .card-image .overlay-buttons img {
+    opacity: 1;
+    width: 24px;
+    height: 24px;
+  }
+  .product-section .carousel-container .product-card-list .product-card .card-image .overlay-buttons .primary-enabled-button,
+  .product-section .carousel-container .product-card-list .product-card .card-image .overlay-buttons .secondary-enabled-button {
+    height: 48px;
+    width: 90px;
+  }
+  .product-section .carousel-container .product-card-list .product-card .card-image .overlay-buttons .primary-enabled-button:hover .cart-icon, .product-section .carousel-container .product-card-list .product-card .card-image .overlay-buttons .primary-enabled-button:active .cart-icon, .product-section .carousel-container .product-card-list .product-card .card-image .overlay-buttons .primary-enabled-button:focus .cart-icon, .product-section .carousel-container .product-card-list .product-card .card-image .overlay-buttons .primary-enabled-button:disabled .cart-icon,
+  .product-section .carousel-container .product-card-list .product-card .card-image .overlay-buttons .secondary-enabled-button:hover .cart-icon,
+  .product-section .carousel-container .product-card-list .product-card .card-image .overlay-buttons .secondary-enabled-button:active .cart-icon,
+  .product-section .carousel-container .product-card-list .product-card .card-image .overlay-buttons .secondary-enabled-button:focus .cart-icon,
+  .product-section .carousel-container .product-card-list .product-card .card-image .overlay-buttons .secondary-enabled-button:disabled .cart-icon {
+    content: url("../assets/svg/cart-white.svg");
+  }
+  .product-section .carousel-container .product-card-list .product-card .card-image .overlay-buttons .primary-enabled-button:active .heart-icon, .product-section .carousel-container .product-card-list .product-card .card-image .overlay-buttons .primary-enabled-button:focus .heart-icon, .product-section .carousel-container .product-card-list .product-card .card-image .overlay-buttons .primary-enabled-button:disabled .heart-icon,
+  .product-section .carousel-container .product-card-list .product-card .card-image .overlay-buttons .secondary-enabled-button:active .heart-icon,
+  .product-section .carousel-container .product-card-list .product-card .card-image .overlay-buttons .secondary-enabled-button:focus .heart-icon,
+  .product-section .carousel-container .product-card-list .product-card .card-image .overlay-buttons .secondary-enabled-button:disabled .heart-icon {
+    content: url("../assets/svg/heart-white.svg");
   }
   .product-section .carousel-container .product-card-list .product-card .card-text {
-    padding-top: 12px;
-    gap: 1px;
+    padding-top: 4px;
     height: 92px;
   }
   .product-section .carousel-container .product-card-list .product-card .card-text .card-title {
     color: #1F1F1D;
-    font-size: 1rem;
+    font-size: 1.25rem;
     font-weight: 700;
     line-height: 1.2;
     margin-right: 0;
@@ -2090,7 +2205,7 @@ nav .icons img {
     width: 100%;
     height: 18px;
     color: #1F1F1D;
-    font-size: 0.833125rem;
+    font-size: 1.125rem;
     font-weight: 400;
     line-height: 1.2;
     margin-right: 0;
@@ -2101,13 +2216,24 @@ nav .icons img {
   .product-section .carousel-container .product-card-list .product-card .card-text .card-price {
     padding-bottom: 12px;
     color: #1F1F1D;
-    font-size: 1rem;
+    font-size: 1.25rem;
     font-weight: 400;
     line-height: 1.2;
     margin-right: 0;
     text-align: left;
     letter-spacing: normal;
     font-family: "Montserrat";
+  }
+  .product-section .carousel-container .product-card-list .product-card:hover .card-image img {
+    opacity: 0.3;
+  }
+  .product-section .carousel-container .product-card-list .product-card:hover .overlay-buttons {
+    opacity: 1;
+  }
+  .product-section .carousel-container .product-card-list .product-card:hover .overlay-buttons img {
+    opacity: 1;
+    width: 24px;
+    height: 24px;
   }
   .newsletter-section {
     display: flex;
@@ -2144,16 +2270,16 @@ nav .icons img {
     flex-direction: column;
     justify-content: center;
     align-items: flex-start;
-    width: 376px;
+    width: 396px;
     order: 1;
     padding-left: 120px;
     padding-right: 88px;
   }
   .newsletter-section .newsletter .newsletter-content h3 {
     color: #546eb1;
-    font-size: 1.2rem;
+    font-size: 1.625rem;
     font-weight: 700;
-    line-height: 120%;
+    line-height: 1.2;
     margin-right: 0;
     text-align: left;
     letter-spacing: normal;
@@ -2162,9 +2288,9 @@ nav .icons img {
   }
   .newsletter-section .newsletter .newsletter-content p {
     color: #1F1F1D;
-    font-size: 1rem;
+    font-size: 1.25rem;
     font-weight: 400;
-    line-height: 120%;
+    line-height: 1.2;
     margin-right: 0;
     text-align: left;
     letter-spacing: normal;
@@ -2178,7 +2304,7 @@ nav .icons img {
     display: flex;
     flex-direction: column;
     justify-content: flex-start;
-    align-items: start;
+    align-items: flex-start;
     gap: 24px;
   }
   .newsletter-section .newsletter .newsletter-content button {
@@ -2197,7 +2323,7 @@ nav .icons img {
   .footer-section .footer-content {
     gap: 36px;
     padding-bottom: 0;
-    width: 65%;
+    width: 75%;
   }
   .footer-section .footer-content .footer-info {
     display: flex;
@@ -2209,28 +2335,28 @@ nav .icons img {
   .footer-section .footer-content .footer-info .footer-column {
     margin-bottom: 0;
     text-decoration: none;
-    width: 320px;
+    width: 90%;
   }
   .footer-section .footer-content .footer-info .footer-column h4 {
     color: #F8F8F8;
-    font-size: 1.2rem;
+    font-size: 1.25rem;
     font-weight: 700;
-    line-height: 120%;
+    line-height: 1.2;
     margin-right: 0;
     text-align: left;
-    letter-spacing: 0;
+    letter-spacing: normal;
     font-family: "Montserrat";
     margin-bottom: 10px;
   }
   .footer-section .footer-content .footer-info .footer-column a,
   .footer-section .footer-content .footer-info .footer-column p {
     color: #F8F8F8;
-    font-size: 1.2rem;
+    font-size: 1.125rem;
     font-weight: 400;
-    line-height: 120%;
+    line-height: 1.2;
     margin-right: 0;
     text-align: left;
-    letter-spacing: 0;
+    letter-spacing: normal;
     font-family: "Montserrat";
     margin-bottom: 12px;
   }
@@ -2247,12 +2373,12 @@ nav .icons img {
   }
   .footer-section .footer-content .footer-credits {
     color: #F8F8F8;
-    font-size: 1.2rem;
+    font-size: 1.125rem;
     font-weight: 300;
-    line-height: 120%;
+    line-height: 1.2;
     margin-right: 0;
     text-align: left;
-    letter-spacing: 0;
+    letter-spacing: normal;
     font-family: "Montserrat";
     margin-bottom: 16px;
   }

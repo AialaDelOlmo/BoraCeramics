@@ -1,13 +1,13 @@
 @media (min-width: 1280px) {
   nav {
-    padding: 12px 24px 12px 24px;
+    padding: 12px 36px 12px 36px;
 
     .menu-icon {
       display: none; // Ocultar icono de menú en desktop
     }
 
     .logo {
-      @include flex-layout(row, flex-start, center);
+      @include flex-layout($align: center);
       order: 1; // El logo va primero
 
       img {
@@ -23,14 +23,46 @@
 
       p {
         margin: 0 1rem; // Espaciado entre los enlaces
-        @include typography($size: 16px, $weight: 500, $align: center);
+        @include typography($size: $desktop-M, $weight: 500, $align: center);
 
+      }
+
+      .nav-link {
+        margin: 0 1rem; // Espaciado entre los enlaces
+        cursor: pointer;
+        text-decoration: none;
+        color: $primary-text-color; // Color por defecto
+        position: relative; // Necesario para posicionar ::after
+
+        &::after {
+          content: "";
+          position: absolute;
+          left: 26;
+          bottom: -5px; // Ajusta la distancia desde el texto
+          width: 80%;
+          height: 2px; // Ajusta el grosor de la línea
+          background-color: transparent; // Invisible por defecto
+          transition: background-color 0.3s ease, transform 0.3s ease;
+          transform: scaleX(0); // Inicialmente oculto
+          transform-origin: left; // Hace que la animación comience desde la izquierda
+
+        }
+
+        &.active {
+          color: $accent-color; // Cambia el color del texto cuando está activo
+        }
+
+        &.active::after {
+          $color: $accent-color;
+          background-color: $accent-color; // Color de la línea
+          transform: scaleX(1); // Expande la línea al 100%
+        }
       }
     }
 
     .icons {
       order: 3; // Iconos van al final
-      gap: 24px;
+      gap: 32px;
 
       .login-icon {
         display: none;
@@ -38,7 +70,7 @@
 
       .login-text {
         @include flex-layout(row, center, center);
-        @include typography($size: 16px, $weight: 500, $align: flex-start);
+        @include typography($size: $desktop-M, $weight: 500, $align: flex-start);
       }
 
       img {
@@ -57,11 +89,11 @@
     position: relative;
 
     .hero-background-image {
-      width: 450px;
-      height: 124px;
+      width: 439px;
+      height: 121px;
       position: absolute;
-      left: 30.5px;
-      top: 136px;
+      left: 41.5px;
+      top: 152px;
       z-index: -1; // Envía la imagen al fondo
     }
 
@@ -77,12 +109,12 @@
         order: 2;
 
         .hero-text {
-          @include typography($primary-text-color, 19.2px, 700, 120%, 0, left);
+          @include typography($size: $desktop-M, $weight: 700);
           font-style: normal;
         }
 
         .hero-title {
-          @include typography($accent-color, 56px, 400, 140%, 0, left);
+          @include typography($accent-color, $size: 56px, $lineHeight: 140%);
           font-style: normal;
           letter-spacing: 2.24px;
           flex: 1 0 0;
@@ -106,7 +138,7 @@
         }
 
         .carousel-wrapper {
-          @include flex-layout(row, flex-start, stretch);
+          @include flex-layout();
           width: 600%; // 100% por cada imagen (6 en total)
           height: 100%;
           transition: transform 1s ease-in-out; // Animación de deslizamiento
@@ -149,12 +181,16 @@
     border: 1px solid var(--Color-Blue-Blue-8, #2D3B62);
     background: var(--Color-button-background-primary, #A4B7E8);
     gap: 10px;
-    @include typography($color: $primary-text-color,
-      $size: 19.2px,
+    @include typography($size: $desktop-M,
       $weight: 500,
-      $lineHeight: 120%,
-      $letter-spacing: 0,
       $align: center);
+
+    img {
+      width: 26px;
+      height: 26px;
+    }
+
+
   }
 
   .secondary-enabled-button {
@@ -165,12 +201,16 @@
     border-radius: var(--Spacing-2, 8px);
     border: 1px solid var(--Color-Blue-Blue-8, #2D3B62);
     background: var(--Color-button-label-primary, #F8F8F8);
-    @include typography($color: $primary-text-color,
-      $size: 19.2px,
+    @include typography($size: $desktop-M,
       $weight: 500,
-      $lineHeight: 120%,
-      $letter-spacing: 0,
       $align: center);
+
+    img {
+      width: 26px;
+      height: 26px;
+    }
+
+
   }
 
 
@@ -179,7 +219,7 @@
     background-size: 100% 380px;
 
     .features-content {
-      @include flex-layout(row, center, center);
+      @include flex-layout(row, center, flex-start);
       text-align: center;
       justify-content: center;
       height: 320px;
@@ -187,7 +227,7 @@
 
       .feature {
         @include flex-layout(column, center, center);
-        width: 265px;
+        width: 298px;
         height: auto;
         padding: 4px 12px;
 
@@ -202,11 +242,11 @@
           text-align: center;
 
           h3 {
-            @include typography($color: $primary-text-color, $size: 16px, $weight: 700, $lineHeight: 120%, $align: center);
+            @include typography($size: $desktop-M, $weight: 700, $align: center);
           }
 
           p {
-            @include typography($color: $primary-text-color, $size: 16px, $weight: 400, $lineHeight: 120%, $align: center);
+            @include typography($size: $desktop-S, $align: center);
             font-style: normal;
           }
         }
@@ -216,41 +256,41 @@
 
   .feedback-section {
     @include flex-layout(column, flex-start, center);
-    height: 529px;
+    height: 590px;
     width: 1012px;
     margin: 0 auto;
     gap: 32px;
 
     .feedback-title {
       h3 {
-        @include typography($color: $accent-color, $size: 36px, $weight: 700, $lineHeight: 120%, $letter-spacing: 1.8px, $align: center);
+        @include typography($color: $accent-color, $size: 36px, $weight: 700, $letter-spacing: 1.8px, $align: center);
         width: 1012px;
       }
 
       .feedback-background-image {
-        width: 452px;
-        height: 66px;
+        width: 434px;
+        height: 61px;
         position: absolute;
-        left: 573.5px;
-        top: 25px;
+        left: 583.5px;
+        top: 29px;
         z-index: -1; // Envía la imagen al fondo
       }
     }
 
     .feedbacks {
-      @include flex-layout(row, center, center);
+      @include flex-layout(row, space-between, flex-start);
       width: 1021px;
       gap: 56px;
       flex-shrink: 0;
       margin: 0 auto;
 
       p {
-        @include typography($color: $primary-text-color, $size: 16px, $weight: 400, $lineHeight: 120%, $letter-spacing: 0, $align: center);
-        width: 264px;
+        @include typography($size: $desktop-S, $align: center);
+        width: 294px;
       }
 
       h3 {
-        @include typography($color: $accent-color, $size: 19.2px, $weight: 700, $lineHeight: 120%, $letter-spacing: 0, $align: center);
+        @include typography($color: $accent-color, $size: $desktop-X, $weight: 700, $align: center);
       }
 
       img {
@@ -266,7 +306,7 @@
     padding: 0 24px 0 16px;
     flex-shrink: 0;
     background: $background-color;
-    @include typography($color: $primary-text-color, $size: 23.04px, $weight: 700, $lineHeight: 120%, $letter-spacing: 0, $align: center);
+    @include typography($size: $desktop-X, $weight: 700, $align: center);
   }
 
   .workshop-section {
@@ -276,7 +316,7 @@
 
     .workshop,
     .workshop-left {
-      @include flex-layout(row, flex-start, center);
+      @include flex-layout($align: center);
       padding-bottom: 40px;
       padding-top: 32px;
       width: 100%;
@@ -303,14 +343,14 @@
 
       .workshop-content {
         @include flex-layout(column, center, center);
-        width: 390px;
+        width: 400px;
         //width: 30%;
         padding-left: 220px;
         padding-right: 120px;
         text-align: left;
 
         .workshop-info {
-          @include flex-layout($direction: column, $justify: space-between, $align: flex-start);
+          @include flex-layout(column, space-between, flex-start);
           width: 100%;
 
           .workshop-icon-text {
@@ -321,12 +361,12 @@
             width: 100%;
 
             h3 {
-              @include typography($color: $accent-color, $size: 19.2px, $weight: 700, $lineHeight: 120%, $letter-spacing: 0, $align: left);
+              @include typography($color: $accent-color, $size: $desktop-M, $weight: 700);
             }
 
             .default-text {
               display: block;
-              @include typography($color: $primary-text-color, $size: 19.2px, $weight: 400, $lineHeight: 120%, $letter-spacing: 0, $align: left);
+              @include typography($size: $desktop-S);
             }
           }
         }
@@ -351,7 +391,7 @@
     }
 
     .shop {
-      @include flex-layout(row, flex-start, stretch);
+      @include flex-layout();
       width: 100%;
     }
 
@@ -374,11 +414,11 @@
       padding-left: 120px;
 
       h3 {
-        @include typography($color: $accent-color, $size: 23.04px, $weight: 700, $lineHeight: 120%, $letter-spacing: 0, $align: left); // Usando typography para los encabezados
+        @include typography($color: $accent-color, $size: $desktop-X, $weight: 700);
       }
 
       p {
-        @include typography($color: $primary-text-color, $size: 19.2px, $weight: 400, $lineHeight: 120%, $letter-spacing: 0, $align: left);
+        @include typography($size: $desktop-M);
       }
 
       .text-button {
@@ -404,19 +444,36 @@
         display: flex;
         position: absolute;
         top: 50%;
-        transform: translateY(-50%);
+        transform: translateY(-100%);
         background-color: rgba(255, 255, 255, 0.7);
         border: none;
         padding: 10px;
-        cursor: pointer; 
+        cursor: pointer;
         z-index: 2;
+        border-radius: 50%; // fondo circular
+
+        img {
+          width: 48px; // Ajusta el tamaño del ícono según sea necesario
+          height: auto;
+          transition: transform 0.3s ease;
+        }
 
         &.left-button {
           left: 0;
+
+          img {
+            transform: rotate(90deg);
+            /* Rotar 90º a la izquierda */
+          }
         }
 
         &.right-button {
           right: 0;
+
+          img {
+            transform: rotate(-90deg);
+            /* Rotar 90º a la derecha */
+          }
         }
       }
 
@@ -428,48 +485,100 @@
         overflow-x: auto; // Scroll horizontal
         overflow: hidden;
         scroll-snap-type: x mandatory; // Ajuste de desplazamiento suave
-        // -webkit-overflow-scrolling: touch; // Scroll suave en dispositivos móviles
-
 
         .product-card {
-          @include flex-layout($direction: column, $justify: flex-start, $align: center);
-          width: 298px;
-          height: 334px;
-          gap: 0;
+          @include flex-layout($direction: column, $align: center);
+          width: 320px;
+          height: 354px;
           border-radius: 12px;
-          background: #FFF;
-          box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.15);
+          position: relative; // Para posicionar los botones sobre la imagen
 
           .card-image {
-            width: 298px;
+            width: 320px;
             height: 228px;
             border-radius: 12px 12px 0 0;
             overflow: hidden;
+            position: relative; // Para los botones
 
             img {
               width: 100%;
               height: 100%;
+              transition: opacity 0.3s ease; // Transición para la transparencia
+            }
+
+            .overlay-buttons {
+              //    display: block;
+              position: absolute;
+              top: 50%;
+              left: 50%;
+              transform: translate(-50%, -50%);
+              display: flex;
+              flex-direction: column;
+              gap: 12px;
+              opacity: 0; // Inicialmente invisible
+              transition: opacity 0.3s ease; // Transición para la aparición de los botones
+
+              img {
+                opacity: 1; // Imagen transparente al 30%
+                width: 24px;
+                height: 24px;
+              }
+
+              .primary-enabled-button,
+              .secondary-enabled-button {
+
+                height: 48px;
+                width: 90px;
+
+                  &:hover .cart-icon,
+                  &:active .cart-icon,
+                  &:focus .cart-icon,
+                  &:disabled .cart-icon {
+                    content: url('../assets/svg/cart-white.svg');
+                  }
+
+                  &:active .heart-icon,
+                  &:focus .heart-icon,
+                  &:disabled .heart-icon {
+                    content: url('../assets/svg/heart-white.svg');
+                  }
+                }
             }
           }
 
           .card-text {
-            padding-top: 12px;
-            gap: 1px;
+            padding-top: 4px;
             height: 92px;
 
             .card-title {
-              @include typography($color: $primary-text-color, $size: 16px, $weight: 700, $lineHeight: 1.2, $align: left);
+              @include typography($color: $primary-text-color, $size: $desktop-M, $weight: 700);
             }
 
             .card-info {
               width: 100%;
               height: 18px;
-              @include typography($color: $primary-text-color, $size: 13.33px, $weight: 400, $lineHeight: 1.2, $align: left);
+              @include typography($color: $primary-text-color, $size: $desktop-S);
             }
 
             .card-price {
               padding-bottom: 12px;
-              @include typography($color: $primary-text-color, $size: 16px, $weight: 400, $lineHeight: 1.2, $align: left);
+              @include typography($color: $primary-text-color, $size: $desktop-M);
+            }
+          }
+
+          &:hover {
+            .card-image img {
+              opacity: 0.3; // Imagen transparente al 30%
+            }
+
+            .overlay-buttons {
+              opacity: 1; // Mostrar los botones en hover
+
+              img {
+                opacity: 1; // Imagen transparente al 30%
+                width: 24px;
+                height: 24px;
+              }
             }
           }
         }
@@ -477,11 +586,8 @@
     }
   }
 
-
-
-
   .newsletter-section {
-    @include flex-layout(row, space-between, stretch);
+    @include flex-layout($justify: space-between);
     width: 100%;
     padding-bottom: 32px;
 
@@ -490,7 +596,7 @@
     }
 
     .newsletter {
-      @include flex-layout(row, space-between, stretch);
+      @include flex-layout($justify: space-between);
       width: 100%;
 
 
@@ -507,23 +613,23 @@
 
       .newsletter-content {
         @include flex-layout(column, center, flex-start);
-        width: 376px;
+        width: 396px;
         order: 1;
         padding-left: 120px;
         padding-right: 88px;
 
         h3 {
-          @include typography($color: $accent-color, $size: 19.2px, $weight: 700, $lineHeight: 120%, $align: left);
+          @include typography($color: $accent-color, $size: $desktop-X, $weight: 700);
           margin: 0;
         }
 
         p {
-          @include typography($color: $primary-text-color, $size: 16px, $weight: 400, $lineHeight: 120%, $align: left);
+          @include typography($size: $desktop-M);
         }
 
         .text-button {
           @include flex-layout(column, flex-start, flex-start);
-          @include flex-layout(column, flex-start, start); // Aplicando el mixin flex-layout a text-button
+          @include flex-layout(column, flex-start, flex-start);
 
           gap: 24px;
 
@@ -546,7 +652,7 @@
     .footer-content {
       gap: 36px;
       padding-bottom: 0;
-      width: 65%;
+      width: 75%;
 
       .footer-info {
         @include flex-layout(row, center, flex-start);
@@ -555,15 +661,12 @@
         .footer-column {
           margin-bottom: 0;
           text-decoration: none;
-          width: 320px;
+          width: 90%;
 
           h4 {
             @include typography($color: $background-color,
-              $size: 19.2px,
-              $weight: 700,
-              $lineHeight: 120%,
-              $letter-spacing: 0,
-              $align: left);
+              $size: $desktop-M,
+              $weight: 700);
             margin-bottom: 10px;
 
           }
@@ -571,12 +674,7 @@
           a,
           p {
             @include typography($color: $background-color,
-              $size: 19.2px,
-              $weight: 400,
-              $lineHeight: 120%,
-              $letter-spacing: 0,
-              $align: left,
-            );
+              $size: $desktop-S );
 
             margin-bottom: 12px;
           }
@@ -595,11 +693,8 @@
 
       .footer-credits {
         @include typography($color: $background-color,
-          $size: 19.2px,
-          $weight: 300,
-          $lineHeight: 120%,
-          $letter-spacing: 0,
-          $align: left);
+          $size: $desktop-S,
+          $weight: 300);
         margin-bottom: 16px;
       }
     }
